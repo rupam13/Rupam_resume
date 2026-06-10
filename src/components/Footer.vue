@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Social from "./Social.vue";
 import NotchSection from "./NotchSection.vue";
-import { t } from "../i18n/utils/translate";
 import ButtonRound from "./ButtonRound.vue";
 import { lenis } from "../composables/useScroll";
 import ArrowRightLong from "./icons/ArrowRightLong.vue";
@@ -16,7 +15,6 @@ const handleBackToTop = () => {
 };
 
 const { withSocial = true } = defineProps<Props>();
-const showAttribution = import.meta.env.VITE_SHOW_ATTRIBUTION !== "false";
 </script>
 
 <template>
