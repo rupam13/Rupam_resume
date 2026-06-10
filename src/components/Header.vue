@@ -93,7 +93,7 @@ const getInTouchClassNames = computed(() => {
       data-hoversound="hover"
       data-cursor="circle-white"
     >
-      <Logo class="header-logo-image" />
+      <span class="header-logo-text">Rupam.W</span>
     </div>
     <div class="header-right">
       <Button

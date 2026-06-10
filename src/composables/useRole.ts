@@ -7,16 +7,16 @@ const currentRole = ref<Role>("servicenow");
 
 export function useRole() {
   const updateRoleFromPath = () => {
-    // Detect role from path: /Rupam_resume/ai or /Rupam_resume/servicenow
-    // Also support query params for easier testing: ?role=ai
     const urlParams = new URLSearchParams(window.location.search);
     const roleParam = urlParams.get("role");
+    const currentPath = path.value.toLowerCase();
 
-    if (roleParam === "ai" || path.value.includes("/ai")) {
+    if (roleParam === "ai" || currentPath.includes("/ai")) {
       currentRole.value = "ai";
-    } else if (roleParam === "servicenow" || path.value.includes("/servicenow")) {
+    } else if (roleParam === "servicenow" || currentPath.includes("/servicenow")) {
       currentRole.value = "servicenow";
     }
+    // If we are on a project page or other page, we keep the previous currentRole value
   };
 
   // Watch for path changes to update role
