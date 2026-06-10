@@ -7,9 +7,11 @@ import NotchSection from "../../../components/NotchSection.vue";
 import Banner from "../../../components/Banner.vue";
 import { t } from "../../../i18n/utils/translate";
 import { isFeatureEnabled } from "../../../utils/features";
+import { useRole } from "../../../composables/useRole";
 
 import type { ProjectPreview } from "../../../content/types";
 
+const { roleData } = useRole();
 const loadedPreviews = ref<ProjectPreview[] | null>(null);
 
 const emit = defineEmits<{
@@ -21,11 +23,16 @@ const loadPreviews = async () => {
   const func = previews[locale.value as keyof typeof previews];
   if (!func) return;
   const module = await func();
-  loadedPreviews.value = module.default;
-  emit("loaded", module.default);
+  const allPreviews: ProjectPreview[] = module.default;
+  
+  // Filter previews based on roleData.projects
+  const filtered = allPreviews.filter(p => roleData.value.projects.includes(p.id));
+  
+  loadedPreviews.value = filtered;
+  emit("loaded", filtered);
 };
 
-watch(locale, loadPreviews);
+watch([locale, roleData], loadPreviews);
 
 onMounted(loadPreviews);
 </script>

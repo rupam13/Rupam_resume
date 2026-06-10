@@ -106,24 +106,10 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   timelines.value = updatedTimelines;
 };
 
-const SERVICES_EN = [
-  { name: "ServiceNow ITSM & ITOM" },
-  { name: "Flow Designer & Integration Hub" },
-  { name: "Service Portal & Widget Dev" },
-  { name: "JavaScript & Glide API" },
-  { name: "Custom Applications & CSA" },
-] as const satisfies { name: string }[];
-
-const SERVICES_DE = [
-  { name: "ServiceNow ITSM & ITOM" },
-  { name: "Flow Designer & Integration Hub" },
-  { name: "Service Portal & Widget Dev" },
-  { name: "JavaScript & Glide API" },
-  { name: "Eigene Apps & CSA" },
-] as const satisfies { name: string }[];
+const { roleData } = useRole();
 
 const services = computed(() => {
-  return locale.value === "en" ? SERVICES_EN : SERVICES_DE;
+  return roleData.value.skills;
 });
 </script>
 

@@ -32,7 +32,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          mkdir -p dist/ai dist/servicenow
+          cp dist/index.html dist/ai/index.html
+          cp dist/index.html dist/servicenow/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

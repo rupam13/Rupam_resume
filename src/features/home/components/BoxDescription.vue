@@ -92,6 +92,8 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   const updatedTimelines = [...timelines.value, { timeline, delay }];
   timelines.value = updatedTimelines;
 };
+
+const { roleData } = useRole();
 </script>
 
 <template>
@@ -108,7 +110,7 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
         <div class="box-description-line"></div>
         <div class="box-description-copy">
           <AppearingText
-            :text="t('about-tagline')"
+            :text="roleData.tagline"
             :steps="3"
             :duration="0.7"
             @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0)"
