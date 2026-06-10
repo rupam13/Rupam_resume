@@ -11,7 +11,7 @@ export function useRole() {
     const roleParam = urlParams.get("role");
     const currentPath = path.value.toLowerCase();
 
-    if (roleParam === "ai" || currentPath.includes("/ai")) {
+    if (roleParam === "ai" || currentPath.includes("/ai") || currentPath.includes("/ai_agent_developer")) {
       currentRole.value = "ai";
     } else if (roleParam === "servicenow" || currentPath.includes("/servicenow")) {
       currentRole.value = "servicenow";

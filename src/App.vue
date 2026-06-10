@@ -14,7 +14,6 @@ import { useScroll } from "./composables/useScroll";
 import { projectVisible } from "./composables/useRouteObserver";
 import ProjectBackground from "./features/projects/components/ProjectBackground.vue";
 import { useClickSound } from "./features/sounds/composables/useClickSounds";
-import RoleSwitcher from "./components/RoleSwitcher.vue";
 //import { useHoverSound } from "./features/sounds/composables/useHoverSounds";
 
 const { isTransitioning } = useProjectTransition();
@@ -53,7 +52,6 @@ const { isTouch } = useAgent();
   </div>
 
   <Cursor v-if="!isTouch" />
-  <RoleSwitcher />
 </template>
 
 <style lang="scss">
