@@ -4,9 +4,6 @@ import Banner from "../../../components/Banner.vue";
 import { preloaderVisible } from "../../../composables/usePreloader";
 import { t } from "../../../i18n/utils/translate";
 import AppearingText from "../../../components/AppearingText.vue";
-import { useRole } from "../../../composables/useRole";
-
-const { roleData } = useRole();
 </script>
 
 <template>
@@ -15,7 +12,6 @@ const { roleData } = useRole();
       <div class="hero-content-inner" id="hero-content-inner">
         <div class="hero-content-copys">
           <h1 class="hero-title">Rupam.<br />W</h1>
-          <Banner class="hero-banner" :copy="roleData.title" v-if="!preloaderVisible" animated />
         </div>
       </div>
     </div>
