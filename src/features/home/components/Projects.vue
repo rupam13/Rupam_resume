@@ -26,7 +26,7 @@ const loadPreviews = async () => {
   const allPreviews: ProjectPreview[] = module.default;
   
   // Filter previews based on roleData.projects
-  const filtered = allPreviews.filter(p => roleData.value.projects.includes(p.id));
+  const filtered = allPreviews.filter(p => roleData.value.projects.includes(p.slug));
   
   loadedPreviews.value = filtered;
   emit("loaded", filtered);

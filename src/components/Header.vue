@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Button from "./Button.vue";
-import Logo from "./Logo.vue";
 import { computed, ref } from "vue";
 import { t } from "../i18n/utils/translate";
 import { useHeaderTheme } from "../composables/useHeaderTheme";
