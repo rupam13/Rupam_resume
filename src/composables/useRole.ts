@@ -43,7 +43,7 @@ export function useRole() {
           { name: "Vector DBs (Pinecone, Milvus)" },
           { name: "Prompt Engineering & RAG" },
         ],
-        projects: ["particles", "cubewar", "quibbo"], // Placeholder AI projects
+        projects: ["ai-voice-agent"],
       };
     }
     return {
@@ -57,7 +57,7 @@ export function useRole() {
         { name: "JavaScript & Glide API" },
         { name: "Custom Applications & CSA" },
       ],
-      projects: ["pokedex", "sharkie", "streakon"], // Placeholder ServiceNow projects
+      projects: ["ticket-management", "workflow-automation", "incident-management"],
     };
   });
 
