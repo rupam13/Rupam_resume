@@ -1,10 +1,4 @@
 import thumbnailAiVoiceAgent from "../../../assets/thumbnails/ai-voice-agent.webp";
-import thumbnailCubeWar from "../../../assets/thumbnails/cubewar.webp";
-import thumbnailQuibbo from "../../../assets/thumbnails/quibbo.webp";
-//import thumbnailParticles from "../../../assets/thumbnails/particles.webp";
-import thumbnailPokedex from "../../../assets/thumbnails/pokedex.webp";
-import thumbnailSharkie from "../../../assets/thumbnails/sharkie.webp";
-import thumbnailStreakon from "../../../assets/thumbnails/streakon.webp";
 
 import type { ProjectPreview } from "../../types";
 
@@ -17,45 +11,24 @@ export default [
     category: "ai",
   },
   {
-    title: "StreakOn",
-    slug: "streakon",
-    thumbnail: thumbnailStreakon,
-    description: "App für tägliche Gewohnheiten",
-    category: "general",
+    title: "Ticket-Management-System",
+    slug: "ticket-management",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/ticket.png",
+    description: "Enterprise-Ticketmanagementsystem",
+    category: "servicenow",
   },
   {
-    title: "CubeWar",
-    slug: "cubewar",
-    thumbnail: thumbnailCubeWar,
-    description: "Multiplayer-Strategiespiel",
-    category: "general",
+    title: "Workflow-Automatisierung",
+    slug: "workflow-automation",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/workflow.png",
+    description: "Erweiterte Workflow-Automatisierungsplattform",
+    category: "servicenow",
   },
   {
-    title: "Quibbo",
-    slug: "quibbo",
-    thumbnail: thumbnailQuibbo,
-    description: "Multiplayer-Gaming-Plattform",
-    category: "general",
-  },
-  {
-    title: "Sharkie",
-    slug: "sharkie",
-    thumbnail: thumbnailSharkie,
-    description: "2D-Abenteuerspiel",
-    category: "general",
-  },
-  /**  {
-    title: "WebGL Partikel",
-    slug: "particles",
-    thumbnail: thumbnailParticles,
-    description: "Dynamische 3D Partikel",
-    category: "general",
-  }, */
-  {
-    title: "Pokédex",
-    slug: "pokedex",
-    thumbnail: thumbnailPokedex,
-    description: "Open-Source Lernprojekt",
-    category: "general",
+    title: "Incident Management",
+    slug: "incident-management",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/incident.png",
+    description: "Umfassende Incident-Management-Lösung",
+    category: "servicenow",
   },
 ] as const satisfies ProjectPreview[];
