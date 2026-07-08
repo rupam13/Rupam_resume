@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import AdminLogin from "./components/AdminLogin.vue";
-import AdminDashboard from "./components/AdminDashboard.vue";
+import SimpleAdminDashboard from "./components/SimpleAdminDashboard.vue";
 
 const isAuthenticated = ref(false);
 
@@ -25,7 +25,7 @@ if (sessionStorage.getItem("adminAuth")) {
 <template>
   <div class="admin-page">
     <AdminLogin v-if="!isAuthenticated" @login="handleLogin" />
-    <AdminDashboard v-else @logout="handleLogout" />
+    <SimpleAdminDashboard v-else @logout="handleLogout" />
   </div>
 </template>
 
