@@ -1,5 +1,3 @@
-import voiceAgentThumbnail from "../../../assets/images/projects/ai-voice-agent/thumbnail.webp";
-
 import type { ProjectContent } from "../../types";
 
 export default {
@@ -13,7 +11,7 @@ export default {
     {
       type: "text",
       props: {
-        copy: "This project demonstrates a comprehensive AI voice agent implementation combining multiple enterprise technologies.",
+        text: "This project demonstrates a comprehensive AI voice agent implementation combining multiple enterprise technologies.",
       },
     },
     {
@@ -28,7 +26,7 @@ export default {
     {
       type: "list",
       props: {
-        bullets: [
+        items: [
           "Microsoft Copilot Studio for voice agent orchestration",
           "Agentic AI for autonomous decision-making and task execution",
           "IVR (Interactive Voice Response) system integration",

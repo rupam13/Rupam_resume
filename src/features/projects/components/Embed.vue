@@ -69,8 +69,8 @@ onMounted(async () => {
         :src="props.src"
         :height="props.height"
         :width="props.width"
-        frameborder="0"
-        allowfullscreen=""
+        :frameborder="0"
+        :allowfullscreen="true"
         :title="props.title || 'Embedded content'"
         class="project-embed-iframe"
       />

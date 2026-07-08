@@ -1,5 +1,3 @@
-import voiceAgentThumbnail from "../../../assets/images/projects/ai-voice-agent/thumbnail.webp";
-
 import type { ProjectContent } from "../../types";
 
 export default {
@@ -13,7 +11,7 @@ export default {
     {
       type: "text",
       props: {
-        copy: "Dieses Projekt demonstriert eine umfassende Implementierung eines KI-Sprachagenten, der mehrere Unternehmenstechnologien kombiniert.",
+        text: "Dieses Projekt demonstriert eine umfassende Implementierung eines KI-Sprachagenten, der mehrere Unternehmenstechnologien kombiniert.",
       },
     },
     {
@@ -28,7 +26,7 @@ export default {
     {
       type: "list",
       props: {
-        bullets: [
+        items: [
           "Microsoft Copilot Studio für die Orchestrierung von Sprachagenten",
           "Agentic AI für autonome Entscheidungsfindung und Aufgabenausführung",
           "IVR-Systemintegration (Interactive Voice Response)",
