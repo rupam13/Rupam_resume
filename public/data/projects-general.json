@@ -1,0 +1,130 @@
+{
+  "projects": [
+    {
+      "title": "CubeWar",
+      "slug": "cubewar",
+      "category": "general",
+      "theme": "dark",
+      "tags": ["three", "node", "websockets", "redis"],
+      "description": "CubeWar is a browser-based multiplayer game where players control cube avatars in fast-paced strategic battles. I built the full stack myself, including the game engine, the client-side timeline system, and real-time networking with Redis-based matchmaking for smooth, high-concurrency gameplay.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/general/cubewar.png",
+      "linkedinEmbed": "",
+      "live": "https://cubewar.io",
+      "components": [
+        {
+          "type": "text",
+          "text": "A full-stack multiplayer strategy game built with modern web technologies."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Three.js for 3D rendering",
+            "Node.js backend with WebSockets",
+            "Redis for matchmaking and state management",
+            "Real-time multiplayer gameplay"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "StreakOn",
+      "slug": "streakon",
+      "category": "general",
+      "theme": "dark",
+      "tags": ["react", "node", "postgresql"],
+      "description": "Social habit tracking app that helps users build and maintain positive habits through community engagement and streak tracking.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/general/streakon.png",
+      "linkedinEmbed": "",
+      "components": [
+        {
+          "type": "text",
+          "text": "A community-driven habit tracking application."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Habit tracking and streak management",
+            "Social features and community support",
+            "Progress visualization",
+            "Goal setting and achievement"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Quibbo",
+      "slug": "quibbo",
+      "category": "general",
+      "theme": "dark",
+      "tags": ["react", "node", "gaming"],
+      "description": "Multiplayer gaming platform connecting players worldwide for competitive and casual gaming experiences.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/general/quibbo.png",
+      "linkedinEmbed": "",
+      "components": [
+        {
+          "type": "text",
+          "text": "A comprehensive gaming platform for players."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Multiple game modes",
+            "Player matchmaking",
+            "Real-time multiplayer",
+            "Leaderboards and rankings"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sharkie",
+      "slug": "sharkie",
+      "category": "general",
+      "theme": "dark",
+      "tags": ["javascript", "canvas"],
+      "description": "A 2D adventure game featuring underwater exploration, puzzle-solving, and engaging gameplay mechanics.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/general/sharkie.png",
+      "linkedinEmbed": "",
+      "components": [
+        {
+          "type": "text",
+          "text": "An engaging 2D adventure game."
+        },
+        {
+          "type": "list",
+          "items": [
+            "2D game mechanics",
+            "Puzzle challenges",
+            "Adventure gameplay",
+            "Progressive difficulty"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Pokédex",
+      "slug": "pokedex",
+      "category": "general",
+      "theme": "dark",
+      "tags": ["react", "api"],
+      "description": "An interactive Pokédex application built as an open-source learning project, showcasing API integration and modern web development practices.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/general/pokedex.png",
+      "linkedinEmbed": "",
+      "components": [
+        {
+          "type": "text",
+          "text": "A learning project showcasing modern web development."
+        },
+        {
+          "type": "list",
+          "items": [
+            "REST API integration",
+            "Dynamic data fetching",
+            "Search and filtering",
+            "Responsive design"
+          ]
+        }
+      ]
+    }
+  ]
+}

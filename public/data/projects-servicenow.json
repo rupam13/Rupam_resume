@@ -1,0 +1,79 @@
+{
+  "projects": [
+    {
+      "title": "Ticket Management System",
+      "slug": "ticket-management",
+      "category": "servicenow",
+      "theme": "dark",
+      "tags": ["servicenow", "itsm", "automation"],
+      "description": "Enterprise ticket management system with automated workflows and real-time incident tracking. Handles SLA management and integrates with enterprise systems.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/ticket.png",
+      "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:YOUR_POST_ID?compact=1",
+      "components": [
+        {
+          "type": "text",
+          "text": "A comprehensive ServiceNow implementation for enterprise service management and incident tracking."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Automated ticket routing and assignment",
+            "Real-time incident tracking and updates",
+            "SLA management and reporting",
+            "Integration with enterprise systems"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Workflow Automation",
+      "slug": "workflow-automation",
+      "category": "servicenow",
+      "theme": "dark",
+      "tags": ["servicenow", "automation", "workflows"],
+      "description": "Advanced workflow automation platform using ServiceNow. Streamlines business processes and reduces manual interventions.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/workflow.png",
+      "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:YOUR_POST_ID?compact=1",
+      "components": [
+        {
+          "type": "text",
+          "text": "Intelligent workflow automation for enterprise operations."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Process automation",
+            "Business rule engine",
+            "Integration workflows",
+            "Approval processes"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Incident Management",
+      "slug": "incident-management",
+      "category": "servicenow",
+      "theme": "dark",
+      "tags": ["servicenow", "incident", "itil"],
+      "description": "Comprehensive incident management solution following ITIL best practices. Ensures rapid resolution and minimal business impact.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/incident.png",
+      "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:YOUR_POST_ID?compact=1",
+      "components": [
+        {
+          "type": "text",
+          "text": "Enterprise incident management following ITIL standards."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Incident classification",
+            "Priority management",
+            "Response procedures",
+            "Resolution tracking"
+          ]
+        }
+      ]
+    }
+  ]
+}

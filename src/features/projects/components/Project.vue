@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { projectId, projectVisible, recentProjectId } from "../../../composables/useRouteObserver";
+import { projectId, projectVisible, recentProjectId, projectCategory } from "../../../composables/useRouteObserver";
 import { isTransitioning } from "../../../composables/useProjectTransition";
 import { ref, watch } from "vue";
 import { projectModules } from "../../../content/projects";
+import { getProjectBySlug } from "../../../utils/projectLoader";
 import ProjectContent from "./ProjectContent.vue";
 import Footer from "../../../components/Footer.vue";
 import { locale } from "../../../i18n/store";
@@ -15,7 +16,18 @@ const content = ref(null);
 const error = ref<Error | null>(null);
 
 const fetchProject = async (project: string | undefined) => {
+  if (!project) return;
+
   try {
+    // Try loading from JSON first
+    const jsonProject = await getProjectBySlug(project);
+    if (jsonProject) {
+      content.value = jsonProject;
+      loading.value = false;
+      return;
+    }
+
+    // Fallback to TypeScript modules for backwards compatibility
     const module = await projectModules[locale.value as Locale][project as string].default;
     content.value = module;
     loading.value = false;

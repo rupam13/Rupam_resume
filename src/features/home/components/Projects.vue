@@ -2,6 +2,7 @@
 import { ref, watch, onMounted } from "vue";
 import { previews } from "../../../content/projects/previews";
 import { locale } from "../../../i18n/store";
+import { loadAllProjects } from "../../../utils/projectLoader";
 import PreviewCard from "../../projects/components/PreviewCard.vue";
 import NotchSection from "../../../components/NotchSection.vue";
 import Banner from "../../../components/Banner.vue";
@@ -20,14 +21,46 @@ const emit = defineEmits<{
 
 const loadPreviews = async () => {
   if (!locale.value) return;
+
+  try {
+    // Load from JSON files
+    const jsonProjects = await loadAllProjects();
+    const allJsonProjects: ProjectPreview[] = [];
+
+    // Convert JSON projects to preview format
+    for (const category of Object.keys(jsonProjects)) {
+      allJsonProjects.push(
+        ...jsonProjects[category as keyof typeof jsonProjects].map((project: any) => ({
+          title: project.title,
+          slug: project.slug,
+          description: project.description,
+          thumbnail: project.thumbnail,
+          category: project.category,
+        }))
+      );
+    }
+
+    // Filter previews based on roleData.projects
+    const filtered = allJsonProjects.filter(p => roleData.value.projects.includes(p.slug));
+
+    if (filtered.length > 0) {
+      loadedPreviews.value = filtered;
+      emit("loaded", filtered);
+      return;
+    }
+  } catch (err) {
+    console.warn("Failed to load JSON projects, falling back to TypeScript:", err);
+  }
+
+  // Fallback to TypeScript modules
   const func = previews[locale.value as keyof typeof previews];
   if (!func) return;
   const module = await func();
   const allPreviews: ProjectPreview[] = module.default;
-  
+
   // Filter previews based on roleData.projects
   const filtered = allPreviews.filter(p => roleData.value.projects.includes(p.slug));
-  
+
   loadedPreviews.value = filtered;
   emit("loaded", filtered);
 };

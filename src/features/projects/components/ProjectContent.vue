@@ -6,6 +6,7 @@ import Link from "../../../components/Link.vue";
 import NextProject from "./NextProject.vue";
 import { locale } from "../../../i18n/store";
 import { previews } from "../../../content/projects/previews";
+import { loadAllProjects } from "../../../utils/projectLoader";
 import { ref, computed, watch, onMounted } from "vue";
 
 import type { ProjectContent, ProjectPreview } from "../../../content/types";
@@ -18,20 +19,47 @@ const { content, projectId } = defineProps<{
 const loadedPreviews = ref<ProjectPreview[] | null>(null);
 
 const loadPreviews = async () => {
+  try {
+    // Try loading from JSON files
+    const jsonProjects = await loadAllProjects();
+    const allJsonProjects: ProjectPreview[] = [];
+
+    // Convert JSON projects to preview format
+    for (const category of Object.keys(jsonProjects)) {
+      allJsonProjects.push(
+        ...jsonProjects[category as keyof typeof jsonProjects].map((project: any) => ({
+          title: project.title,
+          slug: project.slug,
+          description: project.description,
+          thumbnail: project.thumbnail,
+          category: project.category,
+        }))
+      );
+    }
+
+    if (allJsonProjects.length > 0) {
+      loadedPreviews.value = allJsonProjects;
+      return;
+    }
+  } catch (err) {
+    console.warn("Failed to load JSON projects, falling back to TypeScript:", err);
+  }
+
+  // Fallback to TypeScript modules
   const module = await previews[locale.value as keyof typeof previews]();
   loadedPreviews.value = module.default;
 };
 
 const nextProject = computed(() => {
-  const previews = loadedPreviews.value;
-  if (!previews) return null;
+  const previewsList = loadedPreviews.value;
+  if (!previewsList) return null;
 
-  const currentIndex = previews.findIndex((p) => p.slug === projectId);
+  const currentIndex = previewsList.findIndex((p) => p.slug === projectId);
   if (currentIndex === -1) return null;
 
-  const nextIndex = (currentIndex + 1) % previews.length;
+  const nextIndex = (currentIndex + 1) % previewsList.length;
 
-  return previews[nextIndex];
+  return previewsList[nextIndex];
 });
 
 watch(locale, loadPreviews);
