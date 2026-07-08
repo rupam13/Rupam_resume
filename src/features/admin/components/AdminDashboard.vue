@@ -27,7 +27,18 @@ const emit = defineEmits<{
 
 const loadProjects = async () => {
   isLoading.value = true;
+  console.log("🔄 Loading projects...");
+
+  // Test connection first
+  const isConnected = await githubApi.testConnection();
+  if (!isConnected) {
+    showMessage("Failed to connect to GitHub. Check .env.local configuration.", "error");
+    isLoading.value = false;
+    return;
+  }
+
   projects.value = await githubApi.getAllProjects();
+  console.log("📦 Projects loaded:", projects.value);
   isLoading.value = false;
 };
 

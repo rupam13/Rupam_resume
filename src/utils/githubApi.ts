@@ -14,9 +14,48 @@ interface ProjectData {
 }
 
 export const githubApi = {
+  // Test GitHub connection
+  async testConnection(): Promise<boolean> {
+    try {
+      console.log("🔍 Testing GitHub API connection...");
+      console.log("Token exists:", !!GITHUB_TOKEN);
+      console.log("Owner:", GITHUB_OWNER);
+      console.log("Repo:", GITHUB_REPO);
+
+      if (!GITHUB_TOKEN) {
+        console.error("❌ GitHub token not configured");
+        return false;
+      }
+
+      const response = await fetch(`${API_BASE}/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+          Accept: "application/vnd.github.v3+json",
+        },
+      });
+
+      if (response.ok) {
+        console.log("✅ GitHub API connection successful");
+        return true;
+      } else {
+        console.error("❌ GitHub API error:", response.status, response.statusText);
+        return false;
+      }
+    } catch (error) {
+      console.error("❌ Connection test failed:", error);
+      return false;
+    }
+  },
+
   // Get all projects from GitHub
   async getAllProjects(): Promise<Record<string, ProjectData[]>> {
     try {
+      if (!GITHUB_TOKEN) {
+        console.error("❌ GitHub token not configured. Add VITE_GITHUB_TOKEN to .env.local");
+        return {};
+      }
+
+      console.log("📁 Fetching projects from GitHub...");
       const response = await fetch(
         `${API_BASE}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/projects`,
         {
@@ -27,40 +66,68 @@ export const githubApi = {
         }
       );
 
-      if (!response.ok) throw new Error("Failed to fetch projects");
+      if (!response.ok) {
+        console.error("❌ Failed to fetch projects folder:", response.status, response.statusText);
+        const errorText = await response.text();
+        console.error("Error details:", errorText);
+        return {};
+      }
 
       const dirs = await response.json();
+      console.log("📂 Found directories:", dirs.map((d: any) => d.name));
+
       const projects: Record<string, ProjectData[]> = {};
 
       for (const dir of dirs) {
         if (dir.type === "dir") {
           const category = dir.name;
-          const files = await fetch(
-            `${API_BASE}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/projects/${category}`,
-            {
-              headers: {
-                Authorization: `token ${GITHUB_TOKEN}`,
-                Accept: "application/vnd.github.v3+json",
-              },
-            }
-          ).then((r) => r.json());
+          console.log(`📂 Processing category: ${category}`);
 
-          projects[category] = [];
+          try {
+            const filesResponse = await fetch(
+              `${API_BASE}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/projects/${category}`,
+              {
+                headers: {
+                  Authorization: `token ${GITHUB_TOKEN}`,
+                  Accept: "application/vnd.github.v3+json",
+                },
+              }
+            );
 
-          for (const file of files) {
-            if (file.type === "file" && file.name.endsWith(".json")) {
-              const content = await fetch(file.download_url).then((r) =>
-                r.json()
-              );
-              projects[category].push(content);
+            if (!filesResponse.ok) {
+              console.warn(`⚠️ Failed to fetch category ${category}:`, filesResponse.status);
+              projects[category] = [];
+              continue;
             }
+
+            const files = await filesResponse.json();
+            projects[category] = [];
+
+            console.log(`📄 Files in ${category}:`, files.map((f: any) => f.name));
+
+            for (const file of files) {
+              if (file.type === "file" && file.name.endsWith(".json")) {
+                try {
+                  console.log(`📥 Loading ${category}/${file.name}...`);
+                  const content = await fetch(file.download_url).then((r) => r.json());
+                  projects[category].push(content);
+                  console.log(`✅ Loaded ${category}/${file.name}`);
+                } catch (err) {
+                  console.error(`❌ Error loading ${file.name}:`, err);
+                }
+              }
+            }
+          } catch (err) {
+            console.error(`❌ Error processing category ${category}:`, err);
+            projects[category] = [];
           }
         }
       }
 
+      console.log("✅ All projects loaded:", projects);
       return projects;
     } catch (error) {
-      console.error("Error fetching projects:", error);
+      console.error("❌ Error fetching projects:", error);
       return {};
     }
   },
