@@ -8,7 +8,7 @@
       "tags": ["servicenow", "javascript", "node"],
       "description": "Enterprise ticket management system with automated workflows and real-time incident tracking. Handles SLA management and integrates with enterprise systems.",
       "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/ticket.png",
-      "linkedinEmbed": "<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7368910590255255552?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>",
+      "linkedinEmbed": "<iframe src='https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7368910590255255552?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>',
       "components": [
         {
           "type": "text",
