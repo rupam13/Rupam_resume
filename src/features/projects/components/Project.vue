@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { projectId, projectVisible, recentProjectId, projectCategory } from "../../../composables/useRouteObserver";
+import { projectId, projectVisible, recentProjectId } from "../../../composables/useRouteObserver";
 import { isTransitioning } from "../../../composables/useProjectTransition";
 import { ref, watch } from "vue";
 import { projectModules } from "../../../content/projects";
@@ -12,7 +12,7 @@ import { lenis } from "../../../composables/useScroll";
 import type { Locale } from "../../../i18n/types";
 
 const loading = ref(true);
-const content = ref(null);
+const content = ref<any>(null);
 const error = ref<Error | null>(null);
 
 const fetchProject = async (project: string | undefined) => {

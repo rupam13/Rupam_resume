@@ -26,15 +26,18 @@ const loadPreviews = async () => {
 
     // Convert JSON projects to preview format
     for (const category of Object.keys(jsonProjects)) {
-      allJsonProjects.push(
-        ...jsonProjects[category as keyof typeof jsonProjects].map((project: any) => ({
-          title: project.title,
-          slug: project.slug,
-          description: project.description,
-          thumbnail: project.thumbnail,
-          category: project.category,
-        }))
-      );
+      const projects = jsonProjects[category as keyof typeof jsonProjects];
+      if (projects) {
+        allJsonProjects.push(
+          ...projects.map((project: any) => ({
+            title: project.title,
+            slug: project.slug,
+            description: project.description,
+            thumbnail: project.thumbnail,
+            category: project.category,
+          }))
+        );
+      }
     }
 
     if (allJsonProjects.length > 0) {
