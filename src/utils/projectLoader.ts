@@ -15,7 +15,7 @@ export interface ProjectsData {
   projects: ProjectData[];
 }
 
-const CATEGORIES = ["servicenow", "ai", "general"];
+const CATEGORIES = ["servicenow", "ai"];
 
 // Cache for loaded projects
 const projectCache: Record<string, ProjectData[]> = {};
