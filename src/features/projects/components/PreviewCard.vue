@@ -81,7 +81,7 @@ onUnmounted(() => {
 
   <Link
     v-else
-    class="preview-card children-unclickable"
+    class="preview-card preview-card-add-project children-unclickable"
     data-cursor="arrow-external"
     data-hoversound="hover"
     external
@@ -89,11 +89,13 @@ onUnmounted(() => {
     title="Add a new project to GitHub - Copy project.sample.json and customize it"
   >
     <div class="preview-card-top preview-card-top-empty">
+      <div class="preview-card-github-badge">GitHub</div>
       <Plus class="preview-card-top-empty-icon" />
     </div>
     <div class="preview-card-content">
       <div class="preview-card-copys">
         <h3 class="preview-card-title">{{ t("start-a-new-project") }}</h3>
+        <p class="preview-card-description-add">Edit on GitHub → Add your project JSON</p>
       </div>
     </div>
   </Link>
@@ -237,6 +239,37 @@ onUnmounted(() => {
     font-size: var(--font-size-md);
     color: var(--color-text-300);
     font-weight: 500;
+  }
+
+  &-add-project {
+    .preview-card-top-empty {
+      border-color: var(--color-accent-400);
+      background-color: rgba(102, 126, 234, 0.1);
+
+      @include mixins.hover {
+        border-color: var(--color-accent-300);
+        background-color: rgba(102, 126, 234, 0.2);
+      }
+    }
+
+    .preview-card-github-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      z-index: 10;
+    }
+
+    .preview-card-description-add {
+      color: var(--color-accent-400);
+      font-size: var(--font-size-sm);
+    }
   }
 }
 </style>
