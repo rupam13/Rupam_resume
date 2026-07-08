@@ -4,7 +4,7 @@ export default {
   title: "Ticket Management System",
   theme: "dark",
   category: "servicenow",
-  tags: ["servicenow", "itsm", "automation"],
+  tags: ["servicenow", "javascript", "node"],
   description: "Enterprise-Ticketmanagementsystem mit automatisierten Arbeitsabläufen und Echtzeit-Incident-Tracking. Verwaltet SLA und integriert sich mit Unternehmenssystemen.",
   components: [
     {

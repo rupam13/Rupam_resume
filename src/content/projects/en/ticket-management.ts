@@ -4,7 +4,7 @@ export default {
   title: "Ticket Management System",
   theme: "dark",
   category: "servicenow",
-  tags: ["servicenow", "itsm", "automation"],
+  tags: ["servicenow", "javascript", "node"],
   description: "Enterprise ticket management system with automated workflows and real-time incident tracking. Handles SLA management and integrates with enterprise systems.",
   components: [
     {

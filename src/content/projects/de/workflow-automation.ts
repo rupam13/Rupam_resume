@@ -4,7 +4,7 @@ export default {
   title: "Workflow-Automatisierung",
   theme: "dark",
   category: "servicenow",
-  tags: ["servicenow", "automation", "workflows"],
+  tags: ["servicenow", "javascript", "react"],
   description: "Erweiterte Workflow-Automatisierungsplattform mit ServiceNow. Optimiert Geschäftsprozesse und reduziert manuelle Eingriffe.",
   components: [
     {

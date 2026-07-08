@@ -4,7 +4,7 @@ export default {
   title: "Incident Management",
   theme: "dark",
   category: "servicenow",
-  tags: ["servicenow", "incident", "itil"],
+  tags: ["servicenow", "node", "postgresql"],
   description: "Comprehensive incident management solution following ITIL best practices. Ensures rapid resolution and minimal business impact.",
   components: [
     {
