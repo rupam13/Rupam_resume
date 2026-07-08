@@ -12,12 +12,20 @@ export const path = ref(typeof window !== "undefined" ? window.location.pathname
 // -----------------------------------------------------------------------------
 
 export const isProjectRoute = (path: string) => {
-  return path.match(/^\/project\/([^/]+)$/);
+  return path.match(/^\/([a-z-]+)\/project\/([^/]+)$/) || path.match(/^\/project\/([^/]+)$/);
 };
 
+export const projectCategory = computed(() => {
+  const categoryMatch = path.value.match(/^\/([a-z-]+)\/project\/([^/]+)$/);
+  return categoryMatch ? categoryMatch[1] : null;
+});
+
 export const projectId = computed(() => {
-  const match = isProjectRoute(path.value);
-  return match ? match[1] : null;
+  const categoryMatch = path.value.match(/^\/([a-z-]+)\/project\/([^/]+)$/);
+  if (categoryMatch) return categoryMatch[2];
+
+  const legacyMatch = path.value.match(/^\/project\/([^/]+)$/);
+  return legacyMatch ? legacyMatch[1] : null;
 });
 
 export const projectVisible = computed(() => {

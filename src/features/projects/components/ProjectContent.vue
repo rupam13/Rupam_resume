@@ -54,7 +54,7 @@ onMounted(loadPreviews);
     <div class="grid project-content-next-project-grid">
       <Link
         v-if="nextProject"
-        :to="`/project/${nextProject.slug}`"
+        :to="nextProject.category ? `/${nextProject.category}/project/${nextProject.slug}` : `/project/${nextProject.slug}`"
         replace
         class="project-content-next-project"
         data-cursor="arrow"

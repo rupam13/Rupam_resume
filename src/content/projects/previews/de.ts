@@ -1,3 +1,4 @@
+import thumbnailAiVoiceAgent from "../../../assets/thumbnails/ai-voice-agent.webp";
 import thumbnailCubeWar from "../../../assets/thumbnails/cubewar.webp";
 import thumbnailQuibbo from "../../../assets/thumbnails/quibbo.webp";
 //import thumbnailParticles from "../../../assets/thumbnails/particles.webp";
@@ -8,6 +9,13 @@ import thumbnailStreakon from "../../../assets/thumbnails/streakon.webp";
 import type { ProjectPreview } from "../../types";
 
 export default [
+  {
+    title: "KI-gestützter Sprachagent",
+    slug: "ai-voice-agent",
+    thumbnail: thumbnailAiVoiceAgent,
+    description: "Intelligenter Sprachagent mit Copilot Studio & ServiceNow",
+    category: "ai",
+  },
   {
     title: "StreakOn",
     slug: "streakon",

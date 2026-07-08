@@ -48,7 +48,7 @@ onUnmounted(() => {
 <template>
   <Link
     class="preview-card children-unclickable"
-    :to="`/project/${props.preview.slug}`"
+    :to="props.preview.category ? `/${props.preview.category}/project/${props.preview.slug}` : `/project/${props.preview.slug}`"
     :aria-label="t('switch-to-project', { project: props.preview.title })"
     data-cursor="arrow"
     data-sound="click"
