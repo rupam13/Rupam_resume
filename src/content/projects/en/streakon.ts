@@ -6,6 +6,7 @@ import streakon3 from "../../../assets/images/projects/streakon/streakon-3.webp"
 import type { ProjectContent } from "../../types";
 
 export default {
+  category: "general",
   title: "StreakOn",
   theme: "dark",
   tags: ["next", "node", "postgresql", "redis"],

@@ -21,35 +21,41 @@ export default [
     slug: "streakon",
     thumbnail: thumbnailStreakon,
     description: "Social habit tracking app",
+    category: "general",
   },
   {
     title: "CubeWar",
     slug: "cubewar",
     thumbnail: thumbnailCubeWar,
     description: "Multiplayer strategy game",
+    category: "general",
   },
   {
     title: "Quibbo",
     slug: "quibbo",
     thumbnail: thumbnailQuibbo,
     description: "Multiplayer gaming platform",
+    category: "general",
   },
   {
     title: "Sharkie",
     slug: "sharkie",
     thumbnail: thumbnailSharkie,
     description: "2D adventure game",
+    category: "general",
   },
   /**  {
     title: "WebGL Particles",
     slug: "particles",
     thumbnail: thumbnailParticles,
     description: "Dynamic 3D particles",
+    category: "general",
   }, */
   {
     title: "Pokédex",
     slug: "pokedex",
     thumbnail: thumbnailPokedex,
     description: "Open-source learning project",
+    category: "general",
   },
 ] as const satisfies ProjectPreview[];

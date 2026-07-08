@@ -11,6 +11,7 @@ import type { ProjectContent } from "../../types";
 
 export default {
   title: "CubeWar",
+  category: "general",
   theme: "dark",
   tags: ["three", "node", "websockets", "redis"],
   videoBorder: false,

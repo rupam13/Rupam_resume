@@ -10,6 +10,7 @@ import quibbo5 from "../../../assets/images/projects/quibbo/quibbo-5.webp";
 import type { ProjectContent } from "../../types";
 
 export default {
+  category: "general",
   title: "Quibbo",
   theme: "light",
   tags: ["three", "node", "kubernetes", "redis", "postgresql"],

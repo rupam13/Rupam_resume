@@ -8,6 +8,7 @@ import pokedex3 from "../../../assets/images/projects/pokedex/pokedex-3.webp";
 import type { ProjectContent } from "../../types";
 
 export default {
+  category: "general",
   title: "Pokédex",
   theme: "light",
   tags: ["javascript", "html", "css"],

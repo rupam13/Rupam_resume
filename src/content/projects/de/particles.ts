@@ -7,6 +7,7 @@ import particles2 from "../../../assets/images/projects/particles/particles-2.we
 import type { ProjectContent } from "../../types";
 
 export default {
+  category: "general",
   title: "WebGL Particles",
   theme: "dark",
   tags: ["ogl", "javascript", "glsl"],

@@ -10,6 +10,7 @@ import cubewar5 from "../../../assets/images/projects/cubewar/cubewar-5.webp";
 import type { ProjectContent } from "../../types";
 
 export default {
+  category: "general",
   title: "CubeWar",
   theme: "dark",
   tags: ["three", "node", "websockets", "redis"],
