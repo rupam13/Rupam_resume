@@ -85,7 +85,8 @@ onUnmounted(() => {
     data-cursor="arrow-external"
     data-hoversound="hover"
     external
-    :href="social[0].url"
+    href="https://github.com/rupam13/Rupam_resume/tree/main/public/data"
+    title="Add a new project to GitHub - Copy project.sample.json and customize it"
   >
     <div class="preview-card-top preview-card-top-empty">
       <Plus class="preview-card-top-empty-icon" />

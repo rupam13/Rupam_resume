@@ -1,0 +1,30 @@
+{
+  "title": "Your Project Name",
+  "slug": "your-project-slug",
+  "category": "ai",
+  "theme": "dark",
+  "tags": ["copilot-studio", "agentic-ai", "ivr", "servicenow", "mcp"],
+  "description": "Your project description goes here. Describe what the project does and its key features.",
+  "thumbnail": "https://your-image-url-here.com/image.png",
+  "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:YOUR_POST_ID?compact=1",
+  "live": "https://your-live-project-url.com",
+  "components": [
+    {
+      "type": "text",
+      "text": "First paragraph describing your project in detail."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Feature or technology 1",
+        "Feature or technology 2",
+        "Feature or technology 3",
+        "Feature or technology 4"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Additional description or details about your project implementation."
+    }
+  ]
+}
