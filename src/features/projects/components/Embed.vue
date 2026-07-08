@@ -53,11 +53,16 @@ watchEffect(async (onInvalidate) => {
 onMounted(async () => {
   // Load LinkedIn script if embed is from LinkedIn
   if (props.src.includes("linkedin.com")) {
-    const script = document.createElement("script");
-    script.src = "https://platform.linkedin.com/badges/js/profile.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+    // Remove any existing LinkedIn scripts to avoid duplicates
+    const existingScript = document.querySelector('script[src*="linkedin.com"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://platform.linkedin.com/in.js";
+      script.async = true;
+      script.type = "text/javascript";
+      script.innerHTML = `lang: en_US`;
+      document.body.appendChild(script);
+    }
   }
 });
 </script>
@@ -69,8 +74,9 @@ onMounted(async () => {
         :src="props.src"
         :height="props.height"
         :width="props.width"
-        :frameborder="0"
-        :allowfullscreen="true"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
         :title="props.title || 'Embedded content'"
         class="project-embed-iframe"
       />
@@ -107,7 +113,7 @@ onMounted(async () => {
 
   &-iframe {
     width: 100%;
-    height: auto;
+    min-height: 400px;
     display: block;
     border: none;
   }
