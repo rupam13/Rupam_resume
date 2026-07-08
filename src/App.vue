@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, computed } from "vue";
 import Header from "./components/Header.vue";
 import { useTranslations } from "./i18n/composables/useTranslations";
 import { usePreloader } from "./composables/usePreloader";
@@ -9,12 +10,27 @@ import { useHowler } from "./features/sounds/composables/useHowler";
 import { useRouteObserver } from "./composables/useRouteObserver";
 import Home from "./features/home/components/Home.vue";
 import Project from "./features/projects/components/Project.vue";
+import Admin from "./features/admin/Admin.vue";
 import { useProjectTransition } from "./composables/useProjectTransition";
 import { useScroll } from "./composables/useScroll";
 import { projectVisible } from "./composables/useRouteObserver";
 import ProjectBackground from "./features/projects/components/ProjectBackground.vue";
 import { useClickSound } from "./features/sounds/composables/useClickSounds";
 //import { useHoverSound } from "./features/sounds/composables/useHoverSounds";
+
+const pathname = ref(typeof window !== "undefined" ? window.location.pathname : "/");
+
+const isAdminPage = computed(() => {
+  return pathname.value.includes("/admin");
+});
+
+const updatePath = () => {
+  pathname.value = window.location.pathname;
+};
+
+if (typeof window !== "undefined") {
+  window.addEventListener("popstate", updatePath);
+}
 
 const { isTransitioning } = useProjectTransition();
 
@@ -30,28 +46,32 @@ const { isTouch } = useAgent();
 </script>
 
 <template>
-  <Header />
+  <Admin v-if="isAdminPage" />
 
-  <!-- main page -->
-  <div :class="{ 'home-wrapper-projectIsReady': projectVisible }">
-    <Home />
-  </div>
+  <template v-else>
+    <Header />
 
-  <!-- overlay page -->
-  <ProjectBackground />
-  <div
-    class="project-wrapper"
-    :class="{
-      'project-wrapper-visible': projectVisible,
-      'project-wrapper-transitioning': isTransitioning,
-    }"
-  >
-    <div class="project-content">
-      <Project />
+    <!-- main page -->
+    <div :class="{ 'home-wrapper-projectIsReady': projectVisible }">
+      <Home />
     </div>
-  </div>
 
-  <Cursor v-if="!isTouch" />
+    <!-- overlay page -->
+    <ProjectBackground />
+    <div
+      class="project-wrapper"
+      :class="{
+        'project-wrapper-visible': projectVisible,
+        'project-wrapper-transitioning': isTransitioning,
+      }"
+    >
+      <div class="project-content">
+        <Project />
+      </div>
+    </div>
+
+    <Cursor v-if="!isTouch" />
+  </template>
 </template>
 
 <style lang="scss">
