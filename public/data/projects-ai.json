@@ -26,6 +26,54 @@
           ]
         }
       ]
+    },
+    {
+      "title": "AI Project 2",
+      "slug": "ai-project-2",
+      "category": "ai",
+      "theme": "dark",
+      "tags": ["copilot-studio", "agentic-ai"],
+      "description": "AI project with LinkedIn embed",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+      "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7368910590255255552?compact=1",
+      "components": [
+        {
+          "type": "text",
+          "text": "See LinkedIn post for details"
+        }
+      ]
+    },
+    {
+      "title": "AI Project 3",
+      "slug": "ai-project-3",
+      "category": "ai",
+      "theme": "dark",
+      "tags": ["copilot-studio", "agentic-ai"],
+      "description": "AI project with LinkedIn embed",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+      "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7365669102746599424?compact=1",
+      "components": [
+        {
+          "type": "text",
+          "text": "See LinkedIn post for details"
+        }
+      ]
+    },
+    {
+      "title": "AI Project 4",
+      "slug": "ai-project-4",
+      "category": "ai",
+      "theme": "dark",
+      "tags": ["copilot-studio", "agentic-ai"],
+      "description": "AI project with LinkedIn embed",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+      "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7362766749315817472?compact=1",
+      "components": [
+        {
+          "type": "text",
+          "text": "See LinkedIn post for details"
+        }
+      ]
     }
   ]
 }
