@@ -5,8 +5,14 @@ export default {
   theme: "dark",
   category: "ai",
   tags: ["copilot-studio", "agentic-ai"],
-  description: "AI project with LinkedIn embed",
+  description: "AI project with LinkedIn embed - Project 4",
   components: [
+    {
+      type: "text",
+      props: {
+        text: "AI Project 4 - LinkedIn Post Below",
+      },
+    },
     {
       type: "embed",
       props: {
