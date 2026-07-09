@@ -6,7 +6,6 @@ import Link from "../../../components/Link.vue";
 import NextProject from "./NextProject.vue";
 import { locale } from "../../../i18n/store";
 import { previews } from "../../../content/projects/previews";
-import { loadAllProjects } from "../../../utils/projectLoader";
 import { ref, computed, watch, onMounted } from "vue";
 
 import type { ProjectContent, ProjectPreview } from "../../../content/types";
@@ -19,36 +18,7 @@ const { content, projectId } = defineProps<{
 const loadedPreviews = ref<ProjectPreview[] | null>(null);
 
 const loadPreviews = async () => {
-  try {
-    // Try loading from JSON files
-    const jsonProjects = await loadAllProjects();
-    const allJsonProjects: ProjectPreview[] = [];
-
-    // Convert JSON projects to preview format
-    for (const category of Object.keys(jsonProjects)) {
-      const projects = jsonProjects[category as keyof typeof jsonProjects];
-      if (projects) {
-        allJsonProjects.push(
-          ...projects.map((project: any) => ({
-            title: project.title,
-            slug: project.slug,
-            description: project.description,
-            thumbnail: project.thumbnail,
-            category: project.category,
-          }))
-        );
-      }
-    }
-
-    if (allJsonProjects.length > 0) {
-      loadedPreviews.value = allJsonProjects;
-      return;
-    }
-  } catch (err) {
-    console.warn("Failed to load JSON projects, falling back to TypeScript:", err);
-  }
-
-  // Fallback to TypeScript modules
+  // Load from TypeScript preview modules
   const module = await previews[locale.value as keyof typeof previews]();
   loadedPreviews.value = module.default;
 };
