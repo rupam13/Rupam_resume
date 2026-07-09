@@ -11,6 +11,27 @@ export default [
     category: "ai",
   },
   {
+    title: "AI Project 2",
+    slug: "ai-project-2",
+    thumbnail: thumbnailAiVoiceAgent,
+    description: "AI project with LinkedIn embed",
+    category: "ai",
+  },
+  {
+    title: "AI Project 3",
+    slug: "ai-project-3",
+    thumbnail: thumbnailAiVoiceAgent,
+    description: "AI project with LinkedIn embed",
+    category: "ai",
+  },
+  {
+    title: "AI Project 4",
+    slug: "ai-project-4",
+    thumbnail: thumbnailAiVoiceAgent,
+    description: "AI project with LinkedIn embed",
+    category: "ai",
+  },
+  {
     title: "Ticket-Management-System",
     slug: "ticket-management",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/servicenow/ticket.png",

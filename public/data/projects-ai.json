@@ -2,7 +2,7 @@
   "projects": [
     {
       "title": "AI-Powered Voice Agent",
-      "slug": "AI voice-agent",
+      "slug": "ai-voice-agent",
       "category": "ai",
       "theme": "dark",
       "tags": ["copilot-studio", "agentic-ai", "ivr", "servicenow", "mcp"],
