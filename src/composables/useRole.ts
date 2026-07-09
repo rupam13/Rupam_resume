@@ -43,7 +43,7 @@ export function useRole() {
           { name: "Vector DBs (Pinecone, Milvus)" },
           { name: "Prompt Engineering & RAG" },
         ],
-        projects: ["ai-voice-agent"],
+        projects: ["ai-voice-agent", "ai-project-2", "ai-project-3", "ai-project-4"],
       };
     }
     return {
