@@ -8,10 +8,12 @@ export interface CardInfo {
   title: string;
   icon: string;
   content: string[];
+  teaser?: string;
 }
 
 export interface InfoCardsProps {
   cards: CardInfo[];
+  variant?: "default" | "cartoon";
 }
 
 export interface SectionCardProps {

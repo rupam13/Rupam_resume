@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, useAttrs } from "vue";
 import { useRouter } from "../composables/useRouter";
+import { resolveAbsolutePath } from "../composables/useRouteObserver";
 
 const attrs = useAttrs();
 const router = useRouter();
@@ -23,6 +24,13 @@ const resolvedTo = computed(() => {
   }
 
   return path;
+});
+
+const absoluteHref = computed(() => {
+  if (props.external) {
+    return props.href || props.to || "";
+  }
+  return resolveAbsolutePath(resolvedTo.value);
 });
 
 const handleClick = (event: MouseEvent) => {
@@ -58,10 +66,11 @@ const handleClick = (event: MouseEvent) => {
   <component
     v-else
     :is="props.renderAs || 'a'"
-    :href="resolvedTo"
+    :href="absoluteHref"
     @click="handleClick"
     v-bind="attrs"
   >
     <slot></slot>
   </component>
 </template>
+

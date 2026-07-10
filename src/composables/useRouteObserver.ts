@@ -2,10 +2,38 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 import { isTransitioning } from "./useProjectTransition";
 
 // -----------------------------------------------------------------------------
-// GLOBAL REACTIVE PATH
+// GLOBAL REACTIVE PATH (with Base URL handling)
 // -----------------------------------------------------------------------------
 
-export const path = ref(typeof window !== "undefined" ? window.location.pathname : "/");
+export function getRelativePath(absolutePath: string): string {
+  const base = import.meta.env.BASE_URL;
+  if (!base || base === "/") return absolutePath;
+
+  if (absolutePath.startsWith(base)) {
+    return absolutePath.slice(base.length - 1);
+  }
+
+  const baseWithoutTrailing = base.endsWith("/") ? base.slice(0, -1) : base;
+  if (absolutePath === baseWithoutTrailing) {
+    return "/";
+  }
+
+  return absolutePath;
+}
+
+export function resolveAbsolutePath(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("mailto:") || path.startsWith("tel:")) {
+    return path;
+  }
+  const base = import.meta.env.BASE_URL;
+  if (!base || base === "/") return path;
+
+  const formattedBase = base.endsWith("/") ? base.slice(0, -1) : base;
+  const formattedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${formattedBase}${formattedPath}`;
+}
+
+export const path = ref(typeof window !== "undefined" ? getRelativePath(window.location.pathname) : "/");
 
 // -----------------------------------------------------------------------------
 // COMPUTED HELPERS
@@ -75,8 +103,9 @@ function patchHistory() {
 export function useRouteObserver() {
   const update = () => {
     const newPath = window.location.pathname;
-    if (newPath !== path.value) {
-      path.value = newPath;
+    const relPath = getRelativePath(newPath);
+    if (relPath !== path.value) {
+      path.value = relPath;
     }
   };
   onMounted(() => {

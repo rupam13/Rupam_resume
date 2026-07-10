@@ -1,15 +1,17 @@
+import { resolveAbsolutePath } from "./useRouteObserver";
+
 export const useRouter = () => {
   const push = (path: string) => {
     if (typeof window !== "undefined") {
       // The intercepted pushState in useRoute.ts will automatically trigger path updates
-      window.history.pushState(null, "", path);
+      window.history.pushState(null, "", resolveAbsolutePath(path));
     }
   };
 
   const replace = (path: string) => {
     if (typeof window !== "undefined") {
       // The intercepted replaceState in useRoute.ts will automatically trigger path updates
-      window.history.replaceState(null, "", path);
+      window.history.replaceState(null, "", resolveAbsolutePath(path));
     }
   };
 

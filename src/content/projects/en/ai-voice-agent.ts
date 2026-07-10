@@ -26,10 +26,12 @@ export default {
     {
       type: "infoCards",
       props: {
+        variant: "cartoon",
         cards: [
           {
             title: "Key Metrics",
             icon: "📊",
+            teaser: "See the jaw-dropping performance numbers! 📈",
             content: [
               "60% call volume reduction",
               "24/7 continuous availability",
@@ -40,6 +42,7 @@ export default {
           {
             title: "Core Features",
             icon: "⚡",
+            teaser: "What makes this intelligent agent tick? ⚡",
             content: [
               "Natural language understanding",
               "Autonomous decision-making",
@@ -50,6 +53,7 @@ export default {
           {
             title: "Enterprise Ready",
             icon: "🏢",
+            teaser: "Built for high-stakes enterprise scale! 🏢",
             content: [
               "ServiceNow integration",
               "Advanced security",
@@ -73,10 +77,12 @@ export default {
     {
       type: "infoCards",
       props: {
+        variant: "cartoon",
         cards: [
           {
             title: "The Problem",
             icon: "😞",
+            teaser: "Customer support queues are totally broken! 😞",
             content: [
               "Customers wait on hold for hours",
               "Manual IVR systems fail to resolve",
@@ -87,6 +93,7 @@ export default {
           {
             title: "The Solution",
             icon: "✨",
+            teaser: "Say hello to your new 24/7 AI agent! ✨",
             content: [
               "AI that understands context",
               "Autonomous intelligent decisions",
@@ -97,6 +104,7 @@ export default {
           {
             title: "The Outcome",
             icon: "🎯",
+            teaser: "Happy customers and happy human support teams! 🎯",
             content: [
               "Immediate customer satisfaction",
               "Support teams focus on strategy",
@@ -120,10 +128,12 @@ export default {
     {
       type: "infoCards",
       props: {
+        variant: "cartoon",
         cards: [
           {
             title: "How It Works",
             icon: "⚙️",
+            teaser: "The step-by-step user call journey! ⚙️",
             content: [
               "Incoming call → Natural language understanding",
               "Real-time data access to customer history",
@@ -135,6 +145,7 @@ export default {
           {
             title: "Capabilities",
             icon: "🚀",
+            teaser: "Superpowers of our conversational AI! 🚀",
             content: [
               "NLU engine with sentiment analysis",
               "Autonomous decision-making with guardrails",
@@ -147,6 +158,7 @@ export default {
           {
             title: "Technology",
             icon: "🛠️",
+            teaser: "The stack powering the automation! 🛠️",
             content: [
               "Microsoft Copilot Studio",
               "Agentic AI Framework",
