@@ -4,7 +4,7 @@ export default {
   title: "Doctor Appointment Booking Agent",
   theme: "dark",
   category: "ai",
-  tags: ["agentic-ai", "n8n", "gemini", "telegram"],
+  tags: ["agentic-ai", "copilot-studio"],
   description: "From CPA to APA: Building an Agentic AI Doctor Appointment Booking System using Natural Language Understanding",
   components: [
     {
