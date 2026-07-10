@@ -191,7 +191,7 @@ onUnmounted(() => {
     &-container {
       transition: transform 0.1s ease-in-out;
       transform: scale(calc(1 + var(--hover) * 0.02));
-      aspect-ratio: 16/9;
+      aspect-ratio: 1/1;
     }
 
     &-wrapper {
@@ -204,7 +204,7 @@ onUnmounted(() => {
   &-top {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 1/1;
 
     &-empty {
       border: 4px dashed var(--color-grayscale-500);
