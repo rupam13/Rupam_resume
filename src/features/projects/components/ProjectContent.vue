@@ -72,10 +72,21 @@ onMounted(loadPreviews);
   color: var(--color-text-400);
 
   &-grid {
-    row-gap: var(--space-sm);
+    row-gap: var(--space-md);
+    grid-column: 1 / 13;
 
     @include mixins.mq("md") {
+      row-gap: var(--space-lg);
+      grid-column: 2 / 12;
+    }
+
+    @include mixins.mq("lg") {
       row-gap: var(--space-xxl);
+      grid-column: 3 / 11;
+    }
+
+    @include mixins.mq("xl") {
+      grid-column: 4 / 10;
     }
   }
 
@@ -102,7 +113,7 @@ onMounted(loadPreviews);
   }
 
   &-components {
-    padding: 20px var(--space-outer);
+    padding: var(--space-lg) var(--space-outer);
     background-color: var(--color-background-400);
     width: 100%;
     display: flex;
@@ -110,10 +121,15 @@ onMounted(loadPreviews);
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-xxl);
-    gap: var(--space-xxl);
+    gap: var(--space-lg);
 
     @include mixins.mq("md") {
-      padding: 64px var(--space-outer);
+      padding: var(--space-xxl) var(--space-outer);
+      gap: var(--space-xxl);
+    }
+
+    @include mixins.mq("lg") {
+      gap: var(--space-xxxl);
     }
   }
 }

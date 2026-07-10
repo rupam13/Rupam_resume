@@ -28,24 +28,51 @@ const classes = computed(() => {
 .text {
   line-height: var(--line-height-copy);
   grid-column: 1 / 13;
+  font-size: var(--font-size-md);
+  letter-spacing: 0.3px;
 
   @include mixins.mq("md") {
-    grid-column: 3 / 11;
+    grid-column: 1 / 13;
+    font-size: var(--font-size-lg);
   }
 
   @include mixins.mq("lg") {
-    grid-column: 4 / 10;
+    grid-column: 1 / 13;
   }
 
   &-with-title {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-lg);
+    grid-column: 1 / 13;
+
+    @include mixins.mq("md") {
+      gap: var(--space-lg);
+    }
   }
 
   &-title {
     font-size: var(--font-size-title-sm);
+    font-weight: 700;
     line-height: var(--line-height-title);
+    color: var(--color-text-400);
+    letter-spacing: -0.5px;
+    margin-bottom: var(--space-sm);
+
+    @include mixins.mq("md") {
+      font-size: var(--font-size-title-md);
+    }
+  }
+
+  &-content {
+    font-size: var(--font-size-md);
+    line-height: 1.8;
+    color: var(--color-text-300);
+
+    @include mixins.mq("md") {
+      font-size: var(--font-size-lg);
+      line-height: 1.8;
+    }
   }
 }
 </style>

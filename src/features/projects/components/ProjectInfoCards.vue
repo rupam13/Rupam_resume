@@ -112,12 +112,18 @@ onUnmounted(() => {
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-lg);
   width: 100%;
 
   @include mixins.mq("md") {
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  @include mixins.mq("lg") {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
   }
 }
 
