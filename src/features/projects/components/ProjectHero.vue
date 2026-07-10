@@ -21,7 +21,7 @@ watch(projectId, () => {
 </script>
 
 <template>
-  <div class="project-hero grid">
+  <div class="project-hero grid" :class="{ 'has-embed': !!content.heroEmbed }">
     <div class="project-hero-top">
       <div class="project-hero-title-wrapper">
         <h1 class="project-hero-title" :key="animationKey">
@@ -50,6 +50,15 @@ watch(projectId, () => {
           t("source-code")
         }}</Button>
       </Link>
+    </div>
+    <div v-if="content.heroEmbed" class="project-hero-embed">
+      <iframe
+        :src="content.heroEmbed.src"
+        frameborder="0"
+        allowfullscreen
+        :title="content.heroEmbed.title || 'Project Video'"
+        class="hero-iframe"
+      ></iframe>
     </div>
   </div>
 </template>
@@ -81,7 +90,6 @@ watch(projectId, () => {
     gap: var(--space-sm);
     margin-top: var(--space-md);
     width: 100%;
-    grid-column: 1 / 13;
 
     @include mixins.mq("md") {
       gap: var(--space-md);
@@ -176,6 +184,99 @@ watch(projectId, () => {
 
     @include mixins.mq("lg") {
       grid-column: 2 / 6;
+    }
+  }
+}
+
+/* EMBED LAYOUT OVERRIDES (LIGHT NE-BRUTALIST THEME) */
+.has-embed {
+  // Mobile overrides
+  .project-hero-top {
+    grid-row: 1;
+    grid-column: 1 / 13;
+  }
+  
+  .project-hero-embed {
+    grid-row: 2;
+    grid-column: 1 / 13;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: var(--space-md) 0 var(--space-lg) 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3.5px solid #2d2a24;
+    box-shadow: 6px 6px 0px #2d2a24;
+    background: #000;
+    position: relative;
+    z-index: 5;
+    
+    .hero-iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .project-hero-description {
+    grid-row: 3;
+    grid-column: 1 / 13;
+    text-align: left;
+  }
+
+  .project-hero-buttons {
+    grid-row: 4;
+    grid-column: 1 / 13;
+    margin-top: var(--space-md);
+    justify-content: flex-start;
+  }
+
+  // Desktop overrides
+  @include mixins.mq("md") {
+    .project-hero-top {
+      grid-column: 1 / 7;
+      grid-row: 1;
+      align-self: start;
+    }
+
+    .project-hero-description {
+      grid-column: 1 / 7;
+      grid-row: 2;
+      align-self: center;
+      margin-top: var(--space-sm);
+      text-align: left;
+    }
+
+    .project-hero-buttons {
+      grid-column: 1 / 7;
+      grid-row: 3;
+      align-self: end;
+      margin-top: var(--space-md);
+      justify-content: flex-start;
+    }
+
+    .project-hero-embed {
+      grid-column: 7 / 13;
+      grid-row: 1 / 4;
+      margin: 0;
+      align-self: center;
+      height: 100%;
+      max-height: 380px;
+    }
+  }
+
+  @include mixins.mq("lg") {
+    .project-hero-top {
+      grid-column: 2 / 7;
+    }
+    .project-hero-description {
+      grid-column: 2 / 7;
+    }
+    .project-hero-buttons {
+      grid-column: 2 / 7;
+    }
+    .project-hero-embed {
+      grid-column: 7 / 12;
+      max-height: 400px;
     }
   }
 }

@@ -15,6 +15,12 @@ export interface ProjectContent {
   live?: string;
   source?: string;
   components?: ProjectComponent[];
+  heroEmbed?: {
+    src: string;
+    title?: string;
+    height?: string;
+    width?: string;
+  };
 }
 
 export interface SkillContent {

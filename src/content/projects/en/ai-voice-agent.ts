@@ -5,6 +5,10 @@ export default {
   category: "ai",
   theme: "dark",
   tags: ["copilot-studio", "agentic-ai", "ivr", "servicenow", "mcp"],
+  heroEmbed: {
+    src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7476264755083632641?compact=1",
+    title: "AI-Powered Voice Agent LinkedIn Post",
+  },
   description:
     "Transform customer support from reactive to proactive with AI that understands context, handles complexity, and integrates with your enterprise systems. 60% reduction in call volume | 24/7 availability | 80% first-contact resolution.",
   components: [
@@ -169,25 +173,6 @@ export default {
             ],
           },
         ],
-      },
-    },
-
-    // Divider
-    {
-      type: "text",
-      props: {
-        text: "",
-      },
-    },
-
-    // LinkedIn embed
-    {
-      type: "embed",
-      props: {
-        src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7476264755083632641?compact=1",
-        height: "399",
-        width: "504",
-        title: "AI-Powered Voice Agent LinkedIn Post",
       },
     },
 
