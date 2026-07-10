@@ -169,7 +169,7 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    padding-top: var(--space-xs);
+    padding: var(--space-md);
   }
 
   &-overlay {
