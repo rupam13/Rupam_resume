@@ -21,6 +21,53 @@ export default {
       },
     },
     {
+      type: "infoCards",
+      props: {
+        cards: [
+          {
+            title: "Key Metrics",
+            icon: "📊",
+            content: [
+              "60% call volume reduction",
+              "24/7 continuous availability",
+              "80% first-contact resolution",
+              "Sub-1 second response time",
+            ],
+          },
+          {
+            title: "Core Features",
+            icon: "⚡",
+            content: [
+              "Natural language understanding",
+              "Autonomous decision-making",
+              "Real-time system integration",
+              "Multi-channel support",
+            ],
+          },
+          {
+            title: "Enterprise Ready",
+            icon: "🏢",
+            content: [
+              "ServiceNow integration",
+              "Advanced security",
+              "Compliance certified",
+              "Scalable architecture",
+            ],
+          },
+          {
+            title: "Business Impact",
+            icon: "💰",
+            content: [
+              "Reduce support costs significantly",
+              "Improve customer satisfaction",
+              "Empower support teams",
+              "Drive revenue growth",
+            ],
+          },
+        ],
+      },
+    },
+    {
       type: "text",
       props: {
         text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",

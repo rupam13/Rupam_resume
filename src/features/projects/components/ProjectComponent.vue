@@ -4,6 +4,7 @@ import Text from "./Text.vue";
 import List from "./List.vue";
 import Media from "./Media.vue";
 import Embed from "./Embed.vue";
+import ProjectInfoCards from "./ProjectInfoCards.vue";
 
 import type { ProjectComponents, ProjectComponentProps } from "../types";
 
@@ -19,6 +20,7 @@ const components = {
   list: List,
   media: Media,
   embed: Embed,
+  infoCards: ProjectInfoCards,
 } as const satisfies Record<keyof ProjectComponents, any>;
 
 const Component = components[type];

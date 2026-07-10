@@ -4,12 +4,23 @@ import type { Props as ListProps } from "./components/List.vue";
 import type { Props as MediaProps } from "./components/Media.vue";
 import type { Props as EmbedProps } from "./components/Embed.vue";
 
+export interface CardInfo {
+  title: string;
+  icon: string;
+  content: string[];
+}
+
+export interface InfoCardsProps {
+  cards: CardInfo[];
+}
+
 export interface ProjectComponents {
   imageText: ImageTextProps;
   text: TextProps;
   list: ListProps;
   media: Omit<MediaProps, "index">;
   embed: Omit<EmbedProps, "index">;
+  infoCards: InfoCardsProps;
 }
 
 export type ProjectComponent = {
