@@ -26,6 +26,7 @@ const classes = computed(() => {
 
 <style scoped lang="scss">
 .text {
+  grid-column: 1 / 13;
   line-height: var(--line-height-copy);
   width: 100%;
   font-size: var(--font-size-md);
@@ -37,6 +38,7 @@ const classes = computed(() => {
   }
 
   &-with-title {
+    grid-column: 1 / 13;
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);

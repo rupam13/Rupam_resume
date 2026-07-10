@@ -184,6 +184,7 @@ const getCardStyle = (index: number) => {
 }
 
 .project-info-cards {
+  grid-column: 1 / 13;
   width: 100%;
   max-width: 100%;
   display: flex;
