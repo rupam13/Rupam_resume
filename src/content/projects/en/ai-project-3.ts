@@ -1,11 +1,11 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Email Triage & Categorization Agent",
+  title: "Intelligent Email Triage & Organization System",
   theme: "dark",
   category: "ai",
   tags: ["agentic-ai", "copilot-studio"],
-  description: "Week 2 APA Journey: Building an Intelligent Email Triage Agent that automatically categorizes and labels incoming emails using AI",
+  description: "Advanced email intelligence platform that autonomously analyzes, categorizes, and organizes incoming communications across multiple departments. Leverages natural language understanding to classify messages (Technical Support, Billing, Account Access, Product Inquiry, General) and apply automated Gmail labels, reducing manual sorting by 90%.",
   components: [
     {
       type: "text",

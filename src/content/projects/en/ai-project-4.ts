@@ -1,11 +1,11 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Policy Q&A Agent",
+  title: "Enterprise Policy Intelligence Assistant",
   theme: "dark",
   category: "ai",
   tags: ["agentic-ai", "copilot-studio"],
-  description: "Week 3 APA Journey: Building an Enterprise Policy Q&A Agent that provides instant answers to employee policy questions across all departments",
+  description: "Unified policy knowledge system delivering instant, context-aware answers to employee questions across HR, Finance, IT, and Compliance departments. Processes policy documents through AI to provide 24/7 support via Telegram, Slack, or Teams, eliminating delays and reducing HR/IT workload by automating policy lookups.",
   components: [
     {
       type: "text",

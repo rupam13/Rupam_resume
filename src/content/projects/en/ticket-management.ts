@@ -1,11 +1,11 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Ticket Management System",
+  title: "Intelligent Ticket Management & Resolution Platform",
   theme: "dark",
   category: "servicenow",
   tags: ["servicenow", "javascript", "node"],
-  description: "Enterprise ticket management system with automated workflows and real-time incident tracking. Handles SLA management and integrates with enterprise systems.",
+  description: "Enterprise-grade ITSM solution built on ServiceNow platform featuring automated ticket routing, real-time SLA tracking, and intelligent workflow automation. Streamlines incident management across global teams with intelligent prioritization, automated escalation, and comprehensive audit trails for ITIL compliance.",
   components: [
     {
       type: "text",

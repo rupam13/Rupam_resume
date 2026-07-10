@@ -1,12 +1,12 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "AI-Powered Voice Agent",
+  title: "Intelligent Voice Agent with Enterprise Integration",
   category: "ai",
   theme: "dark",
   tags: ["copilot-studio", "agentic-ai", "ivr", "servicenow", "mcp"],
   description:
-    "Built an intelligent voice agent using Microsoft Copilot Studio with advanced agentic AI capabilities, IVR integration, and ServiceNow MCP connectivity for seamless enterprise automation.",
+    "Enterprise-grade voice agent powered by Microsoft Copilot Studio, featuring advanced agentic AI, IVR system integration, and ServiceNow MCP connectivity. Demonstrates autonomous decision-making, context awareness, and seamless enterprise system integration for next-generation customer and employee interactions.",
   components: [
     {
       type: "text",

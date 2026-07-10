@@ -1,11 +1,11 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Doctor Appointment Booking Agent",
+  title: "Autonomous Appointment Booking Assistant",
   theme: "dark",
   category: "ai",
   tags: ["agentic-ai", "copilot-studio"],
-  description: "From CPA to APA: Building an Agentic AI Doctor Appointment Booking System using Natural Language Understanding",
+  description: "AI-powered healthcare solution enabling patients to book appointments through natural language conversations. Integrates with Google Calendar and Telegram for real-time scheduling, confirmation, and reminders. Demonstrates CPA to APA evolution through autonomous decision-making and multi-channel communication.",
   components: [
     {
       type: "text",

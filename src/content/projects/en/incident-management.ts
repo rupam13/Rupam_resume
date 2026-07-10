@@ -1,11 +1,11 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Incident Management",
+  title: "ITIL-Compliant Incident Lifecycle Management",
   theme: "dark",
   category: "servicenow",
   tags: ["servicenow", "node", "postgresql"],
-  description: "Comprehensive incident management solution following ITIL best practices. Ensures rapid resolution and minimal business impact.",
+  description: "Production-grade incident management solution adhering to ITIL 4 best practices. Orchestrates end-to-end incident lifecycle from detection through resolution with intelligent severity assessment, automated escalation policies, and comprehensive root cause analysis. Minimizes mean time to recovery (MTTR) and ensures business continuity.",
   components: [
     {
       type: "text",
