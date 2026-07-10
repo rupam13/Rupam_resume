@@ -11,60 +11,7 @@ export default {
     {
       type: "text",
       props: {
-        text: "Next Generation\nOf AI Voice Systems",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "Embrace AI chatbot technology in a GPT-4 supported communication tool to help your customers, empower your team and reduce your workload",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎯 THE CHALLENGE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "Customers wait on hold for hours. Manual IVR frustrates users. Your support team drowns in repetitive calls.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🌟 OUR DIFFERENCE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "You Simply Can't Find These in a Generic AI Tool",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "[FEATURE] 60% Reduction in Call Volume - Intelligent routing eliminates queue bottlenecks",
-          "[FEATURE] 24/7 Availability Without Hiring - Always-on support, always understanding",
-          "[FEATURE] 80% First-Contact Resolution - Smart decisions reduce transfers",
-          "[FEATURE] Seamless ServiceNow Integration - Enterprise systems sync instantly",
-        ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n💡 HOW IT WORKS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "Customer calls → Natural language understanding → Real-time ServiceNow access → Autonomous intelligent decisions → Instant resolution or seamless human handoff",
+        text: "◇ INTELLIGENT VOICE AGENT SYSTEM\n⪢ Next Generation AI Communication",
       },
     },
     {
@@ -74,22 +21,118 @@ export default {
       },
     },
     {
+      type: "text",
+      props: {
+        text: "⊙ KEY PERFORMANCE METRICS",
+      },
+    },
+    {
       type: "list",
       props: {
         items: [
-          "🎤 Natural Language Understanding",
-          "🤖 Agentic AI - Autonomous decisions",
-          "📞 IVR Integration - Seamless phone systems",
-          "🔗 ServiceNow MCP - Enterprise data access",
-          "🌐 Multi-channel Support - Phone, chat, email",
-          "📊 Real-time Analytics - Performance insights",
+          "↑ 60% Call Volume Reduction",
+          "⊙ 24/7 Continuous Availability",
+          "⊙ 80% First-Contact Resolution",
+          "⊙ <1s Response Time",
         ],
       },
     },
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛠️ TECHNOLOGY STACK\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "◆ THE CHALLENGE ANALYZED",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "Customers queue on hold for extended periods. Manual IVR systems frustrate users. Support teams drown in repetitive calls instead of solving complex issues.",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "→ SYSTEM ARCHITECTURE →",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "[AI] Natural Language Understanding",
+          "[AI] Autonomous Decision Engine",
+          "[INTEGRATION] ServiceNow MCP",
+          "[INTEGRATION] IVR System Sync",
+          "[ANALYTICS] Real-time Monitoring",
+          "[ANALYTICS] Performance Dashboards",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "⟳ OPERATIONAL FLOW",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "[ CALL INCOMING ] → [ AI ANALYSIS ] → [ INTELLIGENT ROUTING ] → [ INSTANT RESOLUTION ] → [ SYSTEM INTEGRATION ]",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "◆ CORE CAPABILITIES",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "⚡ Natural Language Understanding Engine",
+          "⚡ Agentic AI - Autonomous Decision Making",
+          "⚡ IVR Seamless Integration",
+          "⚡ ServiceNow Enterprise Data Access",
+          "⚡ Multi-Channel Communication Support",
+          "⚡ Real-time Analytics & Insights",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "⊕ TECHNOLOGY STACK",
       },
     },
     {
@@ -98,8 +141,8 @@ export default {
         items: [
           "Microsoft Copilot Studio",
           "Agentic AI Framework",
-          "IVR System Integration",
-          "ServiceNow MCP",
+          "IVR System Interface",
+          "ServiceNow MCP Protocol",
           "Natural Language Processing",
         ],
       },
@@ -116,13 +159,13 @@ export default {
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n👥 IDEAL FOR\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "Customer Service Managers | IT Directors | Operations Leaders seeking to reduce support costs while dramatically improving customer satisfaction.",
+        text: "▶ IDEAL FOR → Customer Service Managers | IT Directors | Operations Leaders seeking to reduce support costs while dramatically improving customer satisfaction.",
       },
     },
   ],
