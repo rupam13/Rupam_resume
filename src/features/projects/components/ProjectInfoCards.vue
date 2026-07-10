@@ -16,10 +16,13 @@ const currentCardIndex = ref(0);
 const getDisplayCards = computed(() => {
   if (props.cards.length <= 3) return props.cards;
 
-  const cards = [];
+  const cards: typeof props.cards = [];
   for (let i = 0; i < 3; i++) {
     const index = (currentCardIndex.value + i) % props.cards.length;
-    cards.push(props.cards[index]);
+    const card = props.cards[index];
+    if (card) {
+      cards.push(card);
+    }
   }
   return cards;
 });
@@ -47,17 +50,18 @@ onUnmounted(() => {
     <div class="cards-container">
       <div
         v-for="(card, index) in getDisplayCards"
-        :key="`${card.title}-${index}`"
+        v-show="card"
+        :key="`${card?.title}-${index}`"
         class="info-card"
       >
         <div class="card-header">
-          <div class="card-icon">{{ card.icon }}</div>
-          <h3 class="card-title">{{ card.title }}</h3>
+          <div class="card-icon">{{ card?.icon }}</div>
+          <h3 class="card-title">{{ card?.title }}</h3>
         </div>
         <div class="card-divider"></div>
         <div class="card-content">
           <ul class="card-list">
-            <li v-for="(item, itemIndex) in card.content" :key="`${item}-${itemIndex}`" class="card-item">
+            <li v-for="(item, itemIndex) in card?.content" :key="`${item}-${itemIndex}`" class="card-item">
               {{ item }}
             </li>
           </ul>
