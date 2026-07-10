@@ -7,6 +7,12 @@ export default [
     thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/ai-voice-agent.png",
     description: "60% call reduction | 24/7 availability | 80% first-contact resolution. Enterprise voice AI with autonomous decision-making.",
     category: "ai",
+    metrics: [
+      { label: "Call Reduction", value: 60, max: 100 },
+      { label: "Availability", value: "24/7" },
+      { label: "Resolution Rate", value: 80, max: 100 },
+      { label: "Enterprise Ready", value: 95, max: 100 },
+    ],
   },
   {
     title: "Autonomous Appointment Booking Assistant",
@@ -14,6 +20,12 @@ export default [
     thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/ai-appointment-booking.png",
     description: "70% no-show reduction | 90% auto-booked | 24/7 available. AI healthcare scheduling that eliminates manual work.",
     category: "ai",
+    metrics: [
+      { label: "No-Show Reduction", value: 70, max: 100 },
+      { label: "Auto-Booked", value: 90, max: 100 },
+      { label: "Availability", value: "24/7" },
+      { label: "Efficiency", value: 85, max: 100 },
+    ],
   },
   {
     title: "Intelligent Email Triage & Organization System",
@@ -21,6 +33,12 @@ export default [
     thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/ai-email-triage.png",
     description: "90% auto-sorted | 8 hours/week saved | Zero lost emails. Intelligent email organization powered by AI.",
     category: "ai",
+    metrics: [
+      { label: "Auto-Sorted", value: 90, max: 100 },
+      { label: "Time Saved", value: "8hrs/week" },
+      { label: "Accuracy", value: 92, max: 100 },
+      { label: "Zero Lost Emails", value: 100, max: 100 },
+    ],
   },
   {
     title: "Enterprise Policy Intelligence Assistant",
@@ -28,6 +46,12 @@ export default [
     thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/ai-policy-assistant.png",
     description: "95% instant answers | 80% less HR tickets | 24/7 available. Enterprise policy intelligence at your fingertips.",
     category: "ai",
+    metrics: [
+      { label: "Instant Answers", value: 95, max: 100 },
+      { label: "HR Ticket Reduction", value: 80, max: 100 },
+      { label: "Compliance Score", value: 98, max: 100 },
+      { label: "Availability", value: "24/7" },
+    ],
   },
   {
     title: "Intelligent Ticket Management & Resolution Platform",
@@ -35,6 +59,12 @@ export default [
     thumbnail: "https://via.placeholder.com/600x400/2e7d32/ffffff?text=🎫%20Ticket%20Mgmt",
     description: "85% SLA compliance | 40% faster resolution | Zero lost tickets. Intelligent ticket management system.",
     category: "servicenow",
+    metrics: [
+      { label: "SLA Compliance", value: 85, max: 100 },
+      { label: "Speed Improvement", value: 40, max: 100 },
+      { label: "Zero Lost Tickets", value: 100, max: 100 },
+      { label: "Team Satisfaction", value: 88, max: 100 },
+    ],
   },
   {
     title: "Intelligent Business Process Automation Engine",
@@ -42,6 +72,12 @@ export default [
     thumbnail: "https://via.placeholder.com/600x400/4caf50/ffffff?text=⚙️%20Workflows",
     description: "70% cycle time reduction | 90% cost savings | Instant approvals. Transform manual processes into automated workflows.",
     category: "servicenow",
+    metrics: [
+      { label: "Cycle Time Reduction", value: 70, max: 100 },
+      { label: "Cost Savings", value: 90, max: 100 },
+      { label: "Process Consistency", value: 100, max: 100 },
+      { label: "Approval Speed", value: 95, max: 100 },
+    ],
   },
   {
     title: "ITIL-Compliant Incident Lifecycle Management",
@@ -49,5 +85,11 @@ export default [
     thumbnail: "https://via.placeholder.com/600x400/009688/ffffff?text=🚨%20Incidents",
     description: "75% MTTR reduction | 100% incident tracking | Zero dropped issues. ITIL-compliant incident management.",
     category: "servicenow",
+    metrics: [
+      { label: "MTTR Reduction", value: 75, max: 100 },
+      { label: "Incident Tracking", value: 100, max: 100 },
+      { label: "ITIL Compliance", value: 100, max: 100 },
+      { label: "Team Efficiency", value: 88, max: 100 },
+    ],
   },
 ] as const satisfies ProjectPreview[];

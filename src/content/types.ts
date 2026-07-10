@@ -22,10 +22,17 @@ export interface SkillContent {
   bullets: string[];
 }
 
+export interface Metric {
+  label: string;
+  value: number | string;
+  max?: number;
+}
+
 export interface ProjectPreview {
   title: string;
   slug: string;
   thumbnail: string;
   description: string;
   category?: string;
+  metrics?: Metric[];
 }

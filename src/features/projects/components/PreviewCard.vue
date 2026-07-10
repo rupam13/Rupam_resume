@@ -75,6 +75,20 @@ onUnmounted(() => {
         <h3 class="preview-card-title">{{ props.preview.title }}</h3>
         <p class="preview-card-description">{{ props.preview.description }}</p>
       </div>
+      <div class="preview-card-metrics" v-if="props.preview.metrics && props.preview.metrics.length > 0">
+        <div class="metrics-grid">
+          <div class="metric-item" v-for="(metric, index) in props.preview.metrics" :key="index">
+            <div class="metric-label">{{ metric.label }}</div>
+            <div v-if="typeof metric.value === 'number' && metric.max" class="metric-bar-container">
+              <div class="metric-bar">
+                <div class="metric-bar-fill" :style="{ width: `${(metric.value / metric.max) * 100}%` }"></div>
+              </div>
+              <div class="metric-value">{{ metric.value }}%</div>
+            </div>
+            <div v-else class="metric-value-text">{{ metric.value }}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </Link>
 
@@ -240,6 +254,14 @@ onUnmounted(() => {
     font-weight: 500;
   }
 
+  &-metrics {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+  }
+
   &-add-project {
     .preview-card-top-empty {
       border-color: var(--color-accent-400);
@@ -270,5 +292,61 @@ onUnmounted(() => {
       font-size: var(--font-size-sm);
     }
   }
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.metric-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-300);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.metric-bar-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.metric-bar {
+  flex: 1;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.metric-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.metric-value {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-accent-400);
+  min-width: 35px;
+  text-align: right;
+}
+
+.metric-value-text {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-accent-400);
 }
 </style>
