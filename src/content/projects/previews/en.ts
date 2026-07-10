@@ -4,7 +4,7 @@ export default [
   {
     title: "Intelligent Voice Agent with Enterprise Integration",
     slug: "ai-voice-agent",
-    thumbnail: "/images/thumbnails/ai-voice-agent.png",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/ai-voice-agent.png",
     description: "Enterprise-grade voice agent with agentic AI & ServiceNow integration",
     category: "ai",
   },
