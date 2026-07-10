@@ -279,5 +279,34 @@ watch(projectId, () => {
       max-height: 400px;
     }
   }
+
+  /* BUTTON STYLING OVERRIDES FOR CARTOON THEME */
+  .project-hero-button {
+    :deep(.button-wrapper) {
+      border-radius: 12px !important;
+      border: 3px solid #2d2a24 !important;
+      box-shadow: 4px 4px 0px #2d2a24 !important;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      
+      &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #2d2a24 !important;
+        background-color: var(--color-accent-400, #ff8400) !important;
+        color: #ffffff !important;
+      }
+    }
+    
+    // For source-code button which is variant border
+    &:nth-child(2) :deep(.button-wrapper) {
+      background-color: #fcfbf9 !important;
+      color: #2d2a24 !important;
+      border-color: #2d2a24 !important;
+      
+      &:hover {
+        background-color: #2d2a24 !important;
+        color: #ffffff !important;
+      }
+    }
+  }
 }
 </style>

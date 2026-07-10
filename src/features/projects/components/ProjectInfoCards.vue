@@ -440,6 +440,14 @@ const getCardStyle = (index: number) => {
     height: 48px;
     box-shadow: 2px 2px 0px #2d2a24;
     font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-icon {
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .card-title {
@@ -516,6 +524,10 @@ const getCardStyle = (index: number) => {
   .info-card-wrapper:hover {
     .info-card {
       box-shadow: 10px 10px 0px 0px #2d2a24;
+    }
+    
+    .card-icon {
+      transform: scale(1.22) rotate(10deg);
     }
   }
 }

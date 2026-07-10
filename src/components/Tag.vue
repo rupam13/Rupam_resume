@@ -91,6 +91,60 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       background-color: #95630e;
       color: white;
     }
+
+    &-copilot-studio {
+      background-color: #0099b8;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(-1.2deg);
+    }
+
+    &-agentic-ai {
+      background-color: #db0062;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(1deg);
+    }
+
+    &-ivr {
+      background-color: #1aa34a;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(-1.5deg);
+    }
+
+    &-servicenow {
+      background-color: #fcfbf9;
+      color: #2d2a24;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(1.5deg);
+    }
+
+    &-mcp {
+      background-color: #2d2a24;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(-0.8deg);
+    }
+  }
+
+  &-variant-copilot-studio,
+  &-variant-agentic-ai,
+  &-variant-ivr,
+  &-variant-servicenow,
+  &-variant-mcp {
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+
+    &:hover {
+      transform: scale(1.08) rotate(0deg);
+      box-shadow: 4px 4px 0px #2d2a24;
+    }
   }
 }
 </style>
