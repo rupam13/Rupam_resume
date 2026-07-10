@@ -1,7 +1,2 @@
-import { locale } from "../store";
-
-import type { Locale } from "../types";
-
-export const changeLocale = (newLocale: Locale) => {
-  locale.value = newLocale;
-};
+// Language switching disabled - English only
+// All locales are now set to "en" by default in useTranslations composable
