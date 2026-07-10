@@ -8,18 +8,21 @@ export default {
   description:
     "Transform customer support from reactive to proactive with AI that understands context, handles complexity, and integrates with your enterprise systems. 60% reduction in call volume | 24/7 availability | 80% first-contact resolution.",
   components: [
+    // Hero section
     {
       type: "text",
       props: {
-        text: "INTELLIGENT VOICE AGENT\nNext Generation AI Communication System",
+        text: "🎯 INTELLIGENT VOICE AGENT",
       },
     },
     {
       type: "text",
       props: {
-        text: "Enterprise-grade voice agent powered by advanced AI. Transform support operations with autonomous decision-making, real-time integration, and customer-first automation.",
+        text: "Enterprise-grade AI that transforms customer support operations. Get instant answers, reduce costs, and empower your team with autonomous intelligence.",
       },
     },
+
+    // Key metrics showcase
     {
       type: "infoCards",
       props: {
@@ -54,117 +57,66 @@ export default {
               "Scalable architecture",
             ],
           },
-          {
-            title: "Business Impact",
-            icon: "💰",
-            content: [
-              "Reduce support costs significantly",
-              "Improve customer satisfaction",
-              "Empower support teams",
-              "Drive revenue growth",
-            ],
-          },
         ],
       },
     },
+
+    // Divider
+    {
+      type: "text",
+      props: {
+        text: "",
+      },
+    },
+
+    // Problem & Solution
     {
       type: "infoCards",
       props: {
         cards: [
           {
-            title: "Performance",
-            icon: "📊",
+            title: "The Problem",
+            icon: "😞",
             content: [
-              "60% call reduction",
-              "24/7 availability",
-              "80% first-contact resolution",
-              "Sub-1 second response",
-            ],
-          },
-          {
-            title: "Intelligence",
-            icon: "🧠",
-            content: [
-              "Natural language processing",
-              "Context understanding",
-              "Autonomous decisions",
-              "Continuous learning",
-            ],
-          },
-          {
-            title: "Integration",
-            icon: "🔗",
-            content: [
-              "ServiceNow native",
-              "IVR compatible",
-              "Multi-channel support",
-              "Real-time sync",
-            ],
-          },
-        ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "KEY PERFORMANCE METRICS",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "60% Reduction in Call Volume - Intelligent routing and automation eliminate queue bottlenecks",
-          "24/7 Continuous Availability - Always-on support means never missing customer interactions",
-          "80% First-Contact Resolution - Smart decisions reduce unnecessary transfers and callbacks",
-          "Sub-1 Second Response Time - Instant engagement without frustrating delays",
-          "Enterprise System Integration - Seamless ServiceNow, CRM, and backend connectivity",
-        ],
-      },
-    },
-    {
-      type: "infoCards",
-      props: {
-        cards: [
-          {
-            title: "The Challenge",
-            icon: "⚠️",
-            content: [
-              "Long hold times frustrate customers",
-              "Manual IVR systems fail to resolve issues",
-              "Support teams spend 80% on repetitive work",
-              "Lost revenue from customer abandonment",
+              "Customers wait on hold for hours",
+              "Manual IVR systems fail to resolve",
+              "80% of support time on repetitive work",
+              "Revenue lost to customer abandonment",
             ],
           },
           {
             title: "The Solution",
             icon: "✨",
             content: [
-              "AI understands natural language",
+              "AI that understands context",
               "Autonomous intelligent decisions",
-              "Seamless system integration",
+              "Seamless enterprise integration",
               "Instant personalized resolution",
             ],
           },
           {
-            title: "The Impact",
+            title: "The Outcome",
             icon: "🎯",
             content: [
-              "Customers get immediate help",
+              "Immediate customer satisfaction",
               "Support teams focus on strategy",
-              "Measurable ROI in weeks",
+              "ROI measurable in weeks",
               "Enterprise-grade reliability",
             ],
           },
         ],
       },
     },
+
+    // Divider
+    {
+      type: "text",
+      props: {
+        text: "",
+      },
+    },
+
+    // Technical deep dive
     {
       type: "infoCards",
       props: {
@@ -173,33 +125,32 @@ export default {
             title: "How It Works",
             icon: "⚙️",
             content: [
-              "Incoming call detected",
-              "Natural language understanding",
-              "Real-time data access",
-              "Intelligent decision making",
-              "Instant resolution or handoff",
-              "Complete context transfer",
+              "Incoming call → Natural language understanding",
+              "Real-time data access to customer history",
+              "Intelligent autonomous decision making",
+              "Instant resolution or smart handoff",
+              "Complete context transfer if needed",
             ],
           },
           {
-            title: "Core Capabilities",
-            icon: "⚡",
+            title: "Capabilities",
+            icon: "🚀",
             content: [
               "NLU engine with sentiment analysis",
-              "Autonomous decision-making",
+              "Autonomous decision-making with guardrails",
               "Real-time ServiceNow integration",
-              "Multi-channel support",
-              "Real-time analytics",
+              "Multi-channel support (phone, chat, email)",
+              "Real-time analytics dashboard",
               "Custom workflow integration",
             ],
           },
           {
-            title: "Technology Stack",
+            title: "Technology",
             icon: "🛠️",
             content: [
               "Microsoft Copilot Studio",
               "Agentic AI Framework",
-              "GPT-4 language understanding",
+              "GPT-4 powered NLP",
               "ServiceNow MCP",
               "IVR System integration",
               "Real-time analytics engine",
@@ -208,12 +159,16 @@ export default {
         ],
       },
     },
+
+    // Divider
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "",
       },
     },
+
+    // LinkedIn embed
     {
       type: "embed",
       props: {
@@ -223,28 +178,46 @@ export default {
         title: "AI-Powered Voice Agent LinkedIn Post",
       },
     },
+
+    // Divider
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "",
+      },
+    },
+
+    // Use cases
+    {
+      type: "text",
+      props: {
+        text: "👥 IDEAL FOR",
       },
     },
     {
       type: "text",
       props: {
-        text: "IDEAL FOR\n\nCustomer Service Directors | IT Operations Leaders | Enterprise Support Managers seeking to reduce support costs by 60% while dramatically improving customer satisfaction and employee productivity.",
+        text: "Customer Service Directors | IT Operations Leaders | Enterprise Support Managers who want to reduce costs by 60% while improving customer satisfaction and freeing their teams to focus on high-value work.",
+      },
+    },
+
+    // CTA
+    {
+      type: "text",
+      props: {
+        text: "",
       },
     },
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "🚀 READY TO TRANSFORM YOUR SUPPORT?",
       },
     },
     {
       type: "text",
       props: {
-        text: "READY TO TRANSFORM YOUR SUPPORT OPERATIONS?\n\nSchedule a demo to see the Voice Agent in action. Discover how enterprise teams are cutting support costs and increasing customer satisfaction scores.",
+        text: "See how enterprise teams are cutting support costs, improving satisfaction scores, and empowering their teams with AI-powered intelligence. Schedule a live demo today.",
       },
     },
   ],
