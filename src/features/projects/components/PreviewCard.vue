@@ -3,7 +3,7 @@ import Link from "../../../components/Link.vue";
 import Notch from "../../../components/Notch.vue";
 import ArrowRightLong from "../../../components/icons/ArrowRightLong.vue";
 import gsap from "gsap";
-import { onMounted, onUnmounted, ref, computed } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonRound from "../../../components/ButtonRound.vue";
 import { t } from "../../../i18n/utils/translate";
@@ -14,32 +14,10 @@ import type { ProjectPreview } from "../../../content/types";
 const tlRef = ref<gsap.core.Timeline | null>(null);
 const wrapperRef = ref<HTMLDivElement | null>(null);
 const imageRef = ref<HTMLImageElement | null>(null);
-const videoRef = ref<HTMLVideoElement | null>(null);
 
 const props = defineProps<{
   preview?: ProjectPreview;
 }>();
-
-const isVideoThumbnail = computed(() => {
-  return props.preview?.thumbnail?.endsWith(".mp4");
-});
-
-const handleMouseEnter = () => {
-  if (videoRef.value && isVideoThumbnail.value) {
-    videoRef.value.muted = false;
-    videoRef.value.play().catch(() => {
-      // Autoplay blocked, user will click to play
-    });
-  }
-};
-
-const handleMouseLeave = () => {
-  if (videoRef.value && isVideoThumbnail.value) {
-    videoRef.value.pause();
-    videoRef.value.currentTime = 0;
-    videoRef.value.muted = true;
-  }
-};
 
 onMounted(async () => {
   if (!wrapperRef.value || ScrollTrigger.isInViewport(wrapperRef.value)) {
@@ -76,11 +54,10 @@ onUnmounted(() => {
     data-hoversound="hover"
     v-if="props.preview"
   >
-    <div class="preview-card-top" ref="wrapperRef" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+    <div class="preview-card-top" ref="wrapperRef">
       <div class="preview-card-image-wrapper">
         <div class="preview-card-image-container">
-          <img v-if="!isVideoThumbnail" :src="props.preview.thumbnail" :alt="props.preview.title" class="preview-card-image" ref="imageRef" />
-          <video v-else :src="props.preview.thumbnail" class="preview-card-video" ref="videoRef" muted loop playsinline></video>
+          <img :src="props.preview.thumbnail" :alt="props.preview.title" class="preview-card-image" ref="imageRef" />
         </div>
       </div>
       <div class="preview-card-overlay">
@@ -222,12 +199,6 @@ onUnmounted(() => {
       overflow: hidden;
       background-color: var(--color-beige-500);
     }
-  }
-
-  &-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   &-top {
