@@ -27,24 +27,21 @@ const classes = computed(() => {
 <style scoped lang="scss">
 .text {
   line-height: var(--line-height-copy);
-  grid-column: 1 / 13;
+  width: 100%;
   font-size: var(--font-size-md);
   letter-spacing: 0.3px;
+  text-align: center;
 
   @include mixins.mq("md") {
-    grid-column: 1 / 13;
     font-size: var(--font-size-lg);
-  }
-
-  @include mixins.mq("lg") {
-    grid-column: 1 / 13;
   }
 
   &-with-title {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
-    grid-column: 1 / 13;
+    width: 100%;
+    align-items: center;
 
     @include mixins.mq("md") {
       gap: var(--space-lg);
@@ -58,6 +55,8 @@ const classes = computed(() => {
     color: var(--color-text-400);
     letter-spacing: -0.5px;
     margin-bottom: var(--space-sm);
+    width: 100%;
+    text-align: center;
 
     @include mixins.mq("md") {
       font-size: var(--font-size-title-md);
@@ -68,6 +67,8 @@ const classes = computed(() => {
     font-size: var(--font-size-md);
     line-height: 1.8;
     color: var(--color-text-300);
+    width: 100%;
+    text-align: center;
 
     @include mixins.mq("md") {
       font-size: var(--font-size-lg);
