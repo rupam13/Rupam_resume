@@ -4,7 +4,7 @@ export default [
   {
     title: "Intelligent Voice Agent with Enterprise Integration",
     slug: "ai-voice-agent",
-    thumbnail: "https://via.placeholder.com/600x400/667eea/ffffff?text=🎙️%20Voice%20Agent",
+    thumbnail: "/images/thumbnails/ai-voice-agent.png",
     description: "Enterprise-grade voice agent with agentic AI & ServiceNow integration",
     category: "ai",
   },
