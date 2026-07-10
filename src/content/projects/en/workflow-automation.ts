@@ -8,101 +8,141 @@ export default {
   description:
     "Transform manual processes into automated workflows. Remove bottlenecks and accelerate business operations. 70% cycle time reduction | 90% cost savings | Enterprise-grade reliability.",
   components: [
+    // Section 1: The Transformation
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "🎯 THE TRANSFORMATION",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "70% CYCLE TIME REDUCTION | 90% COST SAVINGS | INSTANT APPROVALS",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "❌ THE PROBLEM\nYour business processes are stuck in the past: email chains, manual approvals, repeated data entry, hand-offs between departments. A simple request takes weeks.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "✅ THE SOLUTION\nAn intelligent workflow engine that automates complex business processes. It handles conditional logic, parallel paths, approval routing, and system integrations—all orchestrated seamlessly across departments.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "70% reduction in process cycle time",
-          "90% cost savings on manual operations",
-          "100% consistency (no human variation)",
-          "Instant approvals (no waiting)",
-          "Better compliance & audit trails",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "❌",
+            title: "The Problem",
+            teaser: "Legacy manual operations",
+            content: [
+              "Messy email chains and approval delays",
+              "Repetitive data entry across systems",
+              "Slow hand-offs between departments",
+            ],
+          },
+          {
+            icon: "✅",
+            title: "The Solution",
+            teaser: "Intelligent Workflow Engine",
+            content: [
+              "ServiceNow Flow Designer visual orchestration",
+              "Smart parallel execution & logic",
+              "Seamless API connections between apps",
+            ],
+          },
+          {
+            icon: "📈",
+            title: "Business Impact",
+            teaser: "Efficiency that pays off",
+            content: [
+              "70% reduction in cycle times",
+              "90% cost savings on manual operations",
+              "100% process consistency and audits",
+            ],
+          },
         ],
       },
     },
+
+    // Section 2: Key Capabilities
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS",
+        text: "⚡ KEY CAPABILITIES",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "Process triggered → System evaluates conditions → Intelligent routing directs work → Parallel tasks execute simultaneously → Approvals happen automatically → All systems sync instantly → Process completes in hours, not weeks.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "💡 KEY CAPABILITIES",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "⚙️ Flow Designer - Build complex workflows visually",
-          "🧠 Intelligent Routing - Smart conditional logic",
-          "🔄 Parallel Execution - Multiple tasks simultaneously",
-          "✅ Smart Approvals - Conditional, dynamic routing",
-          "🔗 System Integration - Syncs data across platforms",
-          "📊 Analytics - Process metrics & bottleneck detection",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "⚙️",
+            title: "Flow Designer",
+            teaser: "Visual orchestration",
+            content: [
+              "Build complex steps visually",
+              "Define conditional branch paths",
+              "Set parallel department actions",
+            ],
+          },
+          {
+            icon: "🔄",
+            title: "Smart Approvals",
+            teaser: "Eliminate bottlenecks",
+            content: [
+              "Dynamic approval group routing",
+              "Automated escalation reminders",
+              "Conditional multi-stage sign-offs",
+            ],
+          },
+          {
+            icon: "🔗",
+            title: "Integration Hub",
+            teaser: "Connected ecosystem",
+            content: [
+              "Sync data instantly across databases",
+              "Custom webhook & API adapters",
+              "Performance analytics dashboard",
+            ],
+          },
         ],
       },
     },
+
+    // Section 3: Architecture & Use
     {
       type: "text",
       props: {
-        text: "🛠️ TECHNOLOGY STACK",
+        text: "🛠️ ARCHITECTURE & USE",
       },
     },
     {
-      type: "list",
+      type: "infoCards",
       props: {
-        items: [
-          "ServiceNow Flow Designer",
-          "Workflow Orchestration Engine",
-          "Smart Business Rules",
-          "System Integration APIs",
-          "Real-time Analytics",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "⚙️",
+            title: "How It Works",
+            teaser: "Step-by-step workflow",
+            content: [
+              "Workflow triggers via forms or APIs",
+              "Parallel tasks execute simultaneously",
+              "Approvals and integrations finalize",
+            ],
+          },
+          {
+            icon: "🛠️",
+            title: "Tech Stack",
+            teaser: "Robust foundation",
+            content: [
+              "ServiceNow Flow Designer",
+              "ServiceNow Integration Hub",
+              "Custom REST/JSON Adapters",
+            ],
+          },
+          {
+            icon: "👥",
+            title: "Ideal For",
+            teaser: "Who this helps",
+            content: [
+              "Process Managers & Admins",
+              "Business Analysts",
+              "Operations Directors",
+            ],
+          },
         ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "👥 IDEAL FOR\nProcess Managers | Business Analysts | Operations Directors seeking to eliminate manual work and accelerate business operations.",
       },
     },
   ],

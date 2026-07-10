@@ -8,101 +8,141 @@ export default {
   description:
     "Stop losing patients to scheduling friction. AI handles bookings 24/7 while patients enjoy natural conversations. 70% reduction in no-shows | Instant confirmations | Zero manual work.",
   components: [
+    // Section 1: The Transformation
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "🎯 THE TRANSFORMATION",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "70% NO-SHOW REDUCTION | 90% AUTO-BOOKED | 24/7 AVAILABLE",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "❌ THE PROBLEM\nPatients call but get voicemail. They forget confirmation details. Your staff spends hours on repetitive scheduling. Patients go to competitors.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "✅ THE SOLUTION\nAn AI scheduling assistant that understands patient needs, checks real-time availability, sends instant confirmations, and syncs with your calendar. Patients get 24/7 access. Your team gets their time back.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "70% reduction in no-shows",
-          "90% of bookings handled automatically",
-          "24/7 availability (never miss a booking)",
-          "5 hours/day saved per staff member",
-          "Instant patient confirmation & reminders",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "❌",
+            title: "The Problem",
+            teaser: "Voicemail loops & missed bookings",
+            content: [
+              "Patients calling after hours get voicemail",
+              "No-shows and appointment memory lapses",
+              "Staff spending hours on phone tag",
+            ],
+          },
+          {
+            icon: "✅",
+            title: "The Solution",
+            teaser: "24/7 Intelligent Booking AI",
+            content: [
+              "Conversational natural-language scheduler",
+              "Direct integration with calendar systems",
+              "Instant SMS/email confirmations",
+            ],
+          },
+          {
+            icon: "📈",
+            title: "Business Impact",
+            teaser: "Efficiency that pays off",
+            content: [
+              "70% reduction in client no-shows",
+              "90% of bookings handled automatically",
+              "5 hours/day saved per staff member",
+            ],
+          },
         ],
       },
     },
+
+    // Section 2: Key Capabilities
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS",
+        text: "⚡ KEY CAPABILITIES",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "Patient initiates conversation → AI understands medical needs & preferred times → System checks real-time availability → AI confirms appointment instantly → Calendar & reminder systems update automatically.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "💡 KEY CAPABILITIES",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "🤖 NLP Engine - Understands patient intent & medical context",
-          "📅 Calendar Integration - Real-time availability checking",
-          "💬 Multi-channel - Phone, SMS, web chat support",
-          "📧 Auto-confirmation - Instant SMS & email reminders",
-          "🔐 HIPAA Compliant - Secure healthcare data handling",
-          "📊 Analytics - No-show predictions & patterns",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "🤖",
+            title: "Natural Language",
+            teaser: "Empathetic conversation",
+            content: [
+              "Understands user intent & medical context",
+              "Multi-channel support (Phone, SMS, Web)",
+              "Real-time query handling & routing",
+            ],
+          },
+          {
+            icon: "📅",
+            title: "Calendar Sync",
+            teaser: "Instant booking logic",
+            content: [
+              "Checks live availability instantly",
+              "Schedules & updates calendars",
+              "Sends automated reminders & follow-ups",
+            ],
+          },
+          {
+            icon: "🔐",
+            title: "Compliance & Data",
+            teaser: "Enterprise reliability",
+            content: [
+              "HIPAA-compliant data handling",
+              "Secure patient data encryption",
+              "Full activity analytics & reports",
+            ],
+          },
         ],
       },
     },
+
+    // Section 3: Architecture & Use
     {
       type: "text",
       props: {
-        text: "🛠️ TECHNOLOGY STACK",
+        text: "🛠️ ARCHITECTURE & USE",
       },
     },
     {
-      type: "list",
+      type: "infoCards",
       props: {
-        items: [
-          "Natural Language Processing",
-          "Calendar Integration APIs",
-          "SMS/Email Automation",
-          "Healthcare Compliance (HIPAA)",
-          "Real-time Analytics Engine",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "⚙️",
+            title: "How It Works",
+            teaser: "Step-by-step workflow",
+            content: [
+              "Patient initiates booking request",
+              "AI analyzes preferred times & schedule",
+              "Database confirms and logs appointment",
+            ],
+          },
+          {
+            icon: "🛠️",
+            title: "Tech Stack",
+            teaser: "Robust foundation",
+            content: [
+              "Natural Language Processing Engine",
+              "Calendar Integration APIs",
+              "SMS/Email Automation Hub & HIPAA Vault",
+            ],
+          },
+          {
+            icon: "👥",
+            title: "Ideal For",
+            teaser: "Who this helps",
+            content: [
+              "Clinic Managers & Admins",
+              "Patient Coordinators",
+              "Teams seeking zero scheduling friction",
+            ],
+          },
         ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "👥 IDEAL FOR\nHealthcare Administrators | Clinic Managers | Patient Coordinators seeking to reduce scheduling headaches and improve patient experience.",
       },
     },
   ],

@@ -8,101 +8,141 @@ export default {
   description:
     "Eliminate ticket chaos with intelligent routing & automation. Support teams spend less time managing, more time solving. 85% SLA compliance | 40% faster resolution | Zero lost tickets.",
   components: [
+    // Section 1: The Transformation
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "🎯 THE TRANSFORMATION",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "85% SLA COMPLIANCE | 40% FASTER RESOLUTION | ZERO LOST TICKETS",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "❌ THE PROBLEM\nSupport tickets pile up in your inbox. Some get lost. Critical issues wait in queue. Your best people spend hours on ticket management instead of solving problems.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "✅ THE SOLUTION\nAn intelligent ServiceNow-based system that automatically routes tickets to the right team, prioritizes by urgency, tracks SLAs in real-time, and escalates when needed. Your team focuses on solving, not sorting.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "85% SLA compliance rate",
-          "40% faster resolution time",
-          "60% reduction in manual routing",
-          "Zero lost or forgotten tickets",
-          "Real-time visibility across all support",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "❌",
+            title: "The Problem",
+            teaser: "Manual sorting & SLA violations",
+            content: [
+              "Tickets pile up and get lost in inbox",
+              "Critical issues wait too long in queues",
+              "Repetitive sorting wastes engineering time",
+            ],
+          },
+          {
+            icon: "✅",
+            title: "The Solution",
+            teaser: "ServiceNow Routing Hub",
+            content: [
+              "Auto-routing based on category & expertise",
+              "Urgency prioritization & SLA tracking",
+              "Built-in escalations & notifications",
+            ],
+          },
+          {
+            icon: "📈",
+            title: "Business Impact",
+            teaser: "Efficiency that pays off",
+            content: [
+              "85% SLA compliance rate reached",
+              "40% reduction in resolution times",
+              "60% reduction in manual dispatching",
+            ],
+          },
         ],
       },
     },
+
+    // Section 2: Key Capabilities
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS",
+        text: "⚡ KEY CAPABILITIES",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "Ticket arrives → System analyzes content & priority → AI routes to best-fit team → SLA timer starts → Escalation rules activate if needed → Real-time tracking keeps everyone informed.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "💡 KEY CAPABILITIES",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "🎯 Intelligent Routing - Tickets go to right person first",
-          "⏱️ SLA Tracking - Real-time timer & alerts",
-          "📈 Priority Engine - Critical issues float to top",
-          "🔄 Auto-escalation - Issues escalate when stuck",
-          "📊 Analytics - Trends, bottlenecks, team performance",
-          "🔗 Enterprise Integration - Syncs across all systems",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "🎯",
+            title: "Intelligent Routing",
+            teaser: "Right team, first time",
+            content: [
+              "Classifies content automatically",
+              "Analyzes developer workload & skill",
+              "Assigns tickets without delay",
+            ],
+          },
+          {
+            icon: "⏱️",
+            title: "SLA & Alerts",
+            teaser: "SLA management",
+            content: [
+              "Real-time countdown timers",
+              "Escalation rules if SLA is breached",
+              "Push notifications for hot issues",
+            ],
+          },
+          {
+            icon: "📊",
+            title: "Analytics Hub",
+            teaser: "System oversight",
+            content: [
+              "Tracks bottlenecks and team load",
+              "Generates performance reports",
+              "Integrates with enterprise systems",
+            ],
+          },
         ],
       },
     },
+
+    // Section 3: Architecture & Use
     {
       type: "text",
       props: {
-        text: "🛠️ TECHNOLOGY STACK",
+        text: "🛠️ ARCHITECTURE & USE",
       },
     },
     {
-      type: "list",
+      type: "infoCards",
       props: {
-        items: [
-          "ServiceNow Platform",
-          "Intelligent Routing Engine",
-          "SLA Management System",
-          "Real-time Analytics",
-          "Enterprise API Integration",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "⚙️",
+            title: "How It Works",
+            teaser: "Step-by-step workflow",
+            content: [
+              "New support ticket is submitted",
+              "Platform routes ticket & starts SLA timer",
+              "Developers resolve and close ticket",
+            ],
+          },
+          {
+            icon: "🛠️",
+            title: "Tech Stack",
+            teaser: "Robust foundation",
+            content: [
+              "ServiceNow Platform Integration",
+              "Intelligent Routing Engine",
+              "Enterprise REST/SOAP APIs",
+            ],
+          },
+          {
+            icon: "👥",
+            title: "Ideal For",
+            teaser: "Who this helps",
+            content: [
+              "IT Service Managers",
+              "Support Team Leads",
+              "Operations Directors",
+            ],
+          },
         ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "👥 IDEAL FOR\nIT Service Managers | Support Team Leads | Operations Directors seeking to eliminate ticket chaos and improve team efficiency.",
       },
     },
   ],

@@ -5,113 +5,148 @@ export default {
   category: "ai",
   theme: "dark",
   tags: ["agentic-ai", "copilot-studio"],
+  heroEmbed: {
+    src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7362766749315817472?compact=1",
+    title: "Policy Q&A Agent - LinkedIn Post",
+  },
   description:
     "Stop policy confusion with instant answers. Employees get 24/7 access to company policies. 95% query resolution | Multi-department support | Compliance guaranteed.",
   components: [
+    // Section 1: The Transformation
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "🎯 THE TRANSFORMATION",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "95% INSTANT ANSWERS | 24/7 AVAILABLE | 80% LESS HR TICKETS",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "❌ THE PROBLEM\nEmployees constantly ask HR the same questions. Policy documents are buried in PDFs. Your HR team is drowning. Compliance gaps emerge from missing information.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "✅ THE SOLUTION\nAn AI assistant trained on all company policies that understands questions in natural language and returns clear, accurate answers from policy documents. Available 24/7 via Slack, Teams, or chat.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "95% of policy questions answered instantly",
-          "80% reduction in HR support tickets",
-          "24/7 availability (no after-hours waiting)",
-          "100% compliance (answers from official documents)",
-          "Multi-department coverage (HR, Finance, IT, Compliance)",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "❌",
+            title: "The Problem",
+            teaser: "Policy confusion & buried PDFs",
+            content: [
+              "Employees asking HR the same questions",
+              "Official documents buried in shared folders",
+              "HR teams drowning in repetitive tasks",
+            ],
+          },
+          {
+            icon: "✅",
+            title: "The Solution",
+            teaser: "Enterprise Policy Brain",
+            content: [
+              "NLP Q&A bot trained on policy documents",
+              "Replies instantly with exact document sources",
+              "Available 24/7 on Slack, Teams, and web",
+            ],
+          },
+          {
+            icon: "📈",
+            title: "Business Impact",
+            teaser: "Efficiency that pays off",
+            content: [
+              "95% of questions resolved instantly",
+              "80% reduction in HR support tickets",
+              "100% compliance via source-backed citations",
+            ],
+          },
         ],
       },
     },
+
+    // Section 2: Key Capabilities
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS",
+        text: "⚡ KEY CAPABILITIES",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "Employee asks question → AI searches policy database → System extracts relevant policy section → Answer is generated with source reference → Employee gets instant, verified answer.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "💡 KEY CAPABILITIES",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "📚 RAG System - Retrieves from policy documents",
-          "🧠 LLM Powered - Understands complex questions",
-          "📄 Vector Database - Fast, accurate policy search",
-          "💬 Multi-channel - Slack, Teams, email, web chat",
-          "🔐 Source-backed - Every answer cites the policy",
-          "📊 Analytics - Tracks trending questions & gaps",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "📚",
+            title: "RAG & LLM Engine",
+            teaser: "Smart retrieval system",
+            content: [
+              "Searches policy docs via Vector Database",
+              "Understands semantic context of queries",
+              "Generates natural conversational answers",
+            ],
+          },
+          {
+            icon: "💬",
+            title: "Multi-Channel",
+            teaser: "Where employees work",
+            content: [
+              "Direct integration with Slack & MS Teams",
+              "Web chat widget for internal portal",
+              "Email response automation",
+            ],
+          },
+          {
+            icon: "📊",
+            title: "Audit & Analytics",
+            teaser: "Compliance control",
+            content: [
+              "Tracks search trends & policy gaps",
+              "Every answer cites exact document & page",
+              "Secure access roles & permission controls",
+            ],
+          },
         ],
       },
     },
+
+    // Section 3: Architecture & Use
     {
       type: "text",
       props: {
-        text: "🛠️ TECHNOLOGY STACK",
+        text: "🛠️ ARCHITECTURE & USE",
       },
     },
     {
-      type: "list",
+      type: "infoCards",
       props: {
-        items: [
-          "Large Language Model (LLM)",
-          "Retrieval Augmented Generation (RAG)",
-          "Vector Database",
-          "Natural Language Understanding",
-          "Policy Management System",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "⚙️",
+            title: "How It Works",
+            teaser: "Step-by-step workflow",
+            content: [
+              "Employee asks a policy question",
+              "Vector DB retrieves matching policy sections",
+              "LLM compiles answer citing official sources",
+            ],
+          },
+          {
+            icon: "🛠️",
+            title: "Tech Stack",
+            teaser: "Robust foundation",
+            content: [
+              "Large Language Models (LLMs)",
+              "Retrieval Augmented Generation (RAG)",
+              "Vector Databases & Semantic Search",
+            ],
+          },
+          {
+            icon: "👥",
+            title: "Ideal For",
+            teaser: "Who this helps",
+            content: [
+              "HR & People Managers",
+              "Compliance & Audit Officers",
+              "IT & Operations Directors",
+            ],
+          },
         ],
-      },
-    },
-    {
-      type: "embed",
-      props: {
-        src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7362766749315817472?compact=1",
-        height: "399",
-        width: "504",
-        title: "Policy Q&A Agent - LinkedIn Post",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "👥 IDEAL FOR\nHR Managers | Compliance Officers | IT Directors seeking to scale policy knowledge across the organization without scaling headcount.",
       },
     },
   ],

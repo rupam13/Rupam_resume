@@ -8,101 +8,141 @@ export default {
   description:
     "Stop chaotic incident response. ITIL-compliant system brings order to crisis. 75% MTTR reduction | Automated escalation | Zero dropped issues.",
   components: [
+    // Section 1: The Transformation
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "🎯 THE TRANSFORMATION",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "75% MTTR REDUCTION | 100% INCIDENT TRACKING | ZERO DROPPED ISSUES",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "❌ THE PROBLEM\nProduction is down. Your team is scrambling. Who's on it? Is it escalated? Critical details lost in Slack. Follow-ups fall through cracks. Same incidents happen again.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "✅ THE SOLUTION\nAn ITIL 4-compliant incident management system that orchestrates the entire lifecycle: detection → assessment → escalation → resolution → learning. Every incident is documented, tracked, and analyzed.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "75% reduction in MTTR (Mean Time To Recovery)",
-          "100% incident traceability",
-          "Automated escalation (no lost issues)",
-          "Comprehensive root cause analysis",
-          "Prevents repeat incidents",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "❌",
+            title: "The Problem",
+            teaser: "Downtime panic & chaos",
+            content: [
+              "Production is down with no clear owner",
+              "Critical details lost in noisy chat threads",
+              "Same recurring incidents repeat",
+            ],
+          },
+          {
+            icon: "✅",
+            title: "The Solution",
+            teaser: "ITIL Lifecycle Control",
+            content: [
+              "ITIL 4 structured lifecycle tracking",
+              "Automated priority & severity triage",
+              "Embedded Root Cause Analysis (RCA)",
+            ],
+          },
+          {
+            icon: "📈",
+            title: "Business Impact",
+            teaser: "Efficiency that pays off",
+            content: [
+              "75% reduction in MTTR recovery time",
+              "100% incident traceability & logs",
+              "Zero dropped or forgotten crisis issues",
+            ],
+          },
         ],
       },
     },
+
+    // Section 2: Key Capabilities
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS",
+        text: "⚡ KEY CAPABILITIES",
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "Incident detected → System assesses severity → Automatic escalation based on impact → On-call team mobilized → Real-time communication & updates → Resolution tracked → Root cause analysis triggered → Preventive actions documented.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "💡 KEY CAPABILITIES",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "🚨 Smart Classification - Automatic severity & priority",
-          "📞 Auto-escalation - Right people notified instantly",
-          "📊 Real-time Dashboard - Visibility across all incidents",
-          "📝 Structured Communication - No info gets lost",
-          "🔍 RCA (Root Cause Analysis) - Learn to prevent repeats",
-          "📈 Compliance & Audit - Full ITIL compliance trail",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "🚨",
+            title: "Smart Triage",
+            teaser: "Instant classification",
+            content: [
+              "Determines severity & impact instantly",
+              "Alerts on-call engineers automatically",
+              "Spawns communication bridges",
+            ],
+          },
+          {
+            icon: "📞",
+            title: "Escalation Logic",
+            teaser: "Targeted alerts",
+            content: [
+              "Notifies tier-2/3 responders on delay",
+              "Updates status pages automatically",
+              "Triggers structured escalation flows",
+            ],
+          },
+          {
+            icon: "🔍",
+            title: "RCA Framework",
+            teaser: "Learn and prevent",
+            content: [
+              "Requires post-mortem document logging",
+              "Identifies root database or code bugs",
+              "Links incident history to target assets",
+            ],
+          },
         ],
       },
     },
+
+    // Section 3: Architecture & Use
     {
       type: "text",
       props: {
-        text: "🛠️ TECHNOLOGY STACK",
+        text: "🛠️ ARCHITECTURE & USE",
       },
     },
     {
-      type: "list",
+      type: "infoCards",
       props: {
-        items: [
-          "ServiceNow Platform",
-          "ITIL Framework Implementation",
-          "Incident Analytics Engine",
-          "Real-time Communication Hub",
-          "Root Cause Analysis System",
+        variant: "cartoon",
+        cards: [
+          {
+            icon: "⚙️",
+            title: "How It Works",
+            teaser: "Step-by-step workflow",
+            content: [
+              "Incident detected & priority assigned",
+              "Auto-alert notifies primary responder",
+              "RCA triggers post-incident learning",
+            ],
+          },
+          {
+            icon: "🛠️",
+            title: "Tech Stack",
+            teaser: "Robust foundation",
+            content: [
+              "ServiceNow Incident Console",
+              "Incident Analytics Engine",
+              "Communication Hub & On-Call Sync",
+            ],
+          },
+          {
+            icon: "👥",
+            title: "Ideal For",
+            teaser: "Who this helps",
+            content: [
+              "Incident & Crisis Managers",
+              "On-Call Site Reliability Engineers",
+              "IT Service Operations Directors",
+            ],
+          },
         ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "👥 IDEAL FOR\nIncident Managers | On-Call Engineers | IT Directors seeking to transform chaos into order and dramatically reduce downtime.",
       },
     },
   ],
