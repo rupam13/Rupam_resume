@@ -2,8 +2,8 @@ import type { ProjectContent } from "../../types";
 
 export default {
   title: "Autonomous Appointment Booking Assistant",
-  theme: "dark",
   category: "ai",
+  theme: "dark",
   tags: ["agentic-ai", "copilot-studio"],
   description:
     "Stop losing patients to scheduling friction. AI handles bookings 24/7 while patients enjoy natural conversations. 70% reduction in no-shows | Instant confirmations | Zero manual work.",
@@ -11,31 +11,61 @@ export default {
     {
       type: "text",
       props: {
-        text: "🎯 THE CHALLENGE\nPatients call to book appointments but get voicemail. They forget confirmation details. Your staff spends hours on repetitive scheduling. Patients go to competitors who make it easier.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "💡 THE INSIGHT\nWhat if patients could book appointments through natural conversation—anytime, anywhere? No phone tag. No forgotten details. Just instant confirmation.",
+        text: "70% NO-SHOW REDUCTION | 90% AUTO-BOOKED | 24/7 AVAILABLE",
       },
     },
     {
       type: "text",
       props: {
-        text: "✨ THE SOLUTION\nAn AI scheduling assistant that understands patient needs, checks real-time availability, sends instant confirmations via SMS/email, and syncs directly with your calendar system. Patients get 24/7 access. Your team gets their time back.",
+        text: "❌ THE PROBLEM\nPatients call but get voicemail. They forget confirmation details. Your staff spends hours on repetitive scheduling. Patients go to competitors.",
       },
     },
     {
       type: "text",
       props: {
-        text: "📊 THE IMPACT\n• 70% reduction in no-shows\n• 90% of bookings handled automatically\n• 24/7 availability (no lost business)\n• 5 hours/day saved per staff member\n• Instant patient confirmation",
+        text: "✅ THE SOLUTION\nAn AI scheduling assistant that understands patient needs, checks real-time availability, sends instant confirmations, and syncs with your calendar. Patients get 24/7 access. Your team gets their time back.",
       },
     },
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS\nPatient initiates conversation (phone, SMS, or web). AI understands their medical needs and preferred times. System checks real-time calendar availability. AI confirms appointment instantly. Calendar and reminder systems update automatically.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "70% reduction in no-shows",
+          "90% of bookings handled automatically",
+          "24/7 availability (never miss a booking)",
+          "5 hours/day saved per staff member",
+          "Instant patient confirmation & reminders",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "🔧 HOW IT WORKS",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "Patient initiates conversation → AI understands medical needs & preferred times → System checks real-time availability → AI confirms appointment instantly → Calendar & reminder systems update automatically.",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "💡 KEY CAPABILITIES",
       },
     },
     {
@@ -52,18 +82,27 @@ export default {
       },
     },
     {
-      type: "embed",
+      type: "text",
       props: {
-        src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7368910590255255552?compact=1",
-        height: "399",
-        width: "504",
-        title: "Doctor Appointment Booking Agent - LinkedIn Post",
+        text: "🛠️ TECHNOLOGY STACK",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "Natural Language Processing",
+          "Calendar Integration APIs",
+          "SMS/Email Automation",
+          "Healthcare Compliance (HIPAA)",
+          "Real-time Analytics Engine",
+        ],
       },
     },
     {
       type: "text",
       props: {
-        text: "👥 IDEAL FOR\nHealthcare Administrators | Clinic Managers | Patient Coordinators who want to reduce scheduling headaches and improve patient experience.",
+        text: "👥 IDEAL FOR\nHealthcare Administrators | Clinic Managers | Patient Coordinators seeking to reduce scheduling headaches and improve patient experience.",
       },
     },
   ],

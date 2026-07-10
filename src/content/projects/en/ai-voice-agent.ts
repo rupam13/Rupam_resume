@@ -11,31 +11,92 @@ export default {
     {
       type: "text",
       props: {
-        text: "🎯 THE CHALLENGE\nCustomers wait on hold for hours. Manual IVR systems frustrate users. Your support team is drowning in repetitive calls that could be handled instantly.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "💡 THE INSIGHT\nWhat if customers could have natural conversations with an AI that understands context, handles complex requests intelligently, and routes difficult issues to humans when needed—all integrated with your existing ServiceNow system?",
+        text: "60% CALL REDUCTION | 24/7 AVAILABILITY | 80% AUTO-RESOLVED",
       },
     },
     {
       type: "text",
       props: {
-        text: "✨ THE SOLUTION\nAn enterprise-grade voice agent powered by Microsoft Copilot Studio. It learns from every interaction, makes autonomous decisions, and seamlessly integrates with your entire IT ecosystem.",
+        text: "❌ THE PROBLEM\nCustomers call but wait on hold for hours. Manual IVR frustrates users. Your support team drowns in repetitive calls.",
       },
     },
     {
       type: "text",
       props: {
-        text: "📊 THE IMPACT\n• 60% reduction in incoming call volume\n• 24/7 availability (no more after-hours messages)\n• 80% of queries resolved on first contact\n• Significant cost savings on support operations",
+        text: "✅ THE SOLUTION\nAn enterprise-grade voice agent that understands natural language, makes intelligent decisions, and seamlessly integrates with ServiceNow. Customers get instant help. Your team gets their time back.",
       },
     },
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS\nThe system handles customer calls using natural language understanding, accesses real-time data from ServiceNow, makes intelligent decisions using agentic AI, and seamlessly transfers complex issues to human agents with full context.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "60% reduction in incoming call volume",
+          "24/7 availability (no after-hours messages)",
+          "80% of queries resolved on first contact",
+          "Significant cost savings on support operations",
+          "Higher customer satisfaction scores",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "🔧 HOW IT WORKS",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "Customer calls → AI listens with natural language understanding → Accesses real-time data from ServiceNow → Makes intelligent decisions autonomously → Handles simple issues OR seamlessly transfers to human with full context.",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "💡 KEY CAPABILITIES",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "🎤 Natural Language Understanding - Understands context & intent",
+          "🤖 Agentic AI - Autonomous decision-making & task execution",
+          "📞 IVR Integration - Seamless phone system connectivity",
+          "🔗 ServiceNow MCP - Real-time enterprise data access",
+          "🌐 Multi-channel Support - Phone, chat, email unified",
+          "📊 Real-time Analytics - Performance tracking & insights",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "🛠️ TECHNOLOGY STACK",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "Microsoft Copilot Studio",
+          "Agentic AI Framework",
+          "IVR System Integration",
+          "ServiceNow MCP",
+          "Natural Language Processing",
+        ],
       },
     },
     {
@@ -48,22 +109,9 @@ export default {
       },
     },
     {
-      type: "list",
-      props: {
-        items: [
-          "🎤 Microsoft Copilot Studio - Voice orchestration engine",
-          "🤖 Agentic AI - Autonomous decision-making & task execution",
-          "📞 IVR Integration - Seamless phone system connectivity",
-          "🔗 ServiceNow MCP - Real-time enterprise data access",
-          "🌐 Multi-channel Support - Phone, chat, email integration",
-          "🎯 Natural Language Understanding - Context-aware responses",
-        ],
-      },
-    },
-    {
       type: "text",
       props: {
-        text: "👥 IDEAL FOR\nCustomer Service Managers | IT Directors | Operations Leaders who want to reduce support costs while improving customer satisfaction.",
+        text: "👥 IDEAL FOR\nCustomer Service Managers | IT Directors | Operations Leaders seeking to reduce support costs while dramatically improving customer satisfaction.",
       },
     },
   ],

@@ -11,31 +11,61 @@ export default {
     {
       type: "text",
       props: {
-        text: "🎯 THE CHALLENGE\nProduction is down. Your team is scrambling. Who's on it? Is it being escalated? What's the status? Critical details get lost in Slack. Follow-ups fall through cracks. Root causes are never analyzed. The same incidents happen again.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "💡 THE INSIGHT\nWhat if incidents could follow a structured, proven process? Every issue tracked. Escalations automatic. Root causes analyzed. And the next incident prevented.",
+        text: "75% MTTR REDUCTION | 100% INCIDENT TRACKING | ZERO DROPPED ISSUES",
       },
     },
     {
       type: "text",
       props: {
-        text: "✨ THE SOLUTION\nAn ITIL 4-compliant incident management system that orchestrates the entire lifecycle: detection → assessment → escalation → resolution → learning. Every incident is documented, tracked, and analyzed.",
+        text: "❌ THE PROBLEM\nProduction is down. Your team is scrambling. Who's on it? Is it escalated? Critical details lost in Slack. Follow-ups fall through cracks. Same incidents happen again.",
       },
     },
     {
       type: "text",
       props: {
-        text: "📊 THE IMPACT\n• 75% reduction in MTTR (Mean Time To Recovery)\n• 100% incident traceability\n• Automated escalation (no lost issues)\n• Comprehensive root cause analysis\n• Prevents repeat incidents",
+        text: "✅ THE SOLUTION\nAn ITIL 4-compliant incident management system that orchestrates the entire lifecycle: detection → assessment → escalation → resolution → learning. Every incident is documented, tracked, and analyzed.",
       },
     },
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS\nIncident detected → System assesses severity → Automatic escalation based on impact → On-call team mobilized → Real-time communication & updates → Resolution tracked → Root cause analysis triggered → Preventive actions documented.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "75% reduction in MTTR (Mean Time To Recovery)",
+          "100% incident traceability",
+          "Automated escalation (no lost issues)",
+          "Comprehensive root cause analysis",
+          "Prevents repeat incidents",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "🔧 HOW IT WORKS",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "Incident detected → System assesses severity → Automatic escalation based on impact → On-call team mobilized → Real-time communication & updates → Resolution tracked → Root cause analysis triggered → Preventive actions documented.",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "💡 KEY CAPABILITIES",
       },
     },
     {
@@ -54,7 +84,25 @@ export default {
     {
       type: "text",
       props: {
-        text: "👥 IDEAL FOR\nIncident Managers | On-Call Engineers | IT Directors who want to transform chaos into order and dramatically reduce downtime.",
+        text: "🛠️ TECHNOLOGY STACK",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "ServiceNow Platform",
+          "ITIL Framework Implementation",
+          "Incident Analytics Engine",
+          "Real-time Communication Hub",
+          "Root Cause Analysis System",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "👥 IDEAL FOR\nIncident Managers | On-Call Engineers | IT Directors seeking to transform chaos into order and dramatically reduce downtime.",
       },
     },
   ],

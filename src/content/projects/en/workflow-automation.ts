@@ -11,31 +11,61 @@ export default {
     {
       type: "text",
       props: {
-        text: "🎯 THE CHALLENGE\nYour business processes are stuck in the past: email chains, manual approvals, repeated data entry, hand-offs between departments. A simple request takes weeks. Your teams are stuck in busy work instead of strategic work.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "💡 THE INSIGHT\nWhat if complex processes could run automatically? Approvals could flow intelligently. Data could sync seamlessly. And your team could focus on what matters.",
+        text: "70% CYCLE TIME REDUCTION | 90% COST SAVINGS | INSTANT APPROVALS",
       },
     },
     {
       type: "text",
       props: {
-        text: "✨ THE SOLUTION\nAn intelligent workflow engine that automates complex business processes. It handles conditional logic, parallel paths, approval routing, and system integrations—all orchestrated seamlessly across departments.",
+        text: "❌ THE PROBLEM\nYour business processes are stuck in the past: email chains, manual approvals, repeated data entry, hand-offs between departments. A simple request takes weeks.",
       },
     },
     {
       type: "text",
       props: {
-        text: "📊 THE IMPACT\n• 70% reduction in process cycle time\n• 90% cost savings on manual operations\n• 100% consistency (no human variation)\n• Instant approvals (no waiting)\n• Better compliance & audit trails",
+        text: "✅ THE SOLUTION\nAn intelligent workflow engine that automates complex business processes. It handles conditional logic, parallel paths, approval routing, and system integrations—all orchestrated seamlessly across departments.",
       },
     },
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS\nProcess triggered → System evaluates conditions → Intelligent routing directs work → Parallel tasks execute simultaneously → Approvals happen automatically → All systems sync instantly → Process completes in hours, not weeks.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "70% reduction in process cycle time",
+          "90% cost savings on manual operations",
+          "100% consistency (no human variation)",
+          "Instant approvals (no waiting)",
+          "Better compliance & audit trails",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "🔧 HOW IT WORKS",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "Process triggered → System evaluates conditions → Intelligent routing directs work → Parallel tasks execute simultaneously → Approvals happen automatically → All systems sync instantly → Process completes in hours, not weeks.",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "💡 KEY CAPABILITIES",
       },
     },
     {
@@ -54,7 +84,25 @@ export default {
     {
       type: "text",
       props: {
-        text: "👥 IDEAL FOR\nProcess Managers | Business Analysts | Operations Directors who want to eliminate manual work and accelerate business operations.",
+        text: "🛠️ TECHNOLOGY STACK",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "ServiceNow Flow Designer",
+          "Workflow Orchestration Engine",
+          "Smart Business Rules",
+          "System Integration APIs",
+          "Real-time Analytics",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "👥 IDEAL FOR\nProcess Managers | Business Analysts | Operations Directors seeking to eliminate manual work and accelerate business operations.",
       },
     },
   ],

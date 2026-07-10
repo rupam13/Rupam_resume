@@ -2,8 +2,8 @@ import type { ProjectContent } from "../../types";
 
 export default {
   title: "Intelligent Email Triage & Organization System",
-  theme: "dark",
   category: "ai",
+  theme: "dark",
   tags: ["agentic-ai", "copilot-studio"],
   description:
     "Turn email chaos into organized efficiency. AI sorts 1,000s of emails instantly. 90% automation rate | Perfect routing | Zero misses.",
@@ -11,31 +11,61 @@ export default {
     {
       type: "text",
       props: {
-        text: "🎯 THE CHALLENGE\nYour inbox receives hundreds of emails daily. Support tickets mixed with billing questions. Account issues buried in general inquiries. You waste hours sorting before work even begins. Critical issues get missed.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "💡 THE INSIGHT\nWhat if an AI could read and understand every email, instantly categorize it, and route it to the right team? No missed messages. No manual sorting. Just organized inbox.",
+        text: "90% AUTO-SORTED | ZERO LOST EMAILS | 8 HOURS/WEEK SAVED",
       },
     },
     {
       type: "text",
       props: {
-        text: "✨ THE SOLUTION\nAn intelligent email agent powered by NLP that reads incoming messages, understands context and intent, categorizes into the right labels automatically, and routes to appropriate teams in real-time.",
+        text: "❌ THE PROBLEM\nYour inbox receives hundreds of emails daily. Support tickets mixed with billing questions. Critical issues buried. You waste hours sorting before real work begins.",
       },
     },
     {
       type: "text",
       props: {
-        text: "📊 THE IMPACT\n• 90% of emails automatically sorted\n• 8 hours/week saved in manual categorization\n• 100% critical issues caught & routed\n• Consistent categorization (no human bias)\n• Faster first-response times across teams",
+        text: "✅ THE SOLUTION\nAn intelligent email agent powered by NLP that reads incoming messages, understands context, categorizes into the right labels automatically, and routes to appropriate teams in real-time.",
       },
     },
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS\nEmail arrives → AI reads subject, sender, content → NLP engine analyzes intent → System understands category (Technical, Billing, Account, Product, General) → Email automatically labeled & routed → Team acts immediately.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "90% of emails automatically sorted",
+          "8 hours/week saved in manual categorization",
+          "100% critical issues caught & routed",
+          "Consistent categorization (no human bias)",
+          "Faster first-response times across teams",
+        ],
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "🔧 HOW IT WORKS",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "Email arrives → AI reads subject, sender, content → NLP engine analyzes intent → System understands category (Technical, Billing, Account, Product, General) → Email automatically labeled & routed → Team acts immediately.",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "💡 KEY CAPABILITIES",
       },
     },
     {
@@ -52,18 +82,27 @@ export default {
       },
     },
     {
-      type: "embed",
+      type: "text",
       props: {
-        src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7365669102746599424?compact=1",
-        height: "399",
-        width: "504",
-        title: "Email Triage & Categorization Agent - LinkedIn Post",
+        text: "🛠️ TECHNOLOGY STACK",
+      },
+    },
+    {
+      type: "list",
+      props: {
+        items: [
+          "Natural Language Processing (NLP)",
+          "Machine Learning Classification",
+          "Email API Integration",
+          "Real-time Processing Engine",
+          "Pattern Analysis & Learning",
+        ],
       },
     },
     {
       type: "text",
       props: {
-        text: "👥 IDEAL FOR\nOperations Managers | Support Leaders | Business Analysts who want to eliminate inbox chaos and improve team efficiency.",
+        text: "👥 IDEAL FOR\nOperations Managers | Support Leaders | Business Analysts seeking to eliminate inbox chaos and improve team efficiency.",
       },
     },
   ],
