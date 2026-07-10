@@ -69,18 +69,17 @@ const getCardStyle = (index: number) => {
   if (!isCartoon.value) return {};
 
   const colors = [
-    { border: "#00f0ff", bg: "rgba(0, 240, 255, 0.04)", shadow: "#005f66" }, // Neon Cyan
-    { border: "#ff007f", bg: "rgba(255, 0, 127, 0.04)", shadow: "#660033" }, // Neon Pink
-    { border: "#00ff66", bg: "rgba(0, 255, 102, 0.04)", shadow: "#006629" }, // Neon Green
+    { border: "#0099b8", bg: "rgba(0, 153, 184, 0.07)" }, // Deep Cyan
+    { border: "#db0062", bg: "rgba(219, 0, 98, 0.07)" }, // Rich Magenta/Pink
+    { border: "#1aa34a", bg: "rgba(26, 163, 74, 0.07)" }, // Deep Green
   ];
 
-  const fallback = { border: "#00f0ff", bg: "rgba(0, 240, 255, 0.04)", shadow: "#005f66" };
+  const fallback = { border: "#0099b8", bg: "rgba(0, 153, 184, 0.07)" };
   const color = colors[index % colors.length] || fallback;
 
   return {
     "--neon-color": color.border,
     "--neon-bg": color.bg,
-    "--neon-shadow": color.shadow,
   };
 };
 </script>
@@ -410,9 +409,9 @@ const getCardStyle = (index: number) => {
   }
 
   .info-card {
-    background: #0d0d12;
-    border: 3.5px solid var(--neon-color);
-    box-shadow: 7px 7px 0px 0px #000;
+    background: #ffffff; /* crisp white background for light theme matching */
+    border: 3.5px solid #2d2a24; /* matches main text-color */
+    box-shadow: 7px 7px 0px 0px #2d2a24;
     border-radius: 20px;
     animation: none; /* remove glow animation */
     
@@ -422,7 +421,7 @@ const getCardStyle = (index: number) => {
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 50% 50%, var(--neon-bg) 0%, transparent 80%);
-      opacity: 0.8;
+      opacity: 0.55;
       pointer-events: none;
       z-index: 1;
       border-radius: 16px;
@@ -434,12 +433,12 @@ const getCardStyle = (index: number) => {
   }
 
   .card-icon-badge {
-    border: 2.5px solid var(--neon-color);
-    background: #161622;
+    border: 2.5px solid #2d2a24;
+    background: var(--neon-bg);
     border-radius: 50%;
     width: 48px;
     height: 48px;
-    box-shadow: 2px 2px 0px #000;
+    box-shadow: 2px 2px 0px #2d2a24;
     font-size: 26px;
   }
 
@@ -448,16 +447,16 @@ const getCardStyle = (index: number) => {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    color: #ffffff;
-    text-shadow: 1px 1px 0px #000;
+    color: #2d2a24;
+    text-shadow: none;
   }
 
   .card-divider {
     height: 3px;
     background: repeating-linear-gradient(
       45deg,
-      var(--neon-color),
-      var(--neon-color) 6px,
+      #2d2a24,
+      #2d2a24 6px,
       transparent 6px,
       transparent 12px
     );
@@ -467,20 +466,20 @@ const getCardStyle = (index: number) => {
 
   .card-teaser {
     font-size: 1.05rem;
-    color: #e2e2ec;
+    color: #5f5646; /* matches body text */
     font-weight: 700;
     line-height: 1.5;
     font-style: normal;
-    text-shadow: 1px 1px 0px #000;
+    text-shadow: none;
   }
 
   .card-item {
     font-size: var(--font-size-sm);
-    color: #e2e2ec;
+    color: #2d2a24;
     font-weight: 600;
     line-height: 1.5;
     padding-left: 20px;
-    text-shadow: 0.5px 0.5px 0px #000;
+    text-shadow: none;
 
     &::before {
       content: "⚡";
@@ -493,30 +492,30 @@ const getCardStyle = (index: number) => {
 
   .flip-hint-badge {
     background-color: var(--neon-color);
-    color: #000000;
+    color: #ffffff;
     font-weight: 900;
     font-size: 0.72rem;
     text-transform: uppercase;
     padding: 5px 12px;
     border-radius: 6px;
-    border: 2.5px solid #000000;
+    border: 2.5px solid #2d2a24;
     display: inline-block;
-    box-shadow: 2.5px 2.5px 0px #000000;
+    box-shadow: 2.5px 2.5px 0px #2d2a24;
     animation: badgePulse 2s ease-in-out infinite;
     letter-spacing: 0.05em;
 
     &.flip-back-badge {
-      background-color: #1a1a24;
-      color: var(--neon-color);
-      border-color: var(--neon-color);
-      box-shadow: 2px 2px 0px #000000;
+      background-color: #ffffff;
+      color: #2d2a24;
+      border-color: #2d2a24;
+      box-shadow: 2px 2px 0px #2d2a24;
       animation: none;
     }
   }
 
   .info-card-wrapper:hover {
     .info-card {
-      box-shadow: 10px 10px 0px 0px #000;
+      box-shadow: 10px 10px 0px 0px #2d2a24;
     }
   }
 }
