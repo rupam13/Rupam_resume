@@ -115,11 +115,30 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3), inset 0 0 20px rgba(102, 126, 234, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.5), inset 0 0 30px rgba(102, 126, 234, 0.15);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0 !important;
+  }
+}
+
 .preview-card {
   --hover: 0;
   position: relative;
   border-radius: var(--radius-xl);
   z-index: var(--z-index-layout);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  backdrop-filter: blur(10px);
+  animation: borderGlow 3s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
 
   &::after {
     content: "";
@@ -128,7 +147,7 @@ onUnmounted(() => {
     left: -8px;
     width: calc(100% + 16px);
     height: calc(100% + 16px);
-    background-color: var(--color-grayscale-400);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
     border-radius: var(--radius-xl);
     z-index: -1;
     opacity: 0;
@@ -257,9 +276,11 @@ onUnmounted(() => {
   &-metrics {
     margin-top: var(--space-md);
     padding: var(--space-md);
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.12) 100%);
     border-radius: var(--radius-md);
-    border: 1px solid rgba(102, 126, 234, 0.2);
+    border: 1.5px solid rgba(102, 126, 234, 0.35);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   &-add-project {
@@ -308,10 +329,11 @@ onUnmounted(() => {
 
 .metric-label {
   font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-300);
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
+  text-shadow: 0 1px 2px rgba(102, 126, 234, 0.1);
 }
 
 .metric-bar-container {
@@ -322,31 +344,61 @@ onUnmounted(() => {
 
 .metric-bar {
   flex: 1;
-  height: 6px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(102, 126, 234, 0.2);
+  border: 1.5px solid rgba(102, 126, 234, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .metric-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   border-radius: 3px;
-  transition: width 0.3s ease;
+  animation: progressFill 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .metric-value {
   font-size: var(--font-size-sm);
-  font-weight: 700;
-  color: var(--color-accent-400);
-  min-width: 35px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 38px;
   text-align: right;
+  letter-spacing: 0.5px;
 }
 
 .metric-value-text {
   font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--color-accent-400);
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 </style>
