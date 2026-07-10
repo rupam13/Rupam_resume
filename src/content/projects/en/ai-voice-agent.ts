@@ -11,80 +11,85 @@ export default {
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 THE TRANSFORMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "Next Generation\nOf AI Voice Systems",
       },
     },
     {
       type: "text",
       props: {
-        text: "60% CALL REDUCTION | 24/7 AVAILABILITY | 80% AUTO-RESOLVED",
+        text: "Embrace AI chatbot technology in a GPT-4 supported communication tool to help your customers, empower your team and reduce your workload",
       },
     },
     {
       type: "text",
       props: {
-        text: "❌ THE PROBLEM\nCustomers call but wait on hold for hours. Manual IVR frustrates users. Your support team drowns in repetitive calls.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎯 THE CHALLENGE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "✅ THE SOLUTION\nAn enterprise-grade voice agent that understands natural language, makes intelligent decisions, and seamlessly integrates with ServiceNow. Customers get instant help. Your team gets their time back.",
+        text: "Customers wait on hold for hours. Manual IVR frustrates users. Your support team drowns in repetitive calls.",
       },
     },
     {
       type: "text",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 BUSINESS IMPACT\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🌟 OUR DIFFERENCE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "You Simply Can't Find These in a Generic AI Tool",
       },
     },
     {
       type: "list",
       props: {
         items: [
-          "60% reduction in incoming call volume",
-          "24/7 availability (no after-hours messages)",
-          "80% of queries resolved on first contact",
-          "Significant cost savings on support operations",
-          "Higher customer satisfaction scores",
+          "[FEATURE] 60% Reduction in Call Volume - Intelligent routing eliminates queue bottlenecks",
+          "[FEATURE] 24/7 Availability Without Hiring - Always-on support, always understanding",
+          "[FEATURE] 80% First-Contact Resolution - Smart decisions reduce transfers",
+          "[FEATURE] Seamless ServiceNow Integration - Enterprise systems sync instantly",
         ],
       },
     },
     {
       type: "text",
       props: {
-        text: "🔧 HOW IT WORKS",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n💡 HOW IT WORKS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "text",
       props: {
-        text: "Customer calls → AI listens with natural language understanding → Accesses real-time data from ServiceNow → Makes intelligent decisions autonomously → Handles simple issues OR seamlessly transfers to human with full context.",
+        text: "Customer calls → Natural language understanding → Real-time ServiceNow access → Autonomous intelligent decisions → Instant resolution or seamless human handoff",
       },
     },
     {
       type: "text",
       props: {
-        text: "💡 KEY CAPABILITIES",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
       type: "list",
       props: {
         items: [
-          "🎤 Natural Language Understanding - Understands context & intent",
-          "🤖 Agentic AI - Autonomous decision-making & task execution",
-          "📞 IVR Integration - Seamless phone system connectivity",
-          "🔗 ServiceNow MCP - Real-time enterprise data access",
-          "🌐 Multi-channel Support - Phone, chat, email unified",
-          "📊 Real-time Analytics - Performance tracking & insights",
+          "🎤 Natural Language Understanding",
+          "🤖 Agentic AI - Autonomous decisions",
+          "📞 IVR Integration - Seamless phone systems",
+          "🔗 ServiceNow MCP - Enterprise data access",
+          "🌐 Multi-channel Support - Phone, chat, email",
+          "📊 Real-time Analytics - Performance insights",
         ],
       },
     },
     {
       type: "text",
       props: {
-        text: "🛠️ TECHNOLOGY STACK",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛠️ TECHNOLOGY STACK\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       },
     },
     {
@@ -111,7 +116,13 @@ export default {
     {
       type: "text",
       props: {
-        text: "👥 IDEAL FOR\nCustomer Service Managers | IT Directors | Operations Leaders seeking to reduce support costs while dramatically improving customer satisfaction.",
+        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n👥 IDEAL FOR\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "Customer Service Managers | IT Directors | Operations Leaders seeking to reduce support costs while dramatically improving customer satisfaction.",
       },
     },
   ],
