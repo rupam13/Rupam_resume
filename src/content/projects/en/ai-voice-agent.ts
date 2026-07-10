@@ -68,6 +68,43 @@ export default {
       },
     },
     {
+      type: "infoCards",
+      props: {
+        cards: [
+          {
+            title: "Performance",
+            icon: "📊",
+            content: [
+              "60% call reduction",
+              "24/7 availability",
+              "80% first-contact resolution",
+              "Sub-1 second response",
+            ],
+          },
+          {
+            title: "Intelligence",
+            icon: "🧠",
+            content: [
+              "Natural language processing",
+              "Context understanding",
+              "Autonomous decisions",
+              "Continuous learning",
+            ],
+          },
+          {
+            title: "Integration",
+            icon: "🔗",
+            content: [
+              "ServiceNow native",
+              "IVR compatible",
+              "Multi-channel support",
+              "Real-time sync",
+            ],
+          },
+        ],
+      },
+    },
+    {
       type: "text",
       props: {
         text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
@@ -92,107 +129,82 @@ export default {
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "THE CHALLENGE",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "Customers call support and wait on hold for hours. Manual IVR systems frustrate callers. Your support team spends 80% of their time on repetitive questions instead of solving complex issues. Every day, customers abandon calls and go to competitors.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "THE SOLUTION",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "An enterprise-grade voice agent that understands natural language, makes intelligent autonomous decisions, and integrates seamlessly with your ServiceNow and business systems. Customers get instant, personalized help. Your team gets their time back to focus on strategic work.",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "HOW IT WORKS",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "INCOMING CALL → Natural Language Understanding → Real-Time Data Access → Intelligent Decision Making → Instant Resolution or Smart Handoff → Complete Context Transfer",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "CORE CAPABILITIES",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "Natural Language Understanding Engine - Comprehends intent, sentiment, and context from customer speech",
-          "Agentic AI - Autonomous decision-making with guardrails and enterprise policies",
-          "Real-Time ServiceNow Integration - Access to tickets, knowledge base, and customer history instantly",
-          "IVR System Integration - Seamless connection to existing phone infrastructure",
-          "Multi-Channel Support - Phone, chat, email with consistent experience",
-          "Real-Time Analytics Dashboard - Performance metrics, quality monitoring, insights",
-          "Custom Workflow Integration - Connect to any backend system via APIs",
+        cards: [
+          {
+            title: "The Challenge",
+            icon: "⚠️",
+            content: [
+              "Long hold times frustrate customers",
+              "Manual IVR systems fail to resolve issues",
+              "Support teams spend 80% on repetitive work",
+              "Lost revenue from customer abandonment",
+            ],
+          },
+          {
+            title: "The Solution",
+            icon: "✨",
+            content: [
+              "AI understands natural language",
+              "Autonomous intelligent decisions",
+              "Seamless system integration",
+              "Instant personalized resolution",
+            ],
+          },
+          {
+            title: "The Impact",
+            icon: "🎯",
+            content: [
+              "Customers get immediate help",
+              "Support teams focus on strategy",
+              "Measurable ROI in weeks",
+              "Enterprise-grade reliability",
+            ],
+          },
         ],
       },
     },
     {
-      type: "text",
+      type: "infoCards",
       props: {
-        text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "TECHNOLOGY STACK",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "Microsoft Copilot Studio - AI orchestration platform",
-          "Agentic AI Framework - Autonomous decision-making system",
-          "Natural Language Processing - GPT-4 powered language understanding",
-          "ServiceNow MCP - Enterprise data connectivity",
-          "IVR System Integration - Phone system compatibility",
-          "Real-time Analytics Engine - Performance monitoring",
+        cards: [
+          {
+            title: "How It Works",
+            icon: "⚙️",
+            content: [
+              "Incoming call detected",
+              "Natural language understanding",
+              "Real-time data access",
+              "Intelligent decision making",
+              "Instant resolution or handoff",
+              "Complete context transfer",
+            ],
+          },
+          {
+            title: "Core Capabilities",
+            icon: "⚡",
+            content: [
+              "NLU engine with sentiment analysis",
+              "Autonomous decision-making",
+              "Real-time ServiceNow integration",
+              "Multi-channel support",
+              "Real-time analytics",
+              "Custom workflow integration",
+            ],
+          },
+          {
+            title: "Technology Stack",
+            icon: "🛠️",
+            content: [
+              "Microsoft Copilot Studio",
+              "Agentic AI Framework",
+              "GPT-4 language understanding",
+              "ServiceNow MCP",
+              "IVR System integration",
+              "Real-time analytics engine",
+            ],
+          },
         ],
       },
     },

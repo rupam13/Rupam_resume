@@ -14,6 +14,13 @@ export interface InfoCardsProps {
   cards: CardInfo[];
 }
 
+export interface SectionCardProps {
+  title: string;
+  icon?: string;
+  subtitle?: string;
+  content: Array<{ type: string; text?: string; items?: string[] }>;
+}
+
 export interface ProjectComponents {
   imageText: ImageTextProps;
   text: TextProps;
