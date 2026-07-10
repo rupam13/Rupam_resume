@@ -5,6 +5,10 @@ export default {
   category: "ai",
   theme: "dark",
   tags: ["agentic-ai", "copilot-studio"],
+  heroEmbed: {
+    src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7368910590255255552?compact=1",
+    title: "Autonomous Appointment Booking Assistant LinkedIn Post",
+  },
   description:
     "Stop losing patients to scheduling friction. AI handles bookings 24/7 while patients enjoy natural conversations. 70% reduction in no-shows | Instant confirmations | Zero manual work.",
   components: [

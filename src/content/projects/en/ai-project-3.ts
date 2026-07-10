@@ -5,6 +5,10 @@ export default {
   category: "ai",
   theme: "dark",
   tags: ["agentic-ai", "copilot-studio"],
+  heroEmbed: {
+    src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7365669102746599424?compact=1",
+    title: "Intelligent Email Triage & Organization System LinkedIn Post",
+  },
   description:
     "Turn email chaos into organized efficiency. AI sorts 1,000s of emails instantly. 90% automation rate | Perfect routing | Zero misses.",
   components: [
