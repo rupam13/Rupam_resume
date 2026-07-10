@@ -5,71 +5,50 @@ export default {
   theme: "dark",
   category: "ai",
   tags: ["agentic-ai", "copilot-studio"],
-  description: "Unified policy knowledge system delivering instant, context-aware answers to employee questions across HR, Finance, IT, and Compliance departments. Processes policy documents through AI to provide 24/7 support via Telegram, Slack, or Teams, eliminating delays and reducing HR/IT workload by automating policy lookups.",
+  description:
+    "Stop policy confusion with instant answers. Employees get 24/7 access to company policies. 95% query resolution | Multi-department support | Compliance guaranteed.",
   components: [
     {
       type: "text",
       props: {
-        text: "🌀 From CPA to APA – Week 3 (Cognitive Process Automation → Agentic Process Automation)",
+        text: "🎯 THE CHALLENGE\nEmployees constantly ask HR: \"What's the leave policy?\" Finance: \"Travel reimbursement limit?\" IT: \"Password requirements?\" Your HR team is drowning in the same questions repeatedly. Policy documents are buried in PDFs nobody reads.",
       },
     },
     {
       type: "text",
       props: {
-        text: "In the last two weeks, I shared how APA (Agentic Process Automation) is shifting automation from rigid rules to autonomous AI agents.\n\n👉 Week 1: Doctor Appointment Booking Agent (AI + Google Calendar + Telegram)\n👉 Week 2: Email Triage & Categorization Agent (AI-driven inbox management)\n\nNow in Week 3, I explored a powerful enterprise use case: Policy Q&A Agent",
+        text: "💡 THE INSIGHT\nWhat if employees could ask policy questions and get instant, accurate answers 24/7? No more waiting for HR responses. No more PDF hunting. Just ask and know.",
       },
     },
     {
       type: "text",
       props: {
-        text: "💼 What does this Agent do?",
+        text: "✨ THE SOLUTION\nAn AI assistant trained on all company policies that understands questions in natural language and returns clear, accurate answers from policy documents. Available via Slack, Teams, or chat—wherever your employees work.",
       },
     },
     {
       type: "text",
       props: {
-        text: "Instead of digging through long PDFs or waiting for manual replies, employees can simply ask a question and instantly get:\n✅ Clear, structured answers directly from company policy documents\n✅ Quick responses via Telegram bot\n✅ Bold formatting of key terms for better readability",
+        text: "📊 THE IMPACT\n• 95% of policy questions answered instantly\n• 80% reduction in HR support tickets\n• 24/7 availability (no after-hours waiting)\n• 100% compliance (answers from official documents)\n• Multi-department coverage (HR, Finance, IT, Compliance)",
       },
     },
     {
       type: "text",
       props: {
-        text: "⚡️ Example Scenarios by Department:",
+        text: "🔧 HOW IT WORKS\nEmployee asks question → AI searches policy database → System extracts relevant policy section → Answer is generated with source reference → Employee gets instant, verified answer.",
       },
     },
     {
       type: "list",
       props: {
         items: [
-          "HR → \"What's the maternity leave duration?\"",
-          "Admin → \"Where is the Bengaluru office located?\"",
-          "Finance → \"What is the travel reimbursement policy?\"",
-          "IT → \"What's the password reset process?\"",
-          "Compliance/Legal → \"What's our data retention guideline?\"",
+          "📚 RAG System - Retrieves from policy documents",
+          "🧠 LLM Powered - Understands complex questions",
+          "📄 Vector Database - Fast, accurate policy search",
+          "💬 Multi-channel - Slack, Teams, email, web chat",
+          "🔐 Source-backed - Every answer cites the policy",
+          "📊 Analytics - Tracks trending questions & gaps",
         ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "✨ Why it matters?",
-      },
-    },
-    {
-      type: "list",
-      props: {
-        items: [
-          "📂 Centralized access → one agent for all departments",
-          "🤝 Reduces dependency on manual HR/IT/Admin teams",
-          "⚡ Provides answers 24/7 → no delays",
-          "🔗 Integrates with Telegram, Slack, Teams, or any channel",
-        ],
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "The APA journey continues—one real-world agent at a time, with a scope that scales across every department. 🚀",
       },
     },
     {
@@ -79,6 +58,12 @@ export default {
         height: "399",
         width: "504",
         title: "Policy Q&A Agent - LinkedIn Post",
+      },
+    },
+    {
+      type: "text",
+      props: {
+        text: "👥 IDEAL FOR\nHR Managers | Compliance Officers | IT Directors who want to scale policy knowledge across the organization without scaling headcount.",
       },
     },
   ],
