@@ -4,7 +4,7 @@ export default [
   {
     title: "Intelligent Voice Agent with Enterprise Integration",
     slug: "ai-voice-agent",
-    thumbnail: "/videos/pokedex.mp4",
+    thumbnail: "/Animate_this_image.mp4",
     description: "Enterprise-grade voice agent with agentic AI & ServiceNow integration",
     category: "ai",
   },
