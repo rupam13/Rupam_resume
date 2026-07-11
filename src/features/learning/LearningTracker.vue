@@ -23,6 +23,10 @@ const defaultCopilotTopics: Topic[] = [
   { id: "cs-4", title: "Actions & Power Automate Flows (Integrating backend APIs)" },
   { id: "cs-5", title: "Custom Connectors & Microsoft Dataverse integration" },
   { id: "cs-6", title: "Analytics, Sentiment Tracking, & Agent Publishing" },
+  { id: "cs-7", title: "Application Lifecycle Management (ALM) & Solutions export/import" },
+  { id: "cs-8", title: "Authentication, Single Sign-On (SSO), & Security settings" },
+  { id: "cs-9", title: "Omnichannel Deployment (Teams, Custom Webpages, Mobile Apps)" },
+  { id: "cs-10", title: "Azure AI Studio integration & Custom Copilot extensions" },
 ];
 
 const defaultSnTopics: Topic[] = [
@@ -32,6 +36,10 @@ const defaultSnTopics: Topic[] = [
   { id: "sn-4", title: "Flow Designer & Integration Hub (Workflow Automation)" },
   { id: "sn-5", title: "Service Portal Customization (Widgets, HTML/CSS/Angular)" },
   { id: "sn-6", title: "ServiceNow APIs (REST API Explorer, Scripted REST APIs)" },
+  { id: "sn-7", title: "Update Sets, App Engine Studio, & Dev-to-Prod Migrations" },
+  { id: "sn-8", title: "Mid Server Configuration & Secure Internal Integrations" },
+  { id: "sn-9", title: "Service Catalog Customization, Record Producers, & Workflows" },
+  { id: "sn-10", title: "ServiceNow ATF (Automated Test Framework) & Code Quality checks" },
 ];
 
 const copilotTopics = ref<Topic[]>([...defaultCopilotTopics]);
