@@ -37,9 +37,12 @@ const checkedTopics = ref<Record<string, boolean>>({});
 const notes = ref<Note[]>([]);
 const newNoteContent = ref("");
 const selectedTrack = ref<"Copilot Studio" | "ServiceNow">("Copilot Studio");
+const exportMessage = ref("");
 
-onMounted(() => {
+// Load remote public/data/learning.json & merge with local storage drafts
+onMounted(async () => {
   if (typeof window !== "undefined") {
+    // 1. Initial local load
     const savedChecked = localStorage.getItem("learning_checked_topics");
     if (savedChecked) {
       checkedTopics.value = JSON.parse(savedChecked);
@@ -48,22 +51,41 @@ onMounted(() => {
     const savedNotes = localStorage.getItem("learning_notes");
     if (savedNotes) {
       notes.value = JSON.parse(savedNotes);
-    } else {
-      notes.value = [
-        {
-          id: "1",
-          track: "Copilot Studio",
-          content: "Started parallel learning track. Set up the Copilot Studio vs ServiceNow tracker dashboard.",
-          timestamp: new Date().toLocaleString(),
-        },
-        {
-          id: "2",
-          track: "ServiceNow",
-          content: "Studied Flow Designer, Script Includes, and Integration Hub APIs.",
-          timestamp: new Date(Date.now() - 1000 * 60 * 60 * 3).toLocaleString(),
-        },
-      ];
-      localStorage.setItem("learning_notes", JSON.stringify(notes.value));
+    }
+
+    // 2. Fetch remote committed data from GitHub pages build
+    const baseUrl = import.meta.env.BASE_URL || "/";
+    const dataUrl = `${baseUrl.endsWith("/") ? baseUrl : baseUrl + "/"}data/learning.json`;
+    
+    try {
+      const response = await fetch(dataUrl);
+      if (response.ok) {
+        const remoteData = await response.json();
+        
+        // Merge checked topics (giving local overrides priority)
+        if (remoteData.checkedTopics) {
+          checkedTopics.value = { ...remoteData.checkedTopics, ...checkedTopics.value };
+        }
+        
+        // Merge notes (deduplicating by ID)
+        if (remoteData.notes) {
+          const localNotes = notes.value.length ? notes.value : [];
+          const remoteNotes = remoteData.notes as Note[];
+          const allNotes = [...localNotes];
+          
+          remoteNotes.forEach((rn) => {
+            if (!allNotes.some((ln) => ln.id === rn.id)) {
+              allNotes.push(rn);
+            }
+          });
+          
+          // Sort by ID descending
+          allNotes.sort((a, b) => b.id.localeCompare(a.id));
+          notes.value = allNotes;
+        }
+      }
+    } catch (e) {
+      console.warn("Failed to load remote learning tracker file:", e);
     }
   }
 });
@@ -102,6 +124,31 @@ const deleteNote = (id: string) => {
   notes.value = notes.value.filter((n) => n.id !== id);
   localStorage.setItem("learning_notes", JSON.stringify(notes.value));
 };
+
+// JSON export config
+const exportJsonContent = computed(() => {
+  return JSON.stringify(
+    {
+      checkedTopics: checkedTopics.value,
+      notes: notes.value,
+    },
+    null,
+    2
+  );
+});
+
+const copyToClipboard = () => {
+  navigator.clipboard.writeText(exportJsonContent.value)
+    .then(() => {
+      exportMessage.value = "copied";
+      setTimeout(() => {
+        exportMessage.value = "";
+      }, 3000);
+    })
+    .catch(() => {
+      exportMessage.value = "failed";
+    });
+};
 </script>
 
 <template>
@@ -112,6 +159,11 @@ const deleteNote = (id: string) => {
       <p class="tracker-subtitle">
         Track your learning milestones in <strong>Microsoft Copilot Studio</strong> and <strong>ServiceNow Engineering</strong> in real-time.
       </p>
+      <div class="sync-banner">
+        <p class="sync-banner-text">
+          💡 <strong>GitHub Sync:</strong> Check off topics, type your notes, and copy the JSON config at the bottom to commit it permanently to your repository!
+        </p>
+      </div>
     </div>
 
     <div class="grid tracker-grid">
@@ -243,6 +295,24 @@ const deleteNote = (id: string) => {
             </div>
           </div>
         </div>
+
+        <!-- GitHub Sync Card -->
+        <div class="tracker-card sync-card">
+          <h3 class="section-title">💾 Save Permanently to GitHub</h3>
+          <p class="sync-instruction">
+            Copy the JSON code below and paste it inside <strong>public/data/learning.json</strong> in your codebase, then commit and push!
+          </p>
+          <div class="json-preview-container">
+            <textarea
+              readonly
+              class="json-textarea"
+              :value="exportJsonContent"
+            ></textarea>
+          </div>
+          <Button variant="theme" class="sync-btn" @click="copyToClipboard">
+            {{ exportMessage === 'copied' ? '⚡ COPIED!' : '📋 COPY JSON CONFIG' }}
+          </Button>
+        </div>
       </div>
     </div>
   </Layout>
@@ -295,6 +365,24 @@ const deleteNote = (id: string) => {
   color: var(--color-text-300);
   margin-top: var(--space-sm);
   line-height: 1.45;
+}
+
+.sync-banner {
+  margin-top: var(--space-md);
+  background-color: #ffffff;
+  border: 2.5px solid #2d2a24;
+  box-shadow: 3px 3px 0px #2d2a24;
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: inline-block;
+  max-width: 600px;
+  
+  &-text {
+    font-size: var(--font-size-sm);
+    color: #5f5646;
+    line-height: 1.4;
+    margin: 0;
+  }
 }
 
 .tracker-grid {
@@ -479,6 +567,10 @@ const deleteNote = (id: string) => {
   margin-bottom: var(--space-md);
 }
 
+.form-group:last-of-type {
+  margin-bottom: var(--space-lg);
+}
+
 .form-label {
   font-size: 0.82rem;
   font-weight: 800;
@@ -509,14 +601,14 @@ const deleteNote = (id: string) => {
   }
 
   &.active {
+    color: #ffffff;
+    
     &.btn-cs {
       background-color: #0099b8;
-      color: #ffffff;
     }
 
     &.btn-sn {
       background-color: #db0062;
-      color: #ffffff;
     }
   }
 }
@@ -633,6 +725,54 @@ const deleteNote = (id: string) => {
 
   &:hover {
     background-color: rgba(219, 0, 98, 0.08);
+  }
+}
+
+/* GitHub Sync Card */
+.sync-card {
+  gap: var(--space-xs);
+}
+
+.sync-instruction {
+  font-size: var(--font-size-sm);
+  color: #5f5646;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.json-preview-container {
+  border: 2.5px solid #2d2a24;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fcfbf9;
+  height: 120px;
+  margin-bottom: var(--space-xs);
+}
+
+.json-textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #5f5646;
+  resize: none;
+  outline: none;
+}
+
+.sync-btn {
+  width: 100%;
+  :deep(.button-wrapper) {
+    border-radius: 12px !important;
+    border: 3px solid #2d2a24 !important;
+    box-shadow: 3.5px 3.5px 0px #2d2a24 !important;
+    
+    &:hover {
+      transform: translate(-1.5px, -1.5px);
+      box-shadow: 5px 5px 0px #2d2a24 !important;
+    }
   }
 }
 </style>

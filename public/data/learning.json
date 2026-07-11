@@ -1,0 +1,20 @@
+{
+  "checkedTopics": {
+    "cs-1": true,
+    "sn-1": true
+  },
+  "notes": [
+    {
+      "id": "1",
+      "track": "Copilot Studio",
+      "content": "Finished setting up the parallel learning tracker page on the website.",
+      "timestamp": "2026-07-11, 11:30:00 AM"
+    },
+    {
+      "id": "2",
+      "track": "ServiceNow",
+      "content": "Studied ServiceNow Flow Designer, client scripts, and Business Rules.",
+      "timestamp": "2026-07-11, 10:00:00 AM"
+    }
+  ]
+}
