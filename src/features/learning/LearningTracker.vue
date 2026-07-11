@@ -38,6 +38,11 @@ const notes = ref<Note[]>([]);
 const newNoteContent = ref("");
 const selectedTrack = ref<"Copilot Studio" | "ServiceNow">("Copilot Studio");
 const exportMessage = ref("");
+const activeTrack = ref<"Copilot Studio" | "ServiceNow">("Copilot Studio");
+
+const filteredNotes = computed(() => {
+  return notes.value.filter((n) => n.track === activeTrack.value);
+});
 
 // Load remote public/data/learning.json & merge with local storage drafts
 onMounted(async () => {
@@ -159,6 +164,27 @@ const copyToClipboard = () => {
       <p class="tracker-subtitle">
         Track your learning milestones in <strong>Microsoft Copilot Studio</strong> and <strong>ServiceNow Engineering</strong> in real-time.
       </p>
+
+      <!-- Track Switcher Toggle on Top -->
+      <div class="track-toggle-container">
+        <button
+          type="button"
+          class="toggle-tab tab-cs"
+          :class="{ active: activeTrack === 'Copilot Studio' }"
+          @click="activeTrack = 'Copilot Studio'; selectedTrack = 'Copilot Studio'"
+        >
+          🤖 Copilot Studio
+        </button>
+        <button
+          type="button"
+          class="toggle-tab tab-sn"
+          :class="{ active: activeTrack === 'ServiceNow' }"
+          @click="activeTrack = 'ServiceNow'; selectedTrack = 'ServiceNow'"
+        >
+          ⚙️ ServiceNow
+        </button>
+      </div>
+
       <div class="sync-banner">
         <p class="sync-banner-text">
           💡 <strong>GitHub Sync:</strong> Check off topics, type your notes, and copy the JSON config at the bottom to commit it permanently to your repository!
@@ -170,7 +196,7 @@ const copyToClipboard = () => {
       <!-- Left side: Progress Cards -->
       <div class="left-section">
         <!-- Copilot Studio Tracker Card -->
-        <div class="tracker-card card-cs">
+        <div v-if="activeTrack === 'Copilot Studio'" class="tracker-card card-cs">
           <div class="card-header">
             <div class="header-main">
               <span class="card-icon">🤖</span>
@@ -202,7 +228,7 @@ const copyToClipboard = () => {
         </div>
 
         <!-- ServiceNow Tracker Card -->
-        <div class="tracker-card card-sn">
+        <div v-if="activeTrack === 'ServiceNow'" class="tracker-card card-sn">
           <div class="card-header">
             <div class="header-main">
               <span class="card-icon">⚙️</span>
@@ -280,10 +306,10 @@ const copyToClipboard = () => {
         <div class="tracker-card timeline-card">
           <h3 class="section-title">⏱️ Activity Timeline</h3>
           <div class="timeline-scroll">
-            <div v-if="notes.length === 0" class="no-notes">
-              No logged activities yet. Type above to add your first note!
+            <div v-if="filteredNotes.length === 0" class="no-notes">
+              No logged activities for this track yet. Log your first note above!
             </div>
-            <div v-for="note in notes" :key="note.id" class="timeline-item">
+            <div v-for="note in filteredNotes" :key="note.id" class="timeline-item">
               <div class="timeline-header">
                 <span class="timeline-badge" :class="note.track === 'Copilot Studio' ? 'badge-cs' : 'badge-sn'">
                   {{ note.track === 'Copilot Studio' ? '🤖 Copilot Studio' : '⚙️ ServiceNow' }}
@@ -365,6 +391,57 @@ const copyToClipboard = () => {
   color: var(--color-text-300);
   margin-top: var(--space-sm);
   line-height: 1.45;
+}
+
+// Track Switcher Toggle Styles
+.track-toggle-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: var(--space-md) auto;
+  max-width: 480px;
+  background-color: #fbf9f6;
+  border: 3px solid #2d2a24;
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 4px 4px 0px #2d2a24;
+}
+
+.toggle-tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: #5f5646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  &:hover {
+    color: #2d2a24;
+    background-color: rgba(223, 210, 191, 0.15);
+  }
+
+  &.active {
+    border: 2.5px solid #2d2a24;
+    box-shadow: 2.5px 2.5px 0px #2d2a24;
+    color: #ffffff;
+    
+    &.tab-cs {
+      background-color: #0099b8;
+    }
+
+    &.tab-sn {
+      background-color: #db0062;
+    }
+  }
 }
 
 .sync-banner {
