@@ -5,7 +5,7 @@ import { computed, ref } from "vue";
 import { t } from "../i18n/utils/translate";
 import { useHeaderTheme } from "../composables/useHeaderTheme";
 import { lenis } from "../composables/useScroll";
-import { projectId } from "../composables/useRouteObserver";
+import { projectId, path } from "../composables/useRouteObserver";
 import { social } from "../content/social";
 import ButtonRound from "./ButtonRound.vue";
 import ArrowRight from "./icons/ArrowRight.vue";
@@ -13,6 +13,7 @@ import SoundsToggle from "./SoundsToggle.vue";
 import { isFeatureEnabled } from "../utils/features";
 import { useRouter } from "../composables/useRouter";
 import { useFirstRoute } from "../composables/useFirstRoute";
+import Link from "./Link.vue";
 
 const router = useRouter();
 const { isFirstRoute } = useFirstRoute();
@@ -34,9 +35,10 @@ const { isDarkTheme } = useHeaderTheme({
 });
 
 const handleBackClick = () => {
-  // If it's the first route the user visited, navigate to home
-  // Otherwise, go back in browser history
-  if (isFirstRoute.value) {
+  // If we are on the learning page, navigate back to home
+  if (path.value === "/learning") {
+    router.push("/");
+  } else if (isFirstRoute.value) {
     router.push("/");
   } else {
     router.back();
@@ -60,7 +62,7 @@ const classNames = computed(() => {
 const getInTouchClassNames = computed(() => {
   return {
     "header-get-in-touch": true,
-    "header-get-in-touch-isProjectPage": projectId.value !== null,
+    "header-get-in-touch-isProjectPage": projectId.value !== null || path.value === '/learning',
   };
 });
 </script>
@@ -69,11 +71,11 @@ const getInTouchClassNames = computed(() => {
   <header :class="classNames">
     <div class="header-left">
       <ButtonRound
-        v-if="projectId !== null"
+        v-if="projectId !== null || path === '/learning'"
         variant="accent"
         @click="handleBackClick"
         :aria-label="t('back-to-home')"
-        :class="{ 'header-back': true, 'header-back-isProjectPage': projectId !== null }"
+        :class="{ 'header-back': true, 'header-back-isProjectPage': projectId !== null || path === '/learning' }"
         data-cursor="circle-white"
         data-sound="click"
         data-hoversound="hover"
@@ -84,7 +86,7 @@ const getInTouchClassNames = computed(() => {
     <div
       :class="{
         'header-logo': true,
-        'header-logo-isProjectPage': projectId !== null,
+        'header-logo-isProjectPage': projectId !== null || path === '/learning',
         'header-logo-clickable': scrolledPastHeroVisible,
         'children-unclickable': true,
       }"
@@ -97,6 +99,10 @@ const getInTouchClassNames = computed(() => {
       <span class="header-logo-text">Rupam.W</span>
     </div>
     <div class="header-right">
+      <!-- Link to Learning Tracker Page (styled to match cartoon theme) -->
+      <Link v-if="path !== '/learning'" to="/learning" class="header-learning-link" data-cursor="circle-white" data-hoversound="hover">
+        <Button renderAs="div" variant="theme">Learning</Button>
+      </Link>
       <Button
         renderAs="a"
         variant="accent"

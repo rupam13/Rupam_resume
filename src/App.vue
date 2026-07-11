@@ -13,9 +13,10 @@ import Project from "./features/projects/components/Project.vue";
 import Admin from "./features/admin/Admin.vue";
 import { useProjectTransition } from "./composables/useProjectTransition";
 import { useScroll } from "./composables/useScroll";
-import { projectVisible } from "./composables/useRouteObserver";
+import { projectVisible, path } from "./composables/useRouteObserver";
 import ProjectBackground from "./features/projects/components/ProjectBackground.vue";
 import { useClickSound } from "./features/sounds/composables/useClickSounds";
+import LearningTracker from "./features/learning/LearningTracker.vue";
 //import { useHoverSound } from "./features/sounds/composables/useHoverSounds";
 
 const pathname = ref(typeof window !== "undefined" ? window.location.pathname : "/");
@@ -51,24 +52,31 @@ const { isTouch } = useAgent();
   <template v-else>
     <Header />
 
-    <!-- main page -->
-    <div :class="{ 'home-wrapper-projectIsReady': projectVisible }">
-      <Home />
-    </div>
+    <!-- learning tracker page -->
+    <template v-if="path === '/learning'">
+      <LearningTracker />
+    </template>
 
-    <!-- overlay page -->
-    <ProjectBackground />
-    <div
-      class="project-wrapper"
-      :class="{
-        'project-wrapper-visible': projectVisible,
-        'project-wrapper-transitioning': isTransitioning,
-      }"
-    >
-      <div class="project-content">
-        <Project />
+    <template v-else>
+      <!-- main page -->
+      <div :class="{ 'home-wrapper-projectIsReady': projectVisible }">
+        <Home />
       </div>
-    </div>
+
+      <!-- overlay page -->
+      <ProjectBackground />
+      <div
+        class="project-wrapper"
+        :class="{
+          'project-wrapper-visible': projectVisible,
+          'project-wrapper-transitioning': isTransitioning,
+        }"
+      >
+        <div class="project-content">
+          <Project />
+        </div>
+      </div>
+    </template>
 
     <Cursor v-if="!isTouch" />
   </template>
