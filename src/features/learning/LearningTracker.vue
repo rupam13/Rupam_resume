@@ -37,7 +37,7 @@ const checkedTopics = ref<Record<string, boolean>>({});
 const notes = ref<Note[]>([]);
 const newNoteContent = ref("");
 const selectedTrack = ref<"Copilot Studio" | "ServiceNow">("Copilot Studio");
-const exportMessage = ref("");
+const saveMessage = ref("");
 const activeTrack = ref<"Copilot Studio" | "ServiceNow">("Copilot Studio");
 
 const filteredNotes = computed(() => {
@@ -95,9 +95,9 @@ onMounted(async () => {
   }
 });
 
+// Just update reactive state (do NOT auto-save to localStorage)
 const toggleTopic = (id: string) => {
   checkedTopics.value[id] = !checkedTopics.value[id];
-  localStorage.setItem("learning_checked_topics", JSON.stringify(checkedTopics.value));
 };
 
 const copilotProgress = computed(() => {
@@ -110,6 +110,7 @@ const snProgress = computed(() => {
   return Math.round((covered / snTopics.length) * 100);
 });
 
+// Just update reactive state (do NOT auto-save to localStorage)
 const addNote = () => {
   if (!newNoteContent.value.trim()) return;
 
@@ -121,13 +122,12 @@ const addNote = () => {
   };
 
   notes.value.unshift(newNote);
-  localStorage.setItem("learning_notes", JSON.stringify(notes.value));
   newNoteContent.value = "";
 };
 
+// Just update reactive state (do NOT auto-save to localStorage)
 const deleteNote = (id: string) => {
   notes.value = notes.value.filter((n) => n.id !== id);
-  localStorage.setItem("learning_notes", JSON.stringify(notes.value));
 };
 
 // JSON export config
@@ -142,17 +142,26 @@ const exportJsonContent = computed(() => {
   );
 });
 
-const copyToClipboard = () => {
-  navigator.clipboard.writeText(exportJsonContent.value)
-    .then(() => {
-      exportMessage.value = "copied";
-      setTimeout(() => {
-        exportMessage.value = "";
-      }, 3000);
-    })
-    .catch(() => {
-      exportMessage.value = "failed";
-    });
+// Explicit save progress click
+const saveProgress = () => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("learning_checked_topics", JSON.stringify(checkedTopics.value));
+    localStorage.setItem("learning_notes", JSON.stringify(notes.value));
+
+    navigator.clipboard.writeText(exportJsonContent.value)
+      .then(() => {
+        saveMessage.value = "⚡ SAVED & COPIED CONFIG!";
+        setTimeout(() => {
+          saveMessage.value = "";
+        }, 3000);
+      })
+      .catch(() => {
+        saveMessage.value = "⚡ SAVED LOCALLY!";
+        setTimeout(() => {
+          saveMessage.value = "";
+        }, 3000);
+      });
+  }
 };
 </script>
 
@@ -187,7 +196,7 @@ const copyToClipboard = () => {
 
       <div class="sync-banner">
         <p class="sync-banner-text">
-          💡 <strong>GitHub Sync:</strong> Check off topics, type your notes, and copy the JSON config at the bottom to commit it permanently to your repository!
+          💡 <strong>Tip:</strong> Click the <strong>Save Progress</strong> button on the right to save your session locally and copy the config to sync with GitHub!
         </p>
       </div>
     </div>
@@ -262,6 +271,17 @@ const copyToClipboard = () => {
 
       <!-- Right side: Notes & Log -->
       <div class="right-section">
+        <!-- Explicit Save Card -->
+        <div class="tracker-card save-card">
+          <h3 class="section-title">💾 Save Changes</h3>
+          <p class="save-instruction">
+            Clicking Save writes your progress locally and copies the JSON data to your clipboard. Paste it into <strong>public/data/learning.json</strong> in your repository to sync with GitHub!
+          </p>
+          <Button variant="accent" class="save-btn" @click="saveProgress">
+            {{ saveMessage || '💾 SAVE PROGRESS' }}
+          </Button>
+        </div>
+
         <!-- Form Card -->
         <div class="tracker-card log-form-card">
           <h3 class="section-title">📝 Log Learning Session</h3>
@@ -320,24 +340,6 @@ const copyToClipboard = () => {
               <button class="delete-btn" @click="deleteNote(note.id)">Delete</button>
             </div>
           </div>
-        </div>
-
-        <!-- GitHub Sync Card -->
-        <div class="tracker-card sync-card">
-          <h3 class="section-title">💾 Save Permanently to GitHub</h3>
-          <p class="sync-instruction">
-            Copy the JSON code below and paste it inside <strong>public/data/learning.json</strong> in your codebase, then commit and push!
-          </p>
-          <div class="json-preview-container">
-            <textarea
-              readonly
-              class="json-textarea"
-              :value="exportJsonContent"
-            ></textarea>
-          </div>
-          <Button variant="theme" class="sync-btn" @click="copyToClipboard">
-            {{ exportMessage === 'copied' ? '⚡ COPIED!' : '📋 COPY JSON CONFIG' }}
-          </Button>
         </div>
       </div>
     </div>
@@ -805,41 +807,20 @@ const copyToClipboard = () => {
   }
 }
 
-/* GitHub Sync Card */
-.sync-card {
+/* Explicit Save Card */
+.save-card {
   gap: var(--space-xs);
 }
 
-.sync-instruction {
+.save-instruction {
   font-size: var(--font-size-sm);
   color: #5f5646;
   line-height: 1.4;
   font-weight: 600;
-}
-
-.json-preview-container {
-  border: 2.5px solid #2d2a24;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #fcfbf9;
-  height: 120px;
   margin-bottom: var(--space-xs);
 }
 
-.json-textarea {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  padding: 10px;
-  font-family: monospace;
-  font-size: 0.75rem;
-  color: #5f5646;
-  resize: none;
-  outline: none;
-}
-
-.sync-btn {
+.save-btn {
   width: 100%;
   :deep(.button-wrapper) {
     border-radius: 12px !important;
