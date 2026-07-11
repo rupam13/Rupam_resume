@@ -2,6 +2,7 @@
 import { ref, computed, onMounted } from "vue";
 import Layout from "../../components/Layout.vue";
 import Button from "../../components/Button.vue";
+import { dbApi, isSupabaseConfigured } from "../../utils/supabase";
 
 interface Topic {
   id: string;
@@ -51,7 +52,29 @@ const filteredNotes = computed(() => {
 // Load remote public/data/learning.json & merge with local storage drafts
 onMounted(async () => {
   if (typeof window !== "undefined") {
-    // 1. Initial local load
+    // 1. Try to load from Supabase Cloud Database first (real-time sync)
+    if (isSupabaseConfigured) {
+      try {
+        const dbData = await dbApi.fetchProgress();
+        if (dbData) {
+          checkedTopics.value = dbData.checked_topics || {};
+          notes.value = dbData.notes || [];
+          copilotTopics.value = dbData.copilot_topics || [...defaultCopilotTopics];
+          snTopics.value = dbData.sn_topics || [...defaultSnTopics];
+
+          // Save copy locally
+          localStorage.setItem("learning_checked_topics", JSON.stringify(checkedTopics.value));
+          localStorage.setItem("learning_notes", JSON.stringify(notes.value));
+          localStorage.setItem("learning_copilot_topics", JSON.stringify(copilotTopics.value));
+          localStorage.setItem("learning_sn_topics", JSON.stringify(snTopics.value));
+          return;
+        }
+      } catch (e) {
+        console.warn("Supabase fetch failed, falling back to local/static data:", e);
+      }
+    }
+
+    // 2. Fallback to Local Storage
     const savedChecked = localStorage.getItem("learning_checked_topics");
     if (savedChecked) {
       checkedTopics.value = JSON.parse(savedChecked);
@@ -72,7 +95,7 @@ onMounted(async () => {
       snTopics.value = JSON.parse(savedSnTopics);
     }
 
-    // 2. Fetch remote committed data from GitHub pages build
+    // 3. Fallback to committed static files in public directory
     const baseUrl = import.meta.env.BASE_URL || "/";
     const dataUrl = `${baseUrl.endsWith("/") ? baseUrl : baseUrl + "/"}data/learning.json`;
     
@@ -205,14 +228,38 @@ const exportJsonContent = computed(() => {
   );
 });
 
-// Explicit save progress click
-const saveProgress = () => {
+// Explicit save progress click (with Supabase sync support)
+const saveProgress = async () => {
   if (typeof window !== "undefined") {
+    // 1. Save locally first
     localStorage.setItem("learning_checked_topics", JSON.stringify(checkedTopics.value));
     localStorage.setItem("learning_notes", JSON.stringify(notes.value));
     localStorage.setItem("learning_copilot_topics", JSON.stringify(copilotTopics.value));
     localStorage.setItem("learning_sn_topics", JSON.stringify(snTopics.value));
 
+    // 2. Save to Supabase Cloud Database (if configured)
+    if (isSupabaseConfigured) {
+      saveMessage.value = "💾 SAVING TO DB...";
+      const success = await dbApi.saveProgress({
+        checkedTopics: checkedTopics.value,
+        notes: notes.value,
+        copilotTopics: copilotTopics.value,
+        snTopics: snTopics.value,
+      });
+
+      if (success) {
+        saveMessage.value = "⚡ SAVED TO DATABASE!";
+      } else {
+        saveMessage.value = "⚠️ DB SAVE FAILED!";
+      }
+
+      setTimeout(() => {
+        saveMessage.value = "";
+      }, 3000);
+      return;
+    }
+
+    // 3. Fallback: Copy JSON config to clipboard for Git commit manual sync
     navigator.clipboard.writeText(exportJsonContent.value)
       .then(() => {
         saveMessage.value = "⚡ SAVED & COPIED CONFIG!";
@@ -261,7 +308,7 @@ const saveProgress = () => {
 
       <div class="sync-banner">
         <p class="sync-banner-text">
-          💡 <strong>Tip:</strong> You can add your own custom topics, check them off, and save everything to local storage or export config to GitHub!
+          💡 <strong>Tip:</strong> You can add your own custom topics, check them off, and save everything in real-time using Supabase database configuration!
         </p>
       </div>
     </div>
@@ -389,8 +436,17 @@ const saveProgress = () => {
         <!-- Explicit Save Card -->
         <div class="tracker-card save-card">
           <h3 class="section-title">💾 Save Changes</h3>
+          
+          <div class="db-status" :class="{ 'db-connected': isSupabaseConfigured }">
+            <span class="status-dot"></span>
+            <span class="status-text">{{ isSupabaseConfigured ? 'CONNECTED TO SUPABASE' : 'LOCAL OFFLINE MODE' }}</span>
+          </div>
+
           <p class="save-instruction">
-            Clicking Save writes your progress locally and copies the JSON data to your clipboard. Paste it into <strong>public/data/learning.json</strong> in your repository to sync with GitHub!
+            {{ isSupabaseConfigured 
+              ? 'Clicking save will push your notes, timeline events, and checklists to your Supabase Cloud Database instantly!' 
+              : 'Add your VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY inside .env.local to sync in real-time. Otherwise, save progress copies the configuration for Git sync.' 
+            }}
           </p>
           <Button variant="accent" class="save-btn" @click="saveProgress">
             {{ saveMessage || '💾 SAVE PROGRESS' }}
@@ -993,6 +1049,40 @@ const saveProgress = () => {
 /* Explicit Save Card */
 .save-card {
   gap: var(--space-xs);
+}
+
+.db-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-xs);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 2px solid #2d2a24;
+  background-color: #fcfbf9;
+  width: fit-content;
+  
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #5f5646; // Offline gray
+    border: 1.5px solid #2d2a24;
+  }
+  
+  .status-text {
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #2d2a24;
+  }
+  
+  &.db-connected {
+    background-color: rgba(0, 153, 184, 0.08);
+    .status-dot {
+      background-color: #00cc88; // Neon Green
+    }
+  }
 }
 
 .save-instruction {
