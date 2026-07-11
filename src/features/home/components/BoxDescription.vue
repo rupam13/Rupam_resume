@@ -111,7 +111,7 @@ const { roleData } = useRole();
         <div class="box-description-line"></div>
         <div class="box-description-copy">
           <AppearingText
-            :text="roleData.tagline"
+            :text="roleData.intro"
             :steps="3"
             :duration="0.7"
             @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0)"
