@@ -176,46 +176,5 @@ export default {
       },
     },
 
-    // Divider
-    {
-      type: "text",
-      props: {
-        text: "",
-      },
-    },
-
-    // Use cases
-    {
-      type: "text",
-      props: {
-        text: "👥 IDEAL FOR",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "Customer Service Directors | IT Operations Leaders | Enterprise Support Managers who want to reduce costs by 60% while improving customer satisfaction and freeing their teams to focus on high-value work.",
-      },
-    },
-
-    // CTA
-    {
-      type: "text",
-      props: {
-        text: "",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "🚀 READY TO TRANSFORM YOUR SUPPORT?",
-      },
-    },
-    {
-      type: "text",
-      props: {
-        text: "See how enterprise teams are cutting support costs, improving satisfaction scores, and empowering their teams with AI-powered intelligence. Schedule a live demo today.",
-      },
-    },
   ],
 } as const satisfies ProjectContent;
