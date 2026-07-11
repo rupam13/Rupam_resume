@@ -27,12 +27,17 @@ const nextProject = computed(() => {
   const previewsList = loadedPreviews.value;
   if (!previewsList) return null;
 
-  const currentIndex = previewsList.findIndex((p) => p.slug === projectId);
+  // Restrict next project to the same category (e.g. 'ai' or 'servicenow')
+  const currentCategory = content.category;
+  const filteredList = previewsList.filter((p) => p.category === currentCategory);
+  if (filteredList.length === 0) return null;
+
+  const currentIndex = filteredList.findIndex((p) => p.slug === projectId);
   if (currentIndex === -1) return null;
 
-  const nextIndex = (currentIndex + 1) % previewsList.length;
+  const nextIndex = (currentIndex + 1) % filteredList.length;
 
-  return previewsList[nextIndex];
+  return filteredList[nextIndex];
 });
 
 watch(locale, loadPreviews);
