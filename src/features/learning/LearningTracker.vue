@@ -42,16 +42,50 @@ const checkedTopics = ref<Record<string, boolean>>({});
 const notes = ref<Note[]>([]);
 const newNoteContent = ref("");
 const selectedTrack = ref<"Copilot Studio" | "ServiceNow">("Copilot Studio");
-const saveMessage = ref("");
 const activeTrack = ref<"Copilot Studio" | "ServiceNow">("Copilot Studio");
+
+// real-time sync status
+const syncStatus = ref<"synced" | "saving" | "offline" | "failed">("synced");
 
 const filteredNotes = computed(() => {
   return notes.value.filter((n) => n.track === activeTrack.value);
 });
 
+// Auto-sync function to database & local storage on every change
+const triggerSync = async () => {
+  if (typeof window !== "undefined") {
+    // 1. Write local cache backup
+    localStorage.setItem("learning_checked_topics", JSON.stringify(checkedTopics.value));
+    localStorage.setItem("learning_notes", JSON.stringify(notes.value));
+    localStorage.setItem("learning_copilot_topics", JSON.stringify(copilotTopics.value));
+    localStorage.setItem("learning_sn_topics", JSON.stringify(snTopics.value));
+  }
+
+  // 2. Write to Supabase Cloud Database (if configured)
+  if (isSupabaseConfigured) {
+    syncStatus.value = "saving";
+    const success = await dbApi.saveProgress({
+      checkedTopics: checkedTopics.value,
+      notes: notes.value,
+      copilotTopics: copilotTopics.value,
+      snTopics: snTopics.value,
+    });
+
+    if (success) {
+      syncStatus.value = "synced";
+    } else {
+      syncStatus.value = "failed";
+    }
+  } else {
+    syncStatus.value = "offline";
+  }
+};
+
 // Load remote public/data/learning.json & merge with local storage drafts
 onMounted(async () => {
   if (typeof window !== "undefined") {
+    syncStatus.value = isSupabaseConfigured ? "saving" : "offline";
+
     // 1. Try to load from Supabase Cloud Database first (real-time sync)
     if (isSupabaseConfigured) {
       try {
@@ -67,10 +101,12 @@ onMounted(async () => {
           localStorage.setItem("learning_notes", JSON.stringify(notes.value));
           localStorage.setItem("learning_copilot_topics", JSON.stringify(copilotTopics.value));
           localStorage.setItem("learning_sn_topics", JSON.stringify(snTopics.value));
+          syncStatus.value = "synced";
           return;
         }
       } catch (e) {
         console.warn("Supabase fetch failed, falling back to local/static data:", e);
+        syncStatus.value = "failed";
       }
     }
 
@@ -148,12 +184,13 @@ onMounted(async () => {
   }
 });
 
-// Just update reactive state (do NOT auto-save to localStorage)
+// Update state and trigger automatic sync
 const toggleTopic = (id: string) => {
   checkedTopics.value[id] = !checkedTopics.value[id];
+  triggerSync();
 };
 
-// Add new custom topic list item
+// Add new custom topic list item and trigger sync
 const addTopic = () => {
   if (!newTopicTitle.value.trim()) return;
 
@@ -169,9 +206,10 @@ const addTopic = () => {
   }
 
   newTopicTitle.value = "";
+  triggerSync();
 };
 
-// Delete custom topic
+// Delete custom topic and trigger sync
 const deleteTopic = (id: string, event: Event) => {
   event.stopPropagation(); // Avoid checkbox click action
   if (activeTrack.value === "Copilot Studio") {
@@ -180,6 +218,7 @@ const deleteTopic = (id: string, event: Event) => {
     snTopics.value = snTopics.value.filter((t) => t.id !== id);
   }
   delete checkedTopics.value[id];
+  triggerSync();
 };
 
 const copilotProgress = computed(() => {
@@ -194,7 +233,7 @@ const snProgress = computed(() => {
   return Math.round((covered / snTopics.value.length) * 100);
 });
 
-// Just update reactive state (do NOT auto-save to localStorage)
+// Add new timeline note and trigger sync
 const addNote = () => {
   if (!newNoteContent.value.trim()) return;
 
@@ -207,73 +246,13 @@ const addNote = () => {
 
   notes.value.unshift(newNote);
   newNoteContent.value = "";
+  triggerSync();
 };
 
-// Just update reactive state (do NOT auto-save to localStorage)
+// Delete timeline note and trigger sync
 const deleteNote = (id: string) => {
   notes.value = notes.value.filter((n) => n.id !== id);
-};
-
-// JSON export config
-const exportJsonContent = computed(() => {
-  return JSON.stringify(
-    {
-      checkedTopics: checkedTopics.value,
-      notes: notes.value,
-      copilotTopics: copilotTopics.value,
-      snTopics: snTopics.value,
-    },
-    null,
-    2
-  );
-});
-
-// Explicit save progress click (with Supabase sync support)
-const saveProgress = async () => {
-  if (typeof window !== "undefined") {
-    // 1. Save locally first
-    localStorage.setItem("learning_checked_topics", JSON.stringify(checkedTopics.value));
-    localStorage.setItem("learning_notes", JSON.stringify(notes.value));
-    localStorage.setItem("learning_copilot_topics", JSON.stringify(copilotTopics.value));
-    localStorage.setItem("learning_sn_topics", JSON.stringify(snTopics.value));
-
-    // 2. Save to Supabase Cloud Database (if configured)
-    if (isSupabaseConfigured) {
-      saveMessage.value = "💾 SAVING TO DB...";
-      const success = await dbApi.saveProgress({
-        checkedTopics: checkedTopics.value,
-        notes: notes.value,
-        copilotTopics: copilotTopics.value,
-        snTopics: snTopics.value,
-      });
-
-      if (success) {
-        saveMessage.value = "⚡ SAVED TO DATABASE!";
-      } else {
-        saveMessage.value = "⚠️ DB SAVE FAILED!";
-      }
-
-      setTimeout(() => {
-        saveMessage.value = "";
-      }, 3000);
-      return;
-    }
-
-    // 3. Fallback: Copy JSON config to clipboard for Git commit manual sync
-    navigator.clipboard.writeText(exportJsonContent.value)
-      .then(() => {
-        saveMessage.value = "⚡ SAVED & COPIED CONFIG!";
-        setTimeout(() => {
-          saveMessage.value = "";
-        }, 3000);
-      })
-      .catch(() => {
-        saveMessage.value = "⚡ SAVED LOCALLY!";
-        setTimeout(() => {
-          saveMessage.value = "";
-        }, 3000);
-      });
-  }
+  triggerSync();
 };
 </script>
 
@@ -286,29 +265,42 @@ const saveProgress = async () => {
         Track your learning milestones in <strong>Microsoft Copilot Studio</strong> and <strong>ServiceNow Engineering</strong> in real-time.
       </p>
 
-      <!-- Track Switcher Toggle on Top -->
-      <div class="track-toggle-container">
-        <button
-          type="button"
-          class="toggle-tab tab-cs"
-          :class="{ active: activeTrack === 'Copilot Studio' }"
-          @click="activeTrack = 'Copilot Studio'; selectedTrack = 'Copilot Studio'"
-        >
-          🤖 Copilot Studio
-        </button>
-        <button
-          type="button"
-          class="toggle-tab tab-sn"
-          :class="{ active: activeTrack === 'ServiceNow' }"
-          @click="activeTrack = 'ServiceNow'; selectedTrack = 'ServiceNow'"
-        >
-          ⚙️ ServiceNow
-        </button>
+      <!-- Track Switcher Toggle & Auto-Sync Status Badge -->
+      <div class="track-toggle-wrapper">
+        <div class="track-toggle-container">
+          <button
+            type="button"
+            class="toggle-tab tab-cs"
+            :class="{ active: activeTrack === 'Copilot Studio' }"
+            @click="activeTrack = 'Copilot Studio'; selectedTrack = 'Copilot Studio'"
+          >
+            🤖 Copilot Studio
+          </button>
+          <button
+            type="button"
+            class="toggle-tab tab-sn"
+            :class="{ active: activeTrack === 'ServiceNow' }"
+            @click="activeTrack = 'ServiceNow'; selectedTrack = 'ServiceNow'"
+          >
+            ⚙️ ServiceNow
+          </button>
+        </div>
+
+        <div class="sync-status-badge" :class="syncStatus" :title="`Status: ${syncStatus}`">
+          <span class="status-dot"></span>
+          <span class="status-text">
+            {{ 
+              syncStatus === 'synced' ? 'Cloud Synced' :
+              syncStatus === 'saving' ? 'Saving...' :
+              syncStatus === 'failed' ? 'Sync Failed' : 'Local Offline'
+            }}
+          </span>
+        </div>
       </div>
 
       <div class="sync-banner">
         <p class="sync-banner-text">
-          💡 <strong>Tip:</strong> You can add your own custom topics, check them off, and save everything in real-time using Supabase database configuration!
+          💡 <strong>Real-time Syncing Active:</strong> Any topic checked, custom topic added, or note logged automatically syncs to your Supabase Cloud database instantly.
         </p>
       </div>
     </div>
@@ -433,26 +425,6 @@ const saveProgress = async () => {
 
       <!-- Right side: Notes & Log -->
       <div class="right-section">
-        <!-- Explicit Save Card -->
-        <div class="tracker-card save-card">
-          <h3 class="section-title">💾 Save Changes</h3>
-          
-          <div class="db-status" :class="{ 'db-connected': isSupabaseConfigured }">
-            <span class="status-dot"></span>
-            <span class="status-text">{{ isSupabaseConfigured ? 'CONNECTED TO SUPABASE' : 'LOCAL OFFLINE MODE' }}</span>
-          </div>
-
-          <p class="save-instruction">
-            {{ isSupabaseConfigured 
-              ? 'Clicking save will push your notes, timeline events, and checklists to your Supabase Cloud Database instantly!' 
-              : 'Add your VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY inside .env.local to sync in real-time. Otherwise, save progress copies the configuration for Git sync.' 
-            }}
-          </p>
-          <Button variant="accent" class="save-btn" @click="saveProgress">
-            {{ saveMessage || '💾 SAVE PROGRESS' }}
-          </Button>
-        </div>
-
         <!-- Form Card -->
         <div class="tracker-card log-form-card">
           <h3 class="section-title">📝 Log Learning Session</h3>
@@ -567,17 +539,35 @@ const saveProgress = async () => {
 }
 
 // Track Switcher Toggle Styles
+.track-toggle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: var(--space-md) auto;
+  max-width: 480px;
+
+  @include mixins.mq("md") {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 650px;
+  }
+}
+
 .track-toggle-container {
   display: flex;
   justify-content: center;
   gap: var(--space-sm);
-  margin: var(--space-md) auto;
-  max-width: 480px;
   background-color: #fbf9f6;
   border: 3px solid #2d2a24;
   border-radius: 14px;
   padding: 6px;
   box-shadow: 4px 4px 0px #2d2a24;
+  width: 100%;
+
+  @include mixins.mq("md") {
+    width: auto;
+  }
 }
 
 .toggle-tab {
@@ -615,6 +605,69 @@ const saveProgress = async () => {
       background-color: #db0062;
     }
   }
+}
+
+// Auto-sync status badge style
+.sync-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 2px solid #2d2a24;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 0px #2d2a24;
+  height: 44px;
+  box-sizing: border-box;
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #5f5646;
+    border: 1.5px solid #2d2a24;
+  }
+  
+  .status-text {
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #2d2a24;
+  }
+  
+  &.synced {
+    background-color: rgba(0, 204, 136, 0.08);
+    .status-dot {
+      background-color: #00cc88;
+    }
+  }
+  
+  &.saving {
+    background-color: rgba(0, 153, 184, 0.08);
+    .status-dot {
+      background-color: #0099b8;
+      animation: pulse 1s infinite alternate;
+    }
+  }
+  
+  &.failed {
+    background-color: rgba(219, 0, 98, 0.08);
+    .status-dot {
+      background-color: #db0062;
+    }
+  }
+
+  &.offline {
+    background-color: rgba(223, 210, 191, 0.08);
+    .status-dot {
+      background-color: #5f5646;
+    }
+  }
+}
+
+@keyframes pulse {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
 }
 
 .sync-banner {
@@ -1043,67 +1096,6 @@ const saveProgress = async () => {
 
   &:hover {
     background-color: rgba(219, 0, 98, 0.08);
-  }
-}
-
-/* Explicit Save Card */
-.save-card {
-  gap: var(--space-xs);
-}
-
-.db-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: var(--space-xs);
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 2px solid #2d2a24;
-  background-color: #fcfbf9;
-  width: fit-content;
-  
-  .status-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #5f5646; // Offline gray
-    border: 1.5px solid #2d2a24;
-  }
-  
-  .status-text {
-    font-size: 0.72rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #2d2a24;
-  }
-  
-  &.db-connected {
-    background-color: rgba(0, 153, 184, 0.08);
-    .status-dot {
-      background-color: #00cc88; // Neon Green
-    }
-  }
-}
-
-.save-instruction {
-  font-size: var(--font-size-sm);
-  color: #5f5646;
-  line-height: 1.4;
-  font-weight: 600;
-  margin-bottom: var(--space-xs);
-}
-
-.save-btn {
-  width: 100%;
-  :deep(.button-wrapper) {
-    border-radius: 12px !important;
-    border: 3px solid #2d2a24 !important;
-    box-shadow: 3.5px 3.5px 0px #2d2a24 !important;
-    
-    &:hover {
-      transform: translate(-1.5px, -1.5px);
-      box-shadow: 5px 5px 0px #2d2a24 !important;
-    }
   }
 }
 </style>
