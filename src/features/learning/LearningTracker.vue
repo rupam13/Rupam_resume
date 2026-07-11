@@ -15,7 +15,7 @@ interface Note {
   timestamp: string;
 }
 
-const copilotTopics: Topic[] = [
+const defaultCopilotTopics: Topic[] = [
   { id: "cs-1", title: "Introduction to Copilot Studio & Conversational Design" },
   { id: "cs-2", title: "Topics, Triggers, & Dialog Management (Entities/Variables)" },
   { id: "cs-3", title: "Generative Answers & RAG (Uploading documents/websites)" },
@@ -24,7 +24,7 @@ const copilotTopics: Topic[] = [
   { id: "cs-6", title: "Analytics, Sentiment Tracking, & Agent Publishing" },
 ];
 
-const snTopics: Topic[] = [
+const defaultSnTopics: Topic[] = [
   { id: "sn-1", title: "ServiceNow Platform Basics & UI Customization" },
   { id: "sn-2", title: "Client Scripts & UI Policies (Client-side logic)" },
   { id: "sn-3", title: "Business Rules & Script Includes (Server-side logic)" },
@@ -32,6 +32,10 @@ const snTopics: Topic[] = [
   { id: "sn-5", title: "Service Portal Customization (Widgets, HTML/CSS/Angular)" },
   { id: "sn-6", title: "ServiceNow APIs (REST API Explorer, Scripted REST APIs)" },
 ];
+
+const copilotTopics = ref<Topic[]>([...defaultCopilotTopics]);
+const snTopics = ref<Topic[]>([...defaultSnTopics]);
+const newTopicTitle = ref("");
 
 const checkedTopics = ref<Record<string, boolean>>({});
 const notes = ref<Note[]>([]);
@@ -56,6 +60,16 @@ onMounted(async () => {
     const savedNotes = localStorage.getItem("learning_notes");
     if (savedNotes) {
       notes.value = JSON.parse(savedNotes);
+    }
+
+    const savedCopilotTopics = localStorage.getItem("learning_copilot_topics");
+    if (savedCopilotTopics) {
+      copilotTopics.value = JSON.parse(savedCopilotTopics);
+    }
+
+    const savedSnTopics = localStorage.getItem("learning_sn_topics");
+    if (savedSnTopics) {
+      snTopics.value = JSON.parse(savedSnTopics);
     }
 
     // 2. Fetch remote committed data from GitHub pages build
@@ -88,6 +102,22 @@ onMounted(async () => {
           allNotes.sort((a, b) => b.id.localeCompare(a.id));
           notes.value = allNotes;
         }
+
+        // Merge custom topics
+        if (remoteData.copilotTopics) {
+          remoteData.copilotTopics.forEach((rt: Topic) => {
+            if (!copilotTopics.value.some((lt) => lt.id === rt.id)) {
+              copilotTopics.value.push(rt);
+            }
+          });
+        }
+        if (remoteData.snTopics) {
+          remoteData.snTopics.forEach((rt: Topic) => {
+            if (!snTopics.value.some((lt) => lt.id === rt.id)) {
+              snTopics.value.push(rt);
+            }
+          });
+        }
       }
     } catch (e) {
       console.warn("Failed to load remote learning tracker file:", e);
@@ -100,14 +130,45 @@ const toggleTopic = (id: string) => {
   checkedTopics.value[id] = !checkedTopics.value[id];
 };
 
+// Add new custom topic list item
+const addTopic = () => {
+  if (!newTopicTitle.value.trim()) return;
+
+  const newTopic: Topic = {
+    id: `${activeTrack.value === "Copilot Studio" ? "cs" : "sn"}-custom-${Date.now()}`,
+    title: newTopicTitle.value.trim(),
+  };
+
+  if (activeTrack.value === "Copilot Studio") {
+    copilotTopics.value.push(newTopic);
+  } else {
+    snTopics.value.push(newTopic);
+  }
+
+  newTopicTitle.value = "";
+};
+
+// Delete custom topic
+const deleteTopic = (id: string, event: Event) => {
+  event.stopPropagation(); // Avoid checkbox click action
+  if (activeTrack.value === "Copilot Studio") {
+    copilotTopics.value = copilotTopics.value.filter((t) => t.id !== id);
+  } else {
+    snTopics.value = snTopics.value.filter((t) => t.id !== id);
+  }
+  delete checkedTopics.value[id];
+};
+
 const copilotProgress = computed(() => {
-  const covered = copilotTopics.filter((t) => checkedTopics.value[t.id]).length;
-  return Math.round((covered / copilotTopics.length) * 100);
+  if (copilotTopics.value.length === 0) return 0;
+  const covered = copilotTopics.value.filter((t) => checkedTopics.value[t.id]).length;
+  return Math.round((covered / copilotTopics.value.length) * 100);
 });
 
 const snProgress = computed(() => {
-  const covered = snTopics.filter((t) => checkedTopics.value[t.id]).length;
-  return Math.round((covered / snTopics.length) * 100);
+  if (snTopics.value.length === 0) return 0;
+  const covered = snTopics.value.filter((t) => checkedTopics.value[t.id]).length;
+  return Math.round((covered / snTopics.value.length) * 100);
 });
 
 // Just update reactive state (do NOT auto-save to localStorage)
@@ -136,6 +197,8 @@ const exportJsonContent = computed(() => {
     {
       checkedTopics: checkedTopics.value,
       notes: notes.value,
+      copilotTopics: copilotTopics.value,
+      snTopics: snTopics.value,
     },
     null,
     2
@@ -147,6 +210,8 @@ const saveProgress = () => {
   if (typeof window !== "undefined") {
     localStorage.setItem("learning_checked_topics", JSON.stringify(checkedTopics.value));
     localStorage.setItem("learning_notes", JSON.stringify(notes.value));
+    localStorage.setItem("learning_copilot_topics", JSON.stringify(copilotTopics.value));
+    localStorage.setItem("learning_sn_topics", JSON.stringify(snTopics.value));
 
     navigator.clipboard.writeText(exportJsonContent.value)
       .then(() => {
@@ -196,7 +261,7 @@ const saveProgress = () => {
 
       <div class="sync-banner">
         <p class="sync-banner-text">
-          💡 <strong>Tip:</strong> Click the <strong>Save Progress</strong> button on the right to save your session locally and copy the config to sync with GitHub!
+          💡 <strong>Tip:</strong> You can add your own custom topics, check them off, and save everything to local storage or export config to GitHub!
         </p>
       </div>
     </div>
@@ -228,11 +293,36 @@ const saveProgress = () => {
               :class="{ 'topic-row-checked': checkedTopics[topic.id] }"
               @click="toggleTopic(topic.id)"
             >
-              <div class="checkbox-container">
-                <span v-if="checkedTopics[topic.id]" class="checkbox-check">⚡</span>
+              <div class="topic-row-left">
+                <div class="checkbox-container">
+                  <span v-if="checkedTopics[topic.id]" class="checkbox-check">⚡</span>
+                </div>
+                <p class="topic-title">{{ topic.title }}</p>
               </div>
-              <p class="topic-title">{{ topic.title }}</p>
+              <button
+                v-if="topic.id.includes('custom')"
+                type="button"
+                class="topic-delete-btn"
+                @click="deleteTopic(topic.id, $event)"
+                title="Delete custom topic"
+              >
+                ❌
+              </button>
             </div>
+          </div>
+
+          <!-- Add Topic Input -->
+          <div class="add-topic-form">
+            <input
+              v-model="newTopicTitle"
+              type="text"
+              class="add-topic-input"
+              placeholder="➕ Add new learning topic..."
+              @keyup.enter="addTopic"
+            />
+            <button type="button" class="add-topic-btn" @click="addTopic">
+              Add
+            </button>
           </div>
         </div>
 
@@ -260,11 +350,36 @@ const saveProgress = () => {
               :class="{ 'topic-row-checked': checkedTopics[topic.id] }"
               @click="toggleTopic(topic.id)"
             >
-              <div class="checkbox-container">
-                <span v-if="checkedTopics[topic.id]" class="checkbox-check">⚡</span>
+              <div class="topic-row-left">
+                <div class="checkbox-container">
+                  <span v-if="checkedTopics[topic.id]" class="checkbox-check">⚡</span>
+                </div>
+                <p class="topic-title">{{ topic.title }}</p>
               </div>
-              <p class="topic-title">{{ topic.title }}</p>
+              <button
+                v-if="topic.id.includes('custom')"
+                type="button"
+                class="topic-delete-btn"
+                @click="deleteTopic(topic.id, $event)"
+                title="Delete custom topic"
+              >
+                ❌
+              </button>
             </div>
+          </div>
+
+          <!-- Add Topic Input -->
+          <div class="add-topic-form">
+            <input
+              v-model="newTopicTitle"
+              type="text"
+              class="add-topic-input"
+              placeholder="➕ Add new learning topic..."
+              @keyup.enter="addTopic"
+            />
+            <button type="button" class="add-topic-btn" @click="addTopic">
+              Add
+            </button>
           </div>
         </div>
       </div>
@@ -577,11 +692,13 @@ const saveProgress = () => {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  margin-bottom: var(--space-md);
 }
 
 .topic-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-sm);
   padding: var(--space-sm);
   border: 2.5px solid #2d2a24;
@@ -606,6 +723,12 @@ const saveProgress = () => {
   }
 }
 
+.topic-row-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .checkbox-container {
   width: 24px;
   height: 24px;
@@ -628,6 +751,66 @@ const saveProgress = () => {
   font-weight: 700;
   color: #2d2a24;
   line-height: 1.3;
+}
+
+.topic-delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(219, 0, 98, 0.08);
+  }
+}
+
+// Add Topic Form Styles
+.add-topic-form {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.add-topic-input {
+  flex: 1;
+  border: 2.5px solid #2d2a24;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  background-color: #fcfbf9;
+  color: #2d2a24;
+  outline: none;
+
+  &:focus {
+    border-color: var(--color-orange-400);
+  }
+}
+
+.add-topic-btn {
+  border: 2.5px solid #2d2a24;
+  background-color: #dfd2bf;
+  color: #2d2a24;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  border-radius: 12px;
+  padding: 0 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #2d2a24;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px #2d2a24;
+    background-color: #d2c3ae;
+  }
 }
 
 /* Form Styles */
