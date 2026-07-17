@@ -1,5 +1,5 @@
 import { ref, watch, computed } from "vue";
-import { path } from "./useRouteObserver";
+import { path, resolveAbsolutePath } from "./useRouteObserver";
 
 export type Role = "servicenow" | "ai";
 
@@ -11,23 +11,38 @@ export function useRole() {
     const roleParam = urlParams.get("role");
     const currentPath = path.value.toLowerCase();
 
+    // 1. Determine the active role
     if (roleParam === "ai" || currentPath.includes("/ai") || currentPath.includes("/ai_agent_developer")) {
       currentRole.value = "ai";
     } else if (roleParam === "servicenow" || currentPath.includes("/servicenow")) {
       currentRole.value = "servicenow";
+    } else if (currentPath === "/") {
+      // Default fallback when visiting the root path
+      currentRole.value = "ai";
     }
-    // If we are on a project page or other page, we keep the previous currentRole value
+
+    // 2. Perform URL path redirection/clean-ups
+    if (typeof window !== "undefined") {
+      if (currentPath === "/") {
+        const targetPath = currentRole.value === "servicenow" ? "/servicenow" : "/ai";
+        window.history.replaceState(null, "", resolveAbsolutePath(targetPath));
+      } else if (roleParam) {
+        // Strip the role query parameter and use path routing instead
+        const url = new URL(window.location.href);
+        url.searchParams.delete("role");
+        window.history.replaceState(null, "", url.toString());
+      }
+    }
   };
 
   // Watch for path changes to update role
   watch(path, updateRoleFromPath, { immediate: true });
 
   const toggleRole = () => {
-    currentRole.value = currentRole.value === "servicenow" ? "ai" : "servicenow";
-    // Update URL without reloading to reflect change
-    const url = new URL(window.location.href);
-    url.searchParams.set("role", currentRole.value);
-    window.history.pushState({}, "", url.toString());
+    const nextRole = currentRole.value === "servicenow" ? "ai" : "servicenow";
+    if (typeof window !== "undefined") {
+      window.history.pushState(null, "", resolveAbsolutePath(`/${nextRole}`));
+    }
   };
 
   const roleData = computed(() => {
