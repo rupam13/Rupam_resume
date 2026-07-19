@@ -32,11 +32,13 @@ const badges = computed<BadgeItem[]>(() => {
       title: "Copilot Studio Agent Academy - Recruit",
       description: "Official credential badge for completing the Microsoft Copilot Studio Agent Academy Recruit level.",
       image: resolveAbsolutePath("/images/badges/agent_academy_recruit.jfif"),
+      credentialUrl: "https://globalai.community/badges/02926c49-5333-4248-b704-d16c6c7f4aa0",
     },
     {
       title: "Badge Bandit",
       description: "Specialized milestone achievement badge earned in Microsoft Copilot Studio Agent Academy training.",
       image: resolveAbsolutePath("/images/badges/badge_bandit.png"),
+      credentialUrl: "https://globalai.community/badges/8ce995a3-2f4f-4243-b0cd-c516288f4723",
     },
   ];
 });
