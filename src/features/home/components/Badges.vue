@@ -30,6 +30,16 @@ const badges = computed<BadgeItem[]>(() => {
       description: "Quality management and process improvement certification covering DMAIC methodology, lean standards, and operational efficiency.",
       image: resolveAbsolutePath("/images/badges/six_sigma_white_belt.jpg"),
     },
+    {
+      title: "Copilot Studio Agent Academy - Recruit",
+      description: "Official credential badge for completing the Microsoft Copilot Studio Agent Academy Recruit level.",
+      image: resolveAbsolutePath("/images/badges/agent_academy_recruit.jfif"),
+    },
+    {
+      title: "Badge Bandit",
+      description: "Specialized milestone achievement badge earned in Microsoft Copilot Studio Agent Academy training.",
+      image: resolveAbsolutePath("/images/badges/badge_bandit.png"),
+    },
   ];
 });
 </script>
