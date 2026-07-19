@@ -53,7 +53,7 @@ export function useRole() {
         tagline: "Designs and deploys intelligent autonomous agent systems, cognitive pipelines, and custom AI copilots to automate complex enterprise reasoning.",
         skills: [
           { name: "LLMs & Multi-Agent Frameworks (CrewAI, LangGraph)" },
-          { name: "Microsoft Copilot Studio & Power Platform" },
+          { name: "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio" },
           { name: "RAG Pipelines & Semantic Search" },
           { name: "Python, TypeScript & FastAPI" },
           { name: "Vector DBs (Pinecone, Milvus, PGVector)" },
