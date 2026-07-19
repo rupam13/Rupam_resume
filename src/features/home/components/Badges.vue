@@ -18,20 +18,15 @@ const { currentRole } = useRole();
 const badges = computed<BadgeItem[]>(() => {
   return [
     {
-      title: "Microsoft Copilot Studio",
+      title: "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio",
       description: "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio. Covers conversational design, generative answers, and action workflows.",
       image: resolveAbsolutePath("/images/badges/microsoft_copilot.jpg"),
       credentialUrl: "https://learn.microsoft.com/api/credentials/share/en-in/rupamwadibhasme-6938/5BB13013A0C50C81?sharingId=8BE7A19FADEA5C70",
     },
     {
-      title: "ServiceNow Certified Administrator",
-      description: "Certified System Administrator (CSA) credential covering platform configuration, schema definition, flow design, and admin governance.",
-      image: resolveAbsolutePath("/images/badges/servicenow_csa.jpg"),
-    },
-    {
-      title: "Lean Six Sigma White Belt",
-      description: "Quality management and process improvement certification covering DMAIC methodology, lean standards, and operational efficiency.",
-      image: resolveAbsolutePath("/images/badges/six_sigma_white_belt.jpg"),
+      title: "ServiceNow CIS - Data Foundation",
+      description: "Certified Implementation Specialist - Data Foundation (CIS-DF) credential covering ServiceNow data architecture, discovery, and schema management.",
+      image: resolveAbsolutePath("/images/badges/servicenow_cis_df_screenshot.png"),
     },
     {
       title: "Copilot Studio Agent Academy - Recruit",
@@ -76,6 +71,9 @@ const badges = computed<BadgeItem[]>(() => {
           <div class="badge-card-content">
             <h3 class="badge-card-title">{{ badge.title }}</h3>
             <p class="badge-card-description">{{ badge.description }}</p>
+            <div class="badge-card-footer" v-if="badge.credentialUrl">
+              <span class="verify-hint-badge">Verify Credential ➜</span>
+            </div>
           </div>
         </component>
       </div>
@@ -213,6 +211,13 @@ const badges = computed<BadgeItem[]>(() => {
     .badge-card-image {
       transform: scale(1.04);
     }
+
+    .verify-hint-badge {
+      background: #667eea;
+      color: #ffffff;
+      border-color: #667eea;
+      box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+    }
   }
 
   &-top {
@@ -265,5 +270,25 @@ const badges = computed<BadgeItem[]>(() => {
     font-weight: 500;
     line-height: 1.45;
   }
+
+  &-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: var(--space-xs);
+  }
+}
+
+.verify-hint-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #667eea;
+  border: 1px solid rgba(102, 126, 234, 0.4);
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  background: rgba(102, 126, 234, 0.05);
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
 }
 </style>
