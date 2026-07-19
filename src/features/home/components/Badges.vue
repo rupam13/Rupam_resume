@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import NotchSection from "../../../components/NotchSection.vue";
 import Banner from "../../../components/Banner.vue";
+import Link from "../../../components/Link.vue";
 import { resolveAbsolutePath } from "../../../composables/useRouteObserver";
 import { useRole } from "../../../composables/useRole";
 
@@ -9,6 +10,7 @@ interface BadgeItem {
   title: string;
   description: string;
   image: string;
+  credentialUrl?: string;
 }
 
 const { currentRole } = useRole();
@@ -17,8 +19,9 @@ const badges = computed<BadgeItem[]>(() => {
   return [
     {
       title: "Microsoft Copilot Studio",
-      description: "Credentials in conversational AI design, generative answers, custom actions, and multi-agent systems orchestration.",
+      description: "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio. Covers conversational design, generative answers, and action workflows.",
       image: resolveAbsolutePath("/images/badges/microsoft_copilot.jpg"),
+      credentialUrl: "https://learn.microsoft.com/api/credentials/share/en-in/rupamwadibhasme-6938/5BB13013A0C50C81?sharingId=8BE7A19FADEA5C70",
     },
     {
       title: "ServiceNow Certified Administrator",
@@ -56,7 +59,13 @@ const badges = computed<BadgeItem[]>(() => {
     </div>
     <div class="grid">
       <div class="badges-cards">
-        <div class="badge-card" v-for="badge in badges" :key="badge.title">
+        <component
+          :is="badge.credentialUrl ? Link : 'div'"
+          class="badge-card"
+          v-for="badge in badges"
+          :key="badge.title"
+          v-bind="badge.credentialUrl ? { href: badge.credentialUrl, external: true, target: '_blank', 'data-cursor': 'arrow-external', 'data-hoversound': 'hover' } : {}"
+        >
           <div class="badge-card-top">
             <div class="badge-card-image-wrapper">
               <div class="badge-card-image-container">
@@ -68,7 +77,7 @@ const badges = computed<BadgeItem[]>(() => {
             <h3 class="badge-card-title">{{ badge.title }}</h3>
             <p class="badge-card-description">{{ badge.description }}</p>
           </div>
-        </div>
+        </component>
       </div>
     </div>
   </div>
@@ -187,6 +196,7 @@ const badges = computed<BadgeItem[]>(() => {
   border-radius: var(--radius-xl);
   z-index: var(--z-index-layout);
   border: 2px solid rgba(102, 126, 234, 0.3);
+  text-decoration: none;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
