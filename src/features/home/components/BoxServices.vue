@@ -106,7 +106,11 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   timelines.value = updatedTimelines;
 };
 
-const { roleData } = useRole();
+const { roleData, currentRole } = useRole();
+
+const isAiRole = computed(() => {
+  return currentRole.value === "ai";
+});
 
 const services = computed(() => {
   return roleData.value.skills;
@@ -125,7 +129,7 @@ const services = computed(() => {
             @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0)"
           />
         </div>
-        <div class="box-services-list">
+        <div class="box-services-list" :class="{ 'badges-layout': isAiRole }">
           <div class="box-services-list-item" v-for="(service, index) in services" :key="service.name">
             <p class="box-services-list-item-name">
               <AppearingText
@@ -224,6 +228,51 @@ const services = computed(() => {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+
+    &.badges-layout {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+
+      @include mixins.landscape {
+        gap: 6px;
+      }
+
+      .box-services-list-item {
+        padding-left: 0;
+        border: 1px solid rgba(52, 191, 255, 0.35);
+        border-radius: var(--radius-sm);
+        padding: 4px 8px;
+        background: rgba(0, 53, 133, 0.45);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-block;
+
+        &::before {
+          display: none;
+        }
+
+        &:hover {
+          border-color: var(--color-cyan-400);
+          background: rgba(52, 191, 255, 0.2);
+          transform: translateY(-1.5px);
+          box-shadow: 0 0 8px rgba(52, 191, 255, 0.3);
+        }
+
+        &-name {
+          font-size: 0.85rem;
+          color: var(--color-text-cyan-400);
+
+          @include mixins.landscape {
+            font-size: 0.72rem;
+          }
+
+          @include mixins.landscape-large {
+            font-size: 0.82rem;
+          }
+        }
+      }
+    }
 
     &-item {
       display: flex;
