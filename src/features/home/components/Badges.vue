@@ -52,7 +52,7 @@ const badges = computed<BadgeItem[]>(() => {
       title: "Cowork Collective - Audit Ace",
       description: "Earners of this badge have successfully completed the following Cowork Collective mission from Copilot Studio Agent Academy: 🔒 The Compliance Packet",
       image: resolveAbsolutePath("/images/badges/cowork_collective_audit_ace.jpg"),
-      credentialUrl: "https://globalai.community/badges/96970e56-65d3-4b56-b01e-a455782bc577",
+      credentialUrl: "https://globalai.community/badges/6978b635-b3d4-4402-8893-df6257b71776",
     },
     {
       title: "Copilot Studio Agent Academy - Recruit",
