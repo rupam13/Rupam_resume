@@ -43,7 +43,7 @@ const badges = computed<BadgeItem[]>(() => {
       image: resolveAbsolutePath("/images/badges/servicenow_cis_df.jpg"),
     },
     {
-      title: "Copilot Studio Agent Academy - Learn MCP Specialist",
+      title: "Agent Academy - Learn MCP Specialist",
       description: "Earned for completing the Copilot Studio Agent Academy Special Ops mission: Microsoft Learn MCP Server.",
       image: resolveAbsolutePath("/images/badges/agent_academy_mcp.jpg"),
       credentialUrl: "https://globalai.community/badges/96970e56-65d3-4b56-b01e-a455782bc577",
