@@ -49,8 +49,8 @@ const badges = computed<BadgeItem[]>(() => {
       credentialUrl: "https://globalai.community/badges/96970e56-65d3-4b56-b01e-a455782bc577",
     },
     {
-      title: "Copilot Studio Agent Academy - Operative",
-      description: "Official credential badge for completing the Microsoft Copilot Studio Agent Academy Operative level.",
+      title: "Cowork Collective - Audit Ace",
+      description: "Earners of this badge have successfully completed the following Cowork Collective mission from Copilot Studio Agent Academy: 🔒 The Compliance Packet",
       image: resolveAbsolutePath("/images/badges/agent_academy_operative.jpg"),
       credentialUrl: "https://globalai.community/badges/96970e56-65d3-4b56-b01e-a455782bc577",
     },
