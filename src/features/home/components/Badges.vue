@@ -43,6 +43,18 @@ const badges = computed<BadgeItem[]>(() => {
       image: resolveAbsolutePath("/images/badges/servicenow_cis_df.jpg"),
     },
     {
+      title: "Copilot Studio Agent Academy - Learn MCP Specialist",
+      description: "Earned for completing the Copilot Studio Agent Academy Special Ops mission: Microsoft Learn MCP Server.",
+      image: resolveAbsolutePath("/images/badges/agent_academy_mcp.jpg"),
+      credentialUrl: "https://globalai.community/badges/96970e56-65d3-4b56-b01e-a455782bc577",
+    },
+    {
+      title: "Copilot Studio Agent Academy - Operative",
+      description: "Official credential badge for completing the Microsoft Copilot Studio Agent Academy Operative level.",
+      image: resolveAbsolutePath("/images/badges/agent_academy_operative.jpg"),
+      credentialUrl: "https://globalai.community/badges/96970e56-65d3-4b56-b01e-a455782bc577",
+    },
+    {
       title: "Copilot Studio Agent Academy - Recruit",
       description: "Official credential badge for completing the Microsoft Copilot Studio Agent Academy Recruit level.",
       image: resolveAbsolutePath("/images/badges/agent_academy_recruit.jfif"),
