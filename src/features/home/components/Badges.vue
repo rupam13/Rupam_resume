@@ -16,6 +16,20 @@ interface BadgeItem {
 const { currentRole } = useRole();
 
 const badges = computed<BadgeItem[]>(() => {
+  if (currentRole.value === "servicenow") {
+    return [
+      {
+        title: "ServiceNow CIS - Data Foundation",
+        description: "Certified Implementation Specialist - Data Foundation (CIS-DF) credential covering ServiceNow data architecture, discovery, and schema management.",
+        image: resolveAbsolutePath("/images/badges/servicenow_cis_df.jpg"),
+      },
+      {
+        title: "ServiceNow Certified System Administrator (CSA)",
+        description: "Certified System Administrator credential demonstrating expertise in configuring, managing, and maintaining ServiceNow platforms.",
+        image: resolveAbsolutePath("/images/badges/servicenow_csa.jpg"),
+      },
+    ];
+  }
   return [
     {
       title: "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio",
@@ -26,7 +40,7 @@ const badges = computed<BadgeItem[]>(() => {
     {
       title: "ServiceNow CIS - Data Foundation",
       description: "Certified Implementation Specialist - Data Foundation (CIS-DF) credential covering ServiceNow data architecture, discovery, and schema management.",
-      image: resolveAbsolutePath("/images/badges/servicenow_cis_df_screenshot.png"),
+      image: resolveAbsolutePath("/images/badges/servicenow_cis_df.jpg"),
     },
     {
       title: "Copilot Studio Agent Academy - Recruit",
@@ -45,7 +59,7 @@ const badges = computed<BadgeItem[]>(() => {
 </script>
 
 <template>
-  <div class="badges" v-if="currentRole === 'ai'">
+  <div class="badges">
     <NotchSection class="badges-notch-start" />
     <NotchSection class="badges-notch-end" />
     <div class="grid">
