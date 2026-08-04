@@ -312,11 +312,12 @@ const badges = computed<BadgeItem[]>(() => {
   &-top {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/10;
-    background: #0d0f12;
+    aspect-ratio: 1/1;
+    background: radial-gradient(circle at center, #1e2430 0%, #0d0f12 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: var(--space-md);
     border-bottom: 1.5px solid rgba(102, 126, 234, 0.2);
     border-top-left-radius: var(--radius-xl);
     border-top-right-radius: var(--radius-xl);
@@ -326,18 +327,28 @@ const badges = computed<BadgeItem[]>(() => {
   &-image-wrapper {
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    border-radius: var(--radius-lg);
   }
 
   &-image-container {
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
     transition: transform 0.4s ease;
   }
 
