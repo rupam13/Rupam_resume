@@ -17,7 +17,7 @@ export default [
   {
     title: "Enterprise Invoice & Accounts Payable Automation",
     slug: "invoice-automation",
-    thumbnail: "https://via.placeholder.com/600x400/003585/ffffff?text=🧾%20Invoice%20Automation",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/invoice-automation.png",
     description: "85% processing time saved | 99% extraction accuracy | Zero manual entry errors. Automated AP pipeline with Power Automate, Azure AI & HITL approvals.",
     category: "ai",
     metrics: [
