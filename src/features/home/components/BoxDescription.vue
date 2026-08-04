@@ -165,8 +165,11 @@ const { roleData } = useRole();
     &-name {
       font-size: var(--font-size-title-xs);
       font-weight: 700;
+      line-height: var(--line-height-title);
+      letter-spacing: 0.03em;
+      font-family: "ProFontWindows", monospace, sans-serif;
     }
-
+    
     &-location {
       display: flex;
       align-items: center;
@@ -180,6 +183,9 @@ const { roleData } = useRole();
 
       &-copy {
         font-size: var(--font-size-md);
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+        font-family: "ProFontWindows", monospace, sans-serif;
       }
     }
   }
@@ -233,15 +239,21 @@ const { roleData } = useRole();
   &-copy {
     will-change: opacity;
     font-size: var(--font-size-md);
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+    font-family: "ProFontWindows", monospace, sans-serif;
+    text-align: left;
     padding: var(--space-sm) var(--space-md);
 
     @include mixins.landscape {
       padding: 0;
       font-size: var(--font-size-sm);
+      line-height: 1.5;
     }
 
     @include mixins.landscape-large {
-      font-size: var(--font-size-lg);
+      font-size: var(--font-size-md);
+      line-height: 1.55;
     }
   }
 }

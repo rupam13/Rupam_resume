@@ -206,11 +206,14 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
   }
 
   &-title {
-    font-size: var(--font-size-title-xxs);
+    font-size: var(--font-size-title-xs);
     font-weight: 700;
+    line-height: var(--line-height-title);
+    letter-spacing: 0.03em;
+    font-family: "ProFontWindows", monospace, sans-serif;
 
     @include mixins.mq("md") {
-      font-size: var(--font-size-title-sm);
+      font-size: var(--font-size-title-xs);
     }
   }
 

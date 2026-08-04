@@ -260,15 +260,21 @@ const services = computed(() => {
         }
 
         &-name {
-          font-size: 0.85rem;
+          font-size: var(--font-size-md);
+          line-height: 1.55;
+          letter-spacing: 0.02em;
+          font-family: "ProFontWindows", monospace, sans-serif;
           color: var(--color-text-cyan-400);
+          text-align: left;
 
           @include mixins.landscape {
-            font-size: 0.72rem;
+            font-size: var(--font-size-sm);
+            line-height: 1.5;
           }
 
           @include mixins.landscape-large {
-            font-size: 0.82rem;
+            font-size: var(--font-size-md);
+            line-height: 1.55;
           }
         }
       }
@@ -293,13 +299,19 @@ const services = computed(() => {
 
       &-name {
         font-size: var(--font-size-md);
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+        font-family: "ProFontWindows", monospace, sans-serif;
+        text-align: left;
 
         @include mixins.landscape {
           font-size: var(--font-size-sm);
+          line-height: 1.5;
         }
 
         @include mixins.landscape-large {
-          font-size: var(--font-size-lg);
+          font-size: var(--font-size-md);
+          line-height: 1.55;
         }
       }
     }
@@ -308,9 +320,12 @@ const services = computed(() => {
   &-title {
     font-size: var(--font-size-title-xs);
     font-weight: 700;
+    line-height: var(--line-height-title);
+    letter-spacing: 0.03em;
+    font-family: "ProFontWindows", monospace, sans-serif;
 
     @include mixins.landscape {
-      font-size: var(--font-size-title-xxs);
+      font-size: var(--font-size-title-xs);
     }
 
     @include mixins.landscape-large {
