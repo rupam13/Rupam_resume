@@ -15,6 +15,32 @@ export default [
     ],
   },
   {
+    title: "Enterprise Invoice & Accounts Payable Automation",
+    slug: "invoice-automation",
+    thumbnail: "https://via.placeholder.com/600x400/003585/ffffff?text=🧾%20Invoice%20Automation",
+    description: "85% processing time saved | 99% extraction accuracy | Zero manual entry errors. Automated AP pipeline with Power Automate, Azure AI & HITL approvals.",
+    category: "ai",
+    metrics: [
+      { label: "Processing Speed", value: 85, max: 100 },
+      { label: "Extraction Accuracy", value: 99, max: 100 },
+      { label: "HITL Control", value: 100, max: 100 },
+      { label: "Audit Compliance", value: 100, max: 100 },
+    ],
+  },
+  {
+    title: "Intelligent KYC & Identity Document Verification",
+    slug: "kyc-processing",
+    thumbnail: "https://via.placeholder.com/600x400/004d40/ffffff?text=🪪%20KYC%20Verification",
+    description: "90% faster onboarding | 99.5% ID parsing accuracy | Secure & compliant. Automated identity document verification pipeline.",
+    category: "ai",
+    metrics: [
+      { label: "Onboarding Speedup", value: 90, max: 100 },
+      { label: "ID Extraction Accuracy", value: 99, max: 100 },
+      { label: "Compliance Score", value: 100, max: 100 },
+      { label: "Fraud Prevention", value: 95, max: 100 },
+    ],
+  },
+  {
     title: "Autonomous Appointment Booking Assistant",
     slug: "ai-project-2",
     thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/ai-appointment-booking.png",

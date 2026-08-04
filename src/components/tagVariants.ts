@@ -17,7 +17,13 @@ export type TagVariant =
   | "agentic-ai"
   | "ivr"
   | "servicenow"
-  | "mcp";
+  | "mcp"
+  | "power-automate"
+  | "azure-document-intelligence"
+  | "human-in-the-loop"
+  | "invoice-processing"
+  | "kyc-automation"
+  | "accounts-payable";
 
 export const tagLabels = {
   three: "Three.js",
@@ -39,4 +45,10 @@ export const tagLabels = {
   ivr: "IVR",
   servicenow: "ServiceNow",
   mcp: "MCP",
+  "power-automate": "Power Automate",
+  "azure-document-intelligence": "Azure AI Document Intelligence",
+  "human-in-the-loop": "Human-in-the-Loop",
+  "invoice-processing": "Invoice Processing",
+  "kyc-automation": "KYC Automation",
+  "accounts-payable": "Accounts Payable",
 } as const satisfies Record<TagVariant, string>;
