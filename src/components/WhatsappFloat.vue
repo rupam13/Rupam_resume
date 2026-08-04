@@ -4,7 +4,7 @@ import WhatsappIcon from "./icons/Whatsapp.vue";
 
 <template>
   <a
-    href="https://wa.me/918857851277?text=Hi"
+    href="https://wa.me/918857851277?text=Hi%20Rupam%2C"
     target="_blank"
     rel="noopener noreferrer"
     class="whatsapp-float-btn"
