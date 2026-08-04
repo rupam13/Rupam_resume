@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import NotchSection from "../../../components/NotchSection.vue";
 import Banner from "../../../components/Banner.vue";
 import Link from "../../../components/Link.vue";
@@ -11,9 +11,21 @@ interface BadgeItem {
   description: string;
   image: string;
   credentialUrl?: string;
+  proofImage?: string;
 }
 
 const { currentRole } = useRole();
+const activeModalImage = ref<string | null>(null);
+
+const openModal = (image?: string) => {
+  if (image) {
+    activeModalImage.value = image;
+  }
+};
+
+const closeModal = () => {
+  activeModalImage.value = null;
+};
 
 const badges = computed<BadgeItem[]>(() => {
   if (currentRole.value === "servicenow") {
@@ -64,11 +76,13 @@ const badges = computed<BadgeItem[]>(() => {
       title: "Enterprise SPOT Award - Continuous Improvement & Automation",
       description: "Recognized by leadership for exceptional performance in Continuous Improvement (CI), driving key initiatives including efficiency trackers, HR use cases, GBS site creation, and KPI template design with Accenture.",
       image: resolveAbsolutePath("/images/badges/spoat_award_1st.png"),
+      proofImage: resolveAbsolutePath("/images/badges/spot_award_1_proof.png"),
     },
     {
       title: "Enterprise SPOT Award - ISO 9001 QMS Certification",
       description: "Recognized for exceptional ownership and contribution to Magnit India's successful ISO 9001 Certification journey as Process Champion documenting, standardizing, and strengthening QMS business processes.",
       image: resolveAbsolutePath("/images/badges/spoat_award_2nd.png"),
+      proofImage: resolveAbsolutePath("/images/badges/spot_award_2_proof.png"),
     },
     {
       title: "Badge Bandit",
@@ -97,7 +111,7 @@ const badges = computed<BadgeItem[]>(() => {
           class="badge-card"
           v-for="badge in badges"
           :key="badge.title"
-          v-bind="badge.credentialUrl ? { href: badge.credentialUrl, external: true, target: '_blank', 'data-cursor': 'arrow-external', 'data-hoversound': 'hover' } : {}"
+          v-bind="badge.credentialUrl ? { href: badge.credentialUrl, external: true, target: '_blank', 'data-cursor': 'arrow-external', 'data-hoversound': 'hover' } : { onClick: () => openModal(badge.proofImage) }"
         >
           <div class="badge-card-top">
             <div class="badge-card-image-wrapper">
@@ -105,17 +119,47 @@ const badges = computed<BadgeItem[]>(() => {
                 <img :src="badge.image" :alt="badge.title" class="badge-card-image" />
               </div>
             </div>
+
+            <!-- Hover Popover Preview for Leadership Proof -->
+            <div v-if="badge.proofImage" class="proof-popover" @click.stop="openModal(badge.proofImage)">
+              <div class="proof-popover-tag">💬 Hover / Click to view Jivesh Govil's recognition comment</div>
+              <div class="proof-popover-card">
+                <img :src="badge.proofImage" alt="Jivesh Govil Recognition Comment" class="proof-popover-img" />
+              </div>
+            </div>
           </div>
+
           <div class="badge-card-content">
             <h3 class="badge-card-title">{{ badge.title }}</h3>
             <p class="badge-card-description">{{ badge.description }}</p>
-            <div class="badge-card-footer" v-if="badge.credentialUrl">
-              <span class="verify-hint-badge">Verify Credential ➜</span>
+            <div class="badge-card-footer">
+              <span v-if="badge.credentialUrl" class="verify-hint-badge">Verify Credential ➜</span>
+              <button v-else-if="badge.proofImage" @click.stop="openModal(badge.proofImage)" class="verify-hint-badge proof-button">
+                💬 View Leadership Comment ➜
+              </button>
             </div>
           </div>
         </component>
       </div>
     </div>
+
+    <!-- Full-screen Lightbox Modal for Leadership Recognition Screenshot -->
+    <Teleport to="body">
+      <Transition name="modal-fade">
+        <div v-if="activeModalImage" class="proof-modal-overlay" @click="closeModal">
+          <div class="proof-modal-content" @click.stop>
+            <button class="proof-modal-close" @click="closeModal" aria-label="Close modal">✕</button>
+            <div class="proof-modal-header">
+              <h3>💬 Official Leadership Recognition — Jivesh Govil</h3>
+              <p>Continuous Improvement & Quality Management Leadership Award</p>
+            </div>
+            <div class="proof-modal-body">
+              <img :src="activeModalImage" alt="Jivesh Govil Recognition Comment Screenshot" class="proof-modal-image" />
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
 
@@ -238,13 +282,14 @@ const badges = computed<BadgeItem[]>(() => {
   box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
-    border-color: rgba(102, 126, 234, 0.6);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.35);
+    border-color: rgba(102, 126, 234, 0.8);
 
     .badge-card-image {
       transform: scale(1.04);
@@ -254,7 +299,13 @@ const badges = computed<BadgeItem[]>(() => {
       background: #667eea;
       color: #ffffff;
       border-color: #667eea;
-      box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 0 12px rgba(102, 126, 234, 0.5);
+    }
+
+    .proof-popover-card {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
     }
   }
 
@@ -262,11 +313,14 @@ const badges = computed<BadgeItem[]>(() => {
     position: relative;
     width: 100%;
     aspect-ratio: 16/10;
-    background: #0d0f12; // deep dark background for hologram style badges to pop
+    background: #0d0f12;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1.5px solid rgba(102, 126, 234, 0.2);
+    border-top-left-radius: var(--radius-xl);
+    border-top-right-radius: var(--radius-xl);
+    overflow: hidden;
   }
 
   &-image-wrapper {
@@ -293,7 +347,9 @@ const badges = computed<BadgeItem[]>(() => {
     gap: var(--space-xs);
     padding: var(--space-md);
     flex-grow: 1;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 239, 230, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 239, 230, 0.95) 100%);
+    border-bottom-left-radius: var(--radius-xl);
+    border-bottom-right-radius: var(--radius-xl);
   }
 
   &-title {
@@ -317,6 +373,50 @@ const badges = computed<BadgeItem[]>(() => {
   }
 }
 
+/* Hover Popover Preview */
+.proof-popover {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+
+  &-tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    background: rgba(13, 15, 18, 0.85);
+    color: #ffd700;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 12;
+  }
+
+  &-card {
+    position: absolute;
+    inset: 0;
+    background: #0d0f12;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95) translateY(10px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
 .verify-hint-badge {
   font-size: 0.7rem;
   font-weight: 700;
@@ -328,5 +428,116 @@ const badges = computed<BadgeItem[]>(() => {
   background: rgba(102, 126, 234, 0.05);
   transition: all 0.25s ease;
   letter-spacing: 0.5px;
+}
+
+.proof-button {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff !important;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.5) !important;
+  }
+}
+
+/* Full-Screen Lightbox Modal Styles */
+.proof-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.proof-modal-content {
+  position: relative;
+  background: #0d0f12;
+  border: 2px solid rgba(102, 126, 234, 0.5);
+  border-radius: var(--radius-xl);
+  width: 90vw;
+  max-width: 850px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.proof-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 900;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 20;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.9);
+    transform: scale(1.1);
+  }
+}
+
+.proof-modal-header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 4px;
+  }
+}
+
+.proof-modal-body {
+  padding: var(--space-md);
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0d0f12;
+}
+
+.proof-modal-image {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
 }
 </style>
