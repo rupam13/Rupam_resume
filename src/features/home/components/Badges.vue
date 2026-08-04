@@ -61,13 +61,13 @@ const badges = computed<BadgeItem[]>(() => {
       credentialUrl: "https://globalai.community/badges/02926c49-5333-4248-b704-d16c6c7f4aa0",
     },
     {
-      title: "Agent Academy Special Ops - 1st Place SPOAT Award",
-      description: "Awarded 1st Place SPOAT Award for outstanding achievement in Accounts Payable Invoice Automation & KYC Document Verification workflows.",
+      title: "Enterprise SPOT Award - Continuous Improvement & Automation",
+      description: "Recognized by leadership for exceptional performance in Continuous Improvement (CI), driving key initiatives including efficiency trackers, HR use cases, GBS site creation, and KPI template design with Accenture.",
       image: resolveAbsolutePath("/images/badges/spoat_award_1st.png"),
     },
     {
-      title: "Agent Academy Special Ops - 2nd Place SPOAT Award",
-      description: "Recognized with 2nd Place SPOAT Award for excellence in multi-agent orchestration and Human-in-the-Loop compliance solutions.",
+      title: "Enterprise SPOT Award - ISO 9001 QMS Certification",
+      description: "Recognized for exceptional ownership and contribution to Magnit India's successful ISO 9001 Certification journey as Process Champion documenting, standardizing, and strengthening QMS business processes.",
       image: resolveAbsolutePath("/images/badges/spoat_award_2nd.png"),
     },
     {
