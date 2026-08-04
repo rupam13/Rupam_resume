@@ -13,7 +13,6 @@ import SoundsToggle from "./SoundsToggle.vue";
 import { isFeatureEnabled } from "../utils/features";
 import { useRouter } from "../composables/useRouter";
 import { useFirstRoute } from "../composables/useFirstRoute";
-import Link from "./Link.vue";
 
 const router = useRouter();
 const { isFirstRoute } = useFirstRoute();
