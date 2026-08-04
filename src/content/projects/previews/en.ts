@@ -30,7 +30,7 @@ export default [
   {
     title: "Intelligent KYC & Identity Document Verification",
     slug: "kyc-processing",
-    thumbnail: "https://via.placeholder.com/600x400/004d40/ffffff?text=🪪%20KYC%20Verification",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/kyc-processing.png",
     description: "90% faster onboarding | 99.5% ID parsing accuracy | Secure & compliant. Automated identity document verification pipeline.",
     category: "ai",
     metrics: [

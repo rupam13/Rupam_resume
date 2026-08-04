@@ -25,7 +25,7 @@ export default {
             title: "The Problem",
             teaser: "Onboarding Friction",
             content: [
-              "Manual verification of passports & driver's licenses",
+              "Manual verification of PAN cards, passports & driver's licenses",
               "Customer onboarding delays & dropped applications",
               "Compliance risks & error-prone manual document checks",
             ],
@@ -69,10 +69,10 @@ export default {
           {
             icon: "🪪",
             title: "Prebuilt ID Model",
-            teaser: "Global ID Support",
+            teaser: "PAN & Global ID Support",
             content: [
               "Extracts Name, DOB, ID Number, Expiration & Address",
-              "Supports Passports, Driver's Licenses, and National IDs",
+              "Supports PAN cards, Passports, Driver's Licenses, and National IDs",
               "Automated document type & orientation detection",
             ],
           },
