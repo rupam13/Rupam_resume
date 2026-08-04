@@ -61,6 +61,16 @@ const badges = computed<BadgeItem[]>(() => {
       credentialUrl: "https://globalai.community/badges/02926c49-5333-4248-b704-d16c6c7f4aa0",
     },
     {
+      title: "Agent Academy Special Ops - 1st Place SPOAT Award",
+      description: "Awarded 1st Place SPOAT Award for outstanding achievement in Accounts Payable Invoice Automation & KYC Document Verification workflows.",
+      image: resolveAbsolutePath("/images/badges/spoat_award_1st.png"),
+    },
+    {
+      title: "Agent Academy Special Ops - 2nd Place SPOAT Award",
+      description: "Recognized with 2nd Place SPOAT Award for excellence in multi-agent orchestration and Human-in-the-Loop compliance solutions.",
+      image: resolveAbsolutePath("/images/badges/spoat_award_2nd.png"),
+    },
+    {
       title: "Badge Bandit",
       description: "Specialized milestone achievement badge earned in Microsoft Copilot Studio Agent Academy training.",
       image: resolveAbsolutePath("/images/badges/badge_bandit.png"),
