@@ -99,10 +99,6 @@ const getInTouchClassNames = computed(() => {
       <span class="header-logo-text">Rupam.W</span>
     </div>
     <div class="header-right">
-      <!-- Link to Learning Tracker Page (styled to match cartoon theme) -->
-      <Link v-if="path !== '/learning'" to="/learning" class="header-learning-link" data-cursor="circle-white" data-hoversound="hover">
-        <Button renderAs="div" variant="theme">Learning</Button>
-      </Link>
       <Button
         renderAs="a"
         variant="accent"
