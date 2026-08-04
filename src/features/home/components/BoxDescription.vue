@@ -103,10 +103,6 @@ const { roleData } = useRole();
       <div class="box-description-content">
         <div class="box-description-details">
           <p class="box-description-details-name">Rupam</p>
-          <div class="box-description-details-location">
-            <PinIcon class="box-description-details-location-icon" />
-            <p class="box-description-details-location-copy">{{ t("germany") }}</p>
-          </div>
         </div>
         <div class="box-description-line"></div>
         <div class="box-description-copy">
