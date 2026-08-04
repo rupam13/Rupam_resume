@@ -17,6 +17,7 @@ import { projectVisible, path } from "./composables/useRouteObserver";
 import ProjectBackground from "./features/projects/components/ProjectBackground.vue";
 import { useClickSound } from "./features/sounds/composables/useClickSounds";
 import LearningTracker from "./features/learning/LearningTracker.vue";
+import WhatsappFloat from "./components/WhatsappFloat.vue";
 //import { useHoverSound } from "./features/sounds/composables/useHoverSounds";
 
 const pathname = ref(typeof window !== "undefined" ? window.location.pathname : "/");
@@ -79,6 +80,7 @@ const { isTouch } = useAgent();
     </template>
 
     <Cursor v-if="!isTouch" />
+    <WhatsappFloat />
   </template>
 </template>
 

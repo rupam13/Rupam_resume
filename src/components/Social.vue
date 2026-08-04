@@ -3,6 +3,7 @@ import Github from "./icons/Github.vue";
 import Linkedin from "./icons/Linkedin.vue";
 import Instagram from "./icons/Instagram.vue";
 import Mail from "./icons/Mail.vue";
+import Whatsapp from "./icons/Whatsapp.vue";
 import X from "./icons/X.vue";
 import Link from "./Link.vue";
 import { t } from "../i18n/utils/translate";
@@ -17,6 +18,7 @@ const props = defineProps<{
 // map icon names to components
 const icons = {
   mail: Mail,
+  whatsapp: Whatsapp,
   github: Github,
   linkedin: Linkedin,
   x: X,
