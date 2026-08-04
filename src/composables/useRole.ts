@@ -48,7 +48,7 @@ export function useRole() {
   const roleData = computed(() => {
     if (currentRole.value === "ai") {
       return {
-        title: "AI Agent Specialist",
+        title: "AI Agent & Automation Specialist",
         intro: "AI Engineer specializing in Large Language Models (LLMs), LangChain, and Multi-Agent Orchestration (CrewAI, LangGraph).<br />Focused on building intelligent autonomous agents, cognitive search pipelines, and integrating AI workflows directly with enterprise platforms like ServiceNow.",
         tagline: "Designs and deploys intelligent autonomous agent systems, cognitive pipelines, and custom AI copilots to automate complex enterprise reasoning.",
         skills: [
