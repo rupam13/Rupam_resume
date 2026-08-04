@@ -52,7 +52,7 @@ export function useRole() {
         intro: "AI & Automation Engineer building end-to-end intelligent autonomous workflows and enterprise agentic systems.<br />Specializing in real-world automation solutions including Accounts Payable, HR approval workflows with Human-in-the-Loop, automated KYC validation, and intelligent Invoice Processing integrated with enterprise platforms.",
         tagline: "Deploys autonomous AI agents and enterprise automation solutions for Accounts Payable, HR Human-in-the-Loop approvals, KYC, and Invoice Processing.",
         skills: [
-          { name: "LLMs & Multi-Agent Frameworks (CrewAI, LangGraph)" },
+          { name: "LLMs & Agentic Automation (Copilot Studio, n8n)" },
           { name: "Microsoft Copilot Studio" },
           { name: "Power Automate & Power BI" },
           { name: "RAG Pipelines & Semantic Search" },
