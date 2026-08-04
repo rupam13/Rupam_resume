@@ -14,16 +14,28 @@ import type { MusicTrack } from "../types";
 export const useMusic = () => {
   const { isTouch } = useAgent();
 
+  let currentLuciVol = 0;
+  let currentAboutVol = 0;
+
   const tickVolumes = () => {
-    // If not on home route, always use base volume
+    let targetLuci = 0;
+    let targetAbout = 0;
+
+    // Calculate target volumes based on route and scene weights
     if (path.value !== "/") {
-      musicTracks.luci.volume(BASE_VOLUMES.luci);
-      musicTracks.about.volume(0);
-      return;
+      targetLuci = BASE_VOLUMES.luci;
+      targetAbout = 0;
+    } else {
+      targetLuci = clamp(1 - sceneWeights.about, 0, 1) * BASE_VOLUMES.luci;
+      targetAbout = clamp(sceneWeights.about * 1.25 - 0.25, 0, 1) * BASE_VOLUMES.about;
     }
 
-    musicTracks.luci.volume(clamp(1 - sceneWeights.about, 0, 1) * BASE_VOLUMES.luci);
-    musicTracks.about.volume(clamp(sceneWeights.about * 1.25 - 0.25, 0, 1) * BASE_VOLUMES.about);
+    // Exponential smoothing LERP for ultra-smooth volume transitions
+    currentLuciVol += (targetLuci - currentLuciVol) * 0.08;
+    currentAboutVol += (targetAbout - currentAboutVol) * 0.08;
+
+    musicTracks.luci.volume(clamp(currentLuciVol, 0, BASE_VOLUMES.luci));
+    musicTracks.about.volume(clamp(currentAboutVol, 0, BASE_VOLUMES.about));
   };
 
   const tick = () => {
@@ -37,7 +49,9 @@ export const useMusic = () => {
     const track = musicTracks[trackId];
     if (!track || track.playing()) return;
     track.load();
+    track.volume(0);
     track.play();
+    track.fade(0, BASE_VOLUMES[trackId], 1500);
   };
 
   watchEffect(() => {
