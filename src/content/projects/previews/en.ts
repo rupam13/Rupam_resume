@@ -15,16 +15,16 @@ export default [
     ],
   },
   {
-    title: "Department-Wide Efficiency & FTE Capacity Telemetry Tracker",
+    title: "Department Head Efficiency & Headcount Optimization Governance Tracker",
     slug: "efficiency-tracker-kpi",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
-    description: "FTE Capacity Reclaimed | MS Forms Data Collection | Department Head Tracking. Power BI operational telemetry system tracking efficiency creation & HR workforce management.",
+    description: "Who is Doing What Visibility | Headcount Optimization & Automation | Department Head Tracking. Power BI executive governance system tracking efficiency creation & manager accountability.",
     category: "ai",
     metrics: [
-      { label: "Hours Reclaimed", value: 92, max: 100 },
-      { label: "FTE Capacity Freed", value: "7.5 FTEs" },
+      { label: "Manager Visibility", value: "100% Transparency" },
+      { label: "FTE Optimization", value: "Headcount Re-allocated" },
       { label: "Departments Tracked", value: "10/10" },
-      { label: "Efficiency Drivers", value: "Automate/Sync" },
+      { label: "Efficiency Drivers", value: "Headcount/Auto/Process" },
     ],
   },
   {

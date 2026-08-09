@@ -28,17 +28,17 @@
       ]
     },
     {
-      "title": "Department-Wide Efficiency & FTE Capacity Telemetry Tracker",
+      "title": "Department Head Efficiency & Headcount Optimization Governance Tracker",
       "slug": "efficiency-tracker-kpi",
       "category": "ai",
       "theme": "dark",
       "tags": ["power-bi", "kpi-measurement", "time-tracking", "power-automate"],
-      "description": "FTE Capacity Reclaimed | MS Forms Data Collection | Department Head Tracking. Power BI operational telemetry system tracking efficiency creation & HR workforce management.",
+      "description": "Who is Doing What Visibility | Headcount Optimization & Automation | Department Head Tracking. Power BI executive governance system tracking efficiency creation & manager accountability.",
       "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
       "components": [
         {
           "type": "text",
-          "text": "Department-wide efficiency tracker collecting workflow improvement submissions via MS Forms and analyzing FTE capacity reclaimed in Power BI for HR workforce management."
+          "text": "Executive governance tracker collecting department head efficiency initiatives via MS Forms and analyzing 'who is doing what' across Headcount Optimization, Automation, and Process Standardization in Power BI."
         }
       ]
     },

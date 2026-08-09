@@ -1,18 +1,18 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Department-Wide Efficiency & FTE Capacity Telemetry Tracker",
+  title: "Department Head Efficiency & Headcount Optimization Governance Tracker",
   category: "ai",
   theme: "dark",
   tags: ["power-bi", "kpi-measurement", "time-tracking", "power-automate"],
   description:
-    "Power BI & MS Forms operational analytics system built for Executive Management & HR Leadership. Tracks how process efficiency is created across Department Heads (via Automation, Standardization & Integration), measures FTE workload capacity reclaimed, and enables strategic workforce management.",
+    "Power BI & MS Forms executive governance dashboard. Built for Senior Management to see 'who is doing what' across Department Heads—tracking how efficiency is created via Headcount/FTE Optimization, Workflow Automation, and Operational Process Standardization.",
   components: [
-    // Section 1: Overview & Workforce Telemetry
+    // Section 1: Managerial Transparency ("Who is Doing What")
     {
       type: "text",
       props: {
-        text: "📊 DEPARTMENT-WIDE EFFICIENCY & WORKFORCE CAPACITY TELEMETRY",
+        text: "👁️ MANAGERIAL TRANSPARENCY & WORKFORCE GOVERNANCE ('WHO IS DOING WHAT')",
       },
     },
     {
@@ -21,44 +21,44 @@ export default {
         variant: "cartoon",
         cards: [
           {
+            icon: "👔",
+            title: "Department Head Accountability",
+            teaser: "Full visibility into 'Who is Doing What'",
+            content: [
+              "Tracks specific efficiency initiatives logged by each Department Head (HR, Ops, IT, Finance, Sales)",
+              "Provides Executive Management with 100% visibility into manager-level contributions",
+              "Eliminates operational blind spots by linking efficiency outcomes directly to department leaders",
+            ],
+          },
+          {
             icon: "👥",
-            title: "FTE Capacity Reclaimed",
-            teaser: "Human Resource Management Focus",
+            title: "Headcount & FTE Optimization",
+            teaser: "Workforce capacity reduction & re-allocation",
             content: [
-              "Tracks staff workload capacity freed up across departments (Reclaimed FTEs)",
-              "Helps HR & Executive Management analyze workforce utilization & headcount allocation",
-              "100% focused on operational time savings and workload re-balancing (no dollar metrics)",
+              "Tracks FTE capacity freed up and headcount optimization per department",
+              "Helps Senior Management & HR analyze staffing dependency and rebalance team allocations",
+              "100% focused on human resource management & organizational productivity",
             ],
           },
           {
-            icon: "⚙️",
-            title: "Department Head Leaderboard",
-            teaser: "Cross-departmental visibility",
+            icon: "🤖",
+            title: "Automation & Operational Drivers",
+            teaser: "How efficiency is created",
             content: [
-              "Department-level efficiency tracking (HR, Operations, IT, Finance, Marketing, Sales)",
-              "Visual leaderboard comparing process handle-time reductions and SLA performance",
-              "Enables leadership to identify top-performing units & operational bottlenecks",
-            ],
-          },
-          {
-            icon: "📋",
-            title: "MS Forms Data Collection",
-            teaser: "1-minute monthly submission",
-            content: [
-              "Department Heads submit monthly workflow improvements via a simple MS Form",
-              "Captures process name, efficiency driver, legacy vs new handle time, and volume",
-              "Automated data flow straight into Power BI dataset via Power Automate",
+              "Automation: Offloading manual tasks to AI Agents, n8n, & RPA scripts",
+              "Process Elimination: Removing unnecessary approval loops & redundant forms",
+              "Integration: Auto-syncing cross-platform data between web forms, CRM, & ERPs",
             ],
           },
         ],
       },
     },
 
-    // Section 2: How Efficiency is Created & DAX Formulas
+    // Section 2: Management Analysis & Intake Pipeline
     {
       type: "text",
       props: {
-        text: "🔍 HOW EFFICIENCY IS CREATED & ANALYZED BY MANAGEMENT",
+        text: "📋 HOW MANAGEMENT ANALYZES DEPARTMENT-HEAD INITIATIVES",
       },
     },
     {
@@ -67,33 +67,32 @@ export default {
         variant: "cartoon",
         cards: [
           {
-            icon: "⚡",
-            title: "Efficiency Creation Drivers",
-            teaser: "Three core drivers tracked",
+            icon: "📋",
+            title: "MS Forms Intake Engine",
+            teaser: "Simple monthly reporting",
             content: [
-              "Automation: Workflows offloaded to AI Agents, n8n, & RPA scripts",
-              "Standardization: Process simplification & removing redundant manual approvals",
-              "Integration: Real-time API data sync between web forms, CRM, & ERPs",
+              "Department Heads log monthly initiatives: Manager Name, Department, Efficiency Type & FTE Impact",
+              "Categorizes driver: Headcount Optimization vs Automation vs Process Standardization",
+              "Power Automate streams submissions directly into Power BI dataset",
             ],
           },
           {
-            icon: "🧮",
-            title: "FTE & Handle-Time Formulas",
-            teaser: "Calculated DAX metrics",
+            icon: "📊",
+            title: "Executive Governance Dashboard",
+            teaser: "Management analytics view",
             content: [
-              "Monthly_Hours_Saved = ((Legacy_AHT - Automated_AHT) * Volume) / 60",
-              "FTE_Capacity_Reclaimed = Monthly_Hours_Saved / 160_Work_Hours",
-              "Department_Efficiency_Gain_% = DIVIDE(Monthly_Hours_Saved, Legacy_Total_Hours)",
+              "Visual department head leaderboard ranking efficiency created per manager",
+              "Filterable by Efficiency Type (Headcount Reduction, Automation, Process Change)",
+              "Single-screen executive overview for quarterly leadership review meetings",
             ],
           },
           {
-            icon: "📈",
-            title: "Strategic HR Management",
-            teaser: "Workforce decision making",
+            icon: "🎯",
+            title: "Strategic Workforce Action",
+            teaser: "Resource re-deployment",
             content: [
-              "Provides HR leadership with empirical data to re-assign reclaimed FTE capacity",
-              "Highlights departments achieving 80%+ handle-time reduction",
-              "Simplifies executive quarterly efficiency reviews into clear visual charts",
+              "Enables Senior Leadership to redeploy freed headcount capacity to strategic growth areas",
+              "Identifies department heads driving proactive operational innovation",
             ],
           },
         ],
