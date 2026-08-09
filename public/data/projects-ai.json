@@ -28,17 +28,17 @@
       ]
     },
     {
-      "title": "Enterprise Power BI Process Efficiency Tracker & KPI Rating Engine",
+      "title": "Cross-Department Efficiency Tracker & Power BI Savings Dashboard",
       "slug": "efficiency-tracker-kpi",
       "category": "ai",
       "theme": "dark",
-      "tags": ["power-bi", "kpi-measurement", "time-tracking", "accenture", "continuous-improvement"],
-      "description": "Enterprise SPOT Award Initiative | Automated Performance Ratings (A+ to C) | Accenture CI Partnership. Process efficiency creation tracker & KPI performance rating dashboard.",
+      "tags": ["power-bi", "kpi-measurement", "time-tracking", "power-automate"],
+      "description": "MS Forms Data Collection | 1,200+ hrs saved/yr | Power BI Cost Analysis. Automated department efficiency tracker calculating time & dollar savings.",
       "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
       "components": [
         {
           "type": "text",
-          "text": "Enterprise Continuous Improvement Initiative awarded with an Enterprise SPOT Award in collaboration with Accenture."
+          "text": "Cross-department efficiency tracker collecting workflow improvement submissions via MS Forms and calculating total time & cost savings in Power BI."
         }
       ]
     },

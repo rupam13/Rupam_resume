@@ -1,18 +1,18 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Enterprise Power BI Process Efficiency Tracker & KPI Rating Engine",
+  title: "Cross-Department Efficiency Tracker & Power BI Savings Dashboard",
   category: "ai",
   theme: "dark",
-  tags: ["power-bi", "kpi-measurement", "time-tracking", "accenture", "continuous-improvement"],
+  tags: ["power-bi", "kpi-measurement", "time-tracking", "power-automate"],
   description:
-    "Executive Power BI dashboard measuring process efficiency generation, automated KPI performance ratings (A+ to C), SLA compliance metrics, and FTE capacity gains across HR, Operations, IT, and Finance. Recognized with an Enterprise SPOT Award in partnership with Accenture.",
+    "Simple enterprise KPI tracking system. Collects monthly process efficiency data across departments via Microsoft Forms, analyzes handle-time reductions in Power BI, and calculates total hours & cost savings achieved.",
   components: [
-    // Section 1: Overview
+    // Section 1: Overview & Data Collection
     {
       type: "text",
       props: {
-        text: "⚡ EFFICIENCY CREATION TELEMETRY & AUTOMATED PERFORMANCE RATINGS",
+        text: "📊 SIMPLE CROSS-DEPARTMENT EFFICIENCY & SAVINGS TRACKER",
       },
     },
     {
@@ -21,44 +21,44 @@ export default {
         variant: "cartoon",
         cards: [
           {
-            icon: "⭐",
-            title: "Automated KPI Performance Ratings",
-            teaser: "Dynamic A+ to C Ratings Engine",
+            icon: "📋",
+            title: "MS Forms Data Collection",
+            teaser: "1-minute department submission",
             content: [
-              "Evaluates team & process performance dynamically across 10+ KPIs",
-              "Assigns A+ (Optimal >95%), A (High 85-95%), B (Moderate), C (Needs Action)",
-              "Drill-down views for managers to spot operational bottlenecks",
+              "Department leads submit workflow improvements via a simple MS Form",
+              "Captures process name, legacy time, automated time, and monthly volume",
+              "Automated data flow straight into Power BI dataset via Power Automate",
             ],
           },
           {
-            icon: "🏆",
-            title: "Enterprise SPOT Award & Accenture CI",
-            teaser: "Award-winning CI Initiative",
+            icon: "📈",
+            title: "Power BI Savings Dashboard",
+            teaser: "Live KPI & ROI visualization",
             content: [
-              "Awarded by leadership for Continuous Improvement (CI) excellence",
-              "Co-designed KPI measurement templates with Accenture teams",
-              "Tracked efficiency creation across 1,500+ reclaimed hours per year",
+              "Calculates total hours saved = (Legacy Time - New Time) * Volume",
+              "Displays cost savings ($) & FTE capacity reclaimed per department",
+              "Visual department ranking charts (HR, Operations, IT, Finance, Sales)",
             ],
           },
           {
-            icon: "⏱️",
-            title: "Efficiency Creation Metrics",
-            teaser: "Quantifiable handle time reduction",
+            icon: "💰",
+            title: "Clear Business Savings",
+            teaser: "1,200+ hours saved annually",
             content: [
-              "Measures Pre vs Post Automation Handle Times (AHT)",
-              "Live SLA breach warning alerts & capacity utilization",
-              "Automated FTE time savings calculation across all teams",
+              "Over $90,000 in annual operational cost savings demonstrated",
+              "Eliminated manual Excel spreadsheet consolidation",
+              "Easy 30-second interview story for leadership presentations",
             ],
           },
         ],
       },
     },
 
-    // Section 2: Technical Architecture & DAX Metrics
+    // Section 2: Simple Workflow & Formula
     {
       type: "text",
       props: {
-        text: "🛠️ DAX RATING MODEL & EFFICIENCY TRACKING ENGINE",
+        text: "🛠️ HOW THE TRACKER WORKS (SIMPLE 3-STEP PIPELINE)",
       },
     },
     {
@@ -67,34 +67,30 @@ export default {
         variant: "cartoon",
         cards: [
           {
-            icon: "🧮",
-            title: "DAX Rating & Efficiency Measures",
-            teaser: "Calculated performance formulas",
+            icon: "1️⃣",
+            title: "Step 1: Form Submission",
+            teaser: "MS Forms input",
             content: [
-              "Efficiency_Rating = SWITCH(TRUE(), Efficiency_Gain >= 0.90, 'A+', Efficiency_Gain >= 0.75, 'A', 'B')",
-              "Time_Reclaimed_Hours = SUM(Legacy_AHT - Automated_AHT)",
-              "KPI_Performance_Score = CALCULATE(AVERAGE(SLA_Compliance_Score) * Volume_Weight)",
+              "Team enters: Process Name, Old Time (mins), New Time (mins), Monthly Volume",
+              "Example: HR Onboarding (Old: 45m ➔ New: 5m, 100 hires/mo)",
             ],
           },
           {
-            icon: "⚙️",
-            title: "Cross-Departmental KPI Tracking",
-            teaser: "Use cases evaluated",
+            icon: "2️⃣",
+            title: "Step 2: Power BI Analysis",
+            teaser: "Automated calculation",
             content: [
-              "HR Employee Request SLA & Rating Tracking",
-              "Vendor PO Processing Speed & Bottleneck Analysis",
-              "IT Support Ticket Resolution Performance Rating",
+              "Hours Saved = ((Old Time - New Time) * Volume) / 60",
+              "Financial Savings = Hours Saved * Hourly Rate",
             ],
           },
           {
-            icon: "🛠️",
-            title: "Technology Stack",
-            teaser: "Analytics & Automation Stack",
+            icon: "3️⃣",
+            title: "Step 3: Executive Reporting",
+            teaser: "Clear visual dashboard",
             content: [
-              "Power BI Desktop & Power BI Service",
-              "DAX Language & Data Modeling",
-              "Power Query & Power Automate Hooks",
-              "SharePoint & Azure SQL Warehouse",
+              "Shows total hours saved across all 10 departments",
+              "Highlights top 3 efficiency wins of the quarter",
             ],
           },
         ],

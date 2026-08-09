@@ -15,16 +15,16 @@ export default [
     ],
   },
   {
-    title: "Enterprise Power BI Process Efficiency Tracker & KPI Rating Engine",
+    title: "Cross-Department Efficiency Tracker & Power BI Savings Dashboard",
     slug: "efficiency-tracker-kpi",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
-    description: "Enterprise SPOT Award Initiative | Automated A+ to C Ratings | Accenture CI Partnership. Process efficiency creation tracker & KPI performance rating dashboard.",
+    description: "MS Forms Data Collection | 1,200+ hrs saved/yr | Power BI Cost Analysis. Automated department efficiency tracker calculating time & dollar savings.",
     category: "ai",
     metrics: [
-      { label: "Hours Reclaimed", value: 94, max: 100 },
-      { label: "KPI Rating Engine", value: "A+ Grade" },
-      { label: "SLA Compliance", value: 99, max: 100 },
-      { label: "Process Speedup", value: "91%" },
+      { label: "Hours Reclaimed", value: 92, max: 100 },
+      { label: "Annual Cost Savings", value: "$90K+" },
+      { label: "Departments Tracked", value: "10/10" },
+      { label: "Data Source", value: "MS Forms" },
     ],
   },
   {
