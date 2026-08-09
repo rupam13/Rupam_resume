@@ -33,6 +33,7 @@ export default {
           {
             icon: "👥",
             title: "Headcount & FTE Optimization",
+
             teaser: "Workforce capacity reduction & re-allocation",
             content: [
               "Tracks FTE capacity freed up and headcount optimization per department",
@@ -50,11 +51,27 @@ export default {
               "Integration: Auto-syncing cross-platform data between web forms, CRM, & ERPs",
             ],
           },
+          { // New card: Efficiency Creation Drivers
+            icon: "⚙️",
+            title: "Efficiency Creation Drivers",
+            teaser: "Headcount, Automation, Process Improvement",
+            content: [
+              "Headcount Reduction – freeing FTE capacity",
+              "Automation – AI agents, RPA, workflow automation",
+              "Process Standardization – eliminating redundant steps",
+            ],
+          },
         ],
       },
     },
 
     // Section 2: Management Analysis & Intake Pipeline
+    {
+      type: "text",
+      props: {
+        text: "📈 HOW EFFICIENCY IS CREATED – Tracks FTE reduction, automation initiatives, and process improvements logged by each department head, giving senior leadership clear visibility of human resource savings without monetary values."
+      },
+    },
     {
       type: "text",
       props: {
