@@ -1,18 +1,18 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Cross-Department Efficiency Tracker & Power BI Savings Dashboard",
+  title: "Department-Wide Efficiency & FTE Capacity Telemetry Tracker",
   category: "ai",
   theme: "dark",
   tags: ["power-bi", "kpi-measurement", "time-tracking", "power-automate"],
   description:
-    "Simple enterprise KPI tracking system. Collects monthly process efficiency data across departments via Microsoft Forms, analyzes handle-time reductions in Power BI, and calculates total hours & cost savings achieved.",
+    "Power BI & MS Forms operational analytics system built for Executive Management & HR Leadership. Tracks how process efficiency is created across Department Heads (via Automation, Standardization & Integration), measures FTE workload capacity reclaimed, and enables strategic workforce management.",
   components: [
-    // Section 1: Overview & Data Collection
+    // Section 1: Overview & Workforce Telemetry
     {
       type: "text",
       props: {
-        text: "📊 SIMPLE CROSS-DEPARTMENT EFFICIENCY & SAVINGS TRACKER",
+        text: "📊 DEPARTMENT-WIDE EFFICIENCY & WORKFORCE CAPACITY TELEMETRY",
       },
     },
     {
@@ -21,44 +21,44 @@ export default {
         variant: "cartoon",
         cards: [
           {
+            icon: "👥",
+            title: "FTE Capacity Reclaimed",
+            teaser: "Human Resource Management Focus",
+            content: [
+              "Tracks staff workload capacity freed up across departments (Reclaimed FTEs)",
+              "Helps HR & Executive Management analyze workforce utilization & headcount allocation",
+              "100% focused on operational time savings and workload re-balancing (no dollar metrics)",
+            ],
+          },
+          {
+            icon: "⚙️",
+            title: "Department Head Leaderboard",
+            teaser: "Cross-departmental visibility",
+            content: [
+              "Department-level efficiency tracking (HR, Operations, IT, Finance, Marketing, Sales)",
+              "Visual leaderboard comparing process handle-time reductions and SLA performance",
+              "Enables leadership to identify top-performing units & operational bottlenecks",
+            ],
+          },
+          {
             icon: "📋",
             title: "MS Forms Data Collection",
-            teaser: "1-minute department submission",
+            teaser: "1-minute monthly submission",
             content: [
-              "Department leads submit workflow improvements via a simple MS Form",
-              "Captures process name, legacy time, automated time, and monthly volume",
+              "Department Heads submit monthly workflow improvements via a simple MS Form",
+              "Captures process name, efficiency driver, legacy vs new handle time, and volume",
               "Automated data flow straight into Power BI dataset via Power Automate",
-            ],
-          },
-          {
-            icon: "📈",
-            title: "Power BI Savings Dashboard",
-            teaser: "Live KPI & ROI visualization",
-            content: [
-              "Calculates total hours saved = (Legacy Time - New Time) * Volume",
-              "Displays cost savings ($) & FTE capacity reclaimed per department",
-              "Visual department ranking charts (HR, Operations, IT, Finance, Sales)",
-            ],
-          },
-          {
-            icon: "💰",
-            title: "Clear Business Savings",
-            teaser: "1,200+ hours saved annually",
-            content: [
-              "Over $90,000 in annual operational cost savings demonstrated",
-              "Eliminated manual Excel spreadsheet consolidation",
-              "Easy 30-second interview story for leadership presentations",
             ],
           },
         ],
       },
     },
 
-    // Section 2: Simple Workflow & Formula
+    // Section 2: How Efficiency is Created & DAX Formulas
     {
       type: "text",
       props: {
-        text: "🛠️ HOW THE TRACKER WORKS (SIMPLE 3-STEP PIPELINE)",
+        text: "🔍 HOW EFFICIENCY IS CREATED & ANALYZED BY MANAGEMENT",
       },
     },
     {
@@ -67,30 +67,33 @@ export default {
         variant: "cartoon",
         cards: [
           {
-            icon: "1️⃣",
-            title: "Step 1: Form Submission",
-            teaser: "MS Forms input",
+            icon: "⚡",
+            title: "Efficiency Creation Drivers",
+            teaser: "Three core drivers tracked",
             content: [
-              "Team enters: Process Name, Old Time (mins), New Time (mins), Monthly Volume",
-              "Example: HR Onboarding (Old: 45m ➔ New: 5m, 100 hires/mo)",
+              "Automation: Workflows offloaded to AI Agents, n8n, & RPA scripts",
+              "Standardization: Process simplification & removing redundant manual approvals",
+              "Integration: Real-time API data sync between web forms, CRM, & ERPs",
             ],
           },
           {
-            icon: "2️⃣",
-            title: "Step 2: Power BI Analysis",
-            teaser: "Automated calculation",
+            icon: "🧮",
+            title: "FTE & Handle-Time Formulas",
+            teaser: "Calculated DAX metrics",
             content: [
-              "Hours Saved = ((Old Time - New Time) * Volume) / 60",
-              "Financial Savings = Hours Saved * Hourly Rate",
+              "Monthly_Hours_Saved = ((Legacy_AHT - Automated_AHT) * Volume) / 60",
+              "FTE_Capacity_Reclaimed = Monthly_Hours_Saved / 160_Work_Hours",
+              "Department_Efficiency_Gain_% = DIVIDE(Monthly_Hours_Saved, Legacy_Total_Hours)",
             ],
           },
           {
-            icon: "3️⃣",
-            title: "Step 3: Executive Reporting",
-            teaser: "Clear visual dashboard",
+            icon: "📈",
+            title: "Strategic HR Management",
+            teaser: "Workforce decision making",
             content: [
-              "Shows total hours saved across all 10 departments",
-              "Highlights top 3 efficiency wins of the quarter",
+              "Provides HR leadership with empirical data to re-assign reclaimed FTE capacity",
+              "Highlights departments achieving 80%+ handle-time reduction",
+              "Simplifies executive quarterly efficiency reviews into clear visual charts",
             ],
           },
         ],

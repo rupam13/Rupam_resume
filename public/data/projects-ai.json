@@ -28,17 +28,17 @@
       ]
     },
     {
-      "title": "Cross-Department Efficiency Tracker & Power BI Savings Dashboard",
+      "title": "Department-Wide Efficiency & FTE Capacity Telemetry Tracker",
       "slug": "efficiency-tracker-kpi",
       "category": "ai",
       "theme": "dark",
       "tags": ["power-bi", "kpi-measurement", "time-tracking", "power-automate"],
-      "description": "MS Forms Data Collection | 1,200+ hrs saved/yr | Power BI Cost Analysis. Automated department efficiency tracker calculating time & dollar savings.",
+      "description": "FTE Capacity Reclaimed | MS Forms Data Collection | Department Head Tracking. Power BI operational telemetry system tracking efficiency creation & HR workforce management.",
       "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
       "components": [
         {
           "type": "text",
-          "text": "Cross-department efficiency tracker collecting workflow improvement submissions via MS Forms and calculating total time & cost savings in Power BI."
+          "text": "Department-wide efficiency tracker collecting workflow improvement submissions via MS Forms and analyzing FTE capacity reclaimed in Power BI for HR workforce management."
         }
       ]
     },

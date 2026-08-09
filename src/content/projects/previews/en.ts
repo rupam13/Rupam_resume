@@ -15,16 +15,16 @@ export default [
     ],
   },
   {
-    title: "Cross-Department Efficiency Tracker & Power BI Savings Dashboard",
+    title: "Department-Wide Efficiency & FTE Capacity Telemetry Tracker",
     slug: "efficiency-tracker-kpi",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
-    description: "MS Forms Data Collection | 1,200+ hrs saved/yr | Power BI Cost Analysis. Automated department efficiency tracker calculating time & dollar savings.",
+    description: "FTE Capacity Reclaimed | MS Forms Data Collection | Department Head Tracking. Power BI operational telemetry system tracking efficiency creation & HR workforce management.",
     category: "ai",
     metrics: [
       { label: "Hours Reclaimed", value: 92, max: 100 },
-      { label: "Annual Cost Savings", value: "$90K+" },
+      { label: "FTE Capacity Freed", value: "7.5 FTEs" },
       { label: "Departments Tracked", value: "10/10" },
-      { label: "Data Source", value: "MS Forms" },
+      { label: "Efficiency Drivers", value: "Automate/Sync" },
     ],
   },
   {
