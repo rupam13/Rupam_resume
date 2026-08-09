@@ -23,7 +23,8 @@ export type TagVariant =
   | "human-in-the-loop"
   | "invoice-processing"
   | "kyc-automation"
-  | "accounts-payable";
+  | "accounts-payable"
+  | "n8n";
 
 export const tagLabels = {
   three: "Three.js",
@@ -51,4 +52,5 @@ export const tagLabels = {
   "invoice-processing": "Invoice Processing",
   "kyc-automation": "KYC Automation",
   "accounts-payable": "Accounts Payable",
+  n8n: "n8n",
 } as const satisfies Record<TagVariant, string>;

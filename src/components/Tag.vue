@@ -131,13 +131,22 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       box-shadow: 2.5px 2.5px 0px #2d2a24;
       transform: rotate(-0.8deg);
     }
+
+    &-n8n {
+      background-color: #ff6d5a;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(1.2deg);
+    }
   }
 
   &-variant-copilot-studio,
   &-variant-agentic-ai,
   &-variant-ivr,
   &-variant-servicenow,
-  &-variant-mcp {
+  &-variant-mcp,
+  &-variant-n8n {
     transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-block;
 

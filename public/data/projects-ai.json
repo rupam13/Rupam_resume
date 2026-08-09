@@ -53,7 +53,7 @@
       "slug": "ai-project-3",
       "category": "ai",
       "theme": "dark",
-      "tags": ["copilot-studio", "agentic-ai"],
+      "tags": ["n8n", "agentic-ai"],
       "description": "AI project with LinkedIn embed",
       "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
       "linkedinEmbed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7365669102746599424?compact=1",

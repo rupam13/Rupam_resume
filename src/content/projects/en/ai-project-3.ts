@@ -4,7 +4,7 @@ export default {
   title: "Intelligent Email Triage & Organization System",
   category: "ai",
   theme: "dark",
-  tags: ["agentic-ai", "copilot-studio"],
+  tags: ["agentic-ai", "n8n"],
   heroEmbed: {
     src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7365669102746599424?compact=1",
     title: "Intelligent Email Triage & Organization System LinkedIn Post",
@@ -131,6 +131,7 @@ export default {
             title: "Tech Stack",
             teaser: "Robust foundation",
             content: [
+              "n8n Workflow Automation Engine",
               "Natural Language Processing (NLP)",
               "ML Text Classification Models",
               "Email API Integrations (Outlook/Gmail)",
