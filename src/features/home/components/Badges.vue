@@ -44,6 +44,12 @@ const badges = computed<BadgeItem[]>(() => {
   }
   return [
     {
+      title: "n8n Certificate: Essentials - Your First Workflows (N8N101)",
+      description: "Official n8n certification awarded for successfully completing the N8N101 course, demonstrating mastery of n8n workflow automation, node triggers, data transformations, and API integrations.",
+      image: resolveAbsolutePath("/images/badges/n8n_certificate.svg"),
+      credentialUrl: "https://learn.n8n.io/certificates/c838fbfcfd7e483f8ef5b7e50da7c39e",
+    },
+    {
       title: "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio",
       description: "Microsoft Applied Skills: Create agents in Microsoft Copilot Studio. Covers conversational design, generative answers, and action workflows.",
       image: resolveAbsolutePath("/images/badges/microsoft_copilot.jpg"),
