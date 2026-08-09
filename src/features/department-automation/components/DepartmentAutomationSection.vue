@@ -43,7 +43,7 @@ const mapTagToVariant = (tag: string): TagVariant => {
           <h2 class="dept-title-copy">Cross-Department Automation Matrix</h2>
         </div>
         <p class="dept-subtitle">
-          Quantifiable time tracking, ROI measurements, and tech stack workflows across 10 core business departments.
+          Explore possible automation opportunities, quantifiable time tracking telemetry, and tech stack workflows across all 10 business departments.
         </p>
 
         <!-- KPI Impact Banner -->
