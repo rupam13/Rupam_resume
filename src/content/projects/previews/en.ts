@@ -15,6 +15,32 @@ export default [
     ],
   },
   {
+    title: "Copilot Studio Live Agent Handoff & Time Telemetry Portal",
+    slug: "copilot-handoff-portal",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+    description: "12 mins saved/ticket | 100% transcript context | <1.2s handoff latency. Direct Line API escalation bridge to ServiceNow Agent Workspace (AWA).",
+    category: "ai",
+    metrics: [
+      { label: "Handle Time Saved", value: 88, max: 100 },
+      { label: "Transcript Context", value: 100, max: 100 },
+      { label: "Handoff Latency", value: "<1.2s" },
+      { label: "FCR Rate", value: 85, max: 100 },
+    ],
+  },
+  {
+    title: "Enterprise Power BI Automation ROI & KPI Telemetry Dashboard",
+    slug: "powerbi-automation-kpi",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+    description: "1,250+ hrs saved/yr | $120K annual cost avoidance | Real-time DAX measures. Executive telemetry dashboard measuring process automation impact.",
+    category: "ai",
+    metrics: [
+      { label: "Hours Reclaimed", value: 92, max: 100 },
+      { label: "Cost Avoidance", value: "$120K" },
+      { label: "Accuracy Rate", value: 99, max: 100 },
+      { label: "Telemetry Latency", value: "Real-time" },
+    ],
+  },
+  {
     title: "Enterprise Invoice & Accounts Payable Automation",
     slug: "invoice-automation",
     thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/invoice-automation.png",

@@ -139,6 +139,46 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       box-shadow: 2.5px 2.5px 0px #2d2a24;
       transform: rotate(1.2deg);
     }
+
+    &-power-bi {
+      background-color: #f2c811;
+      color: #2d2a24;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(-1deg);
+    }
+
+    &-kpi-measurement {
+      background-color: #00b4d8;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(1.4deg);
+    }
+
+    &-direct-line-api {
+      background-color: #7209b7;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(-1.5deg);
+    }
+
+    &-handoff {
+      background-color: #4361ee;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(1deg);
+    }
+
+    &-time-tracking {
+      background-color: #3a0ca3;
+      color: #ffffff;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(-1.2deg);
+    }
   }
 
   &-variant-copilot-studio,
@@ -146,7 +186,12 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
   &-variant-ivr,
   &-variant-servicenow,
   &-variant-mcp,
-  &-variant-n8n {
+  &-variant-n8n,
+  &-variant-power-bi,
+  &-variant-kpi-measurement,
+  &-variant-direct-line-api,
+  &-variant-handoff,
+  &-variant-time-tracking {
     transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-block;
 

@@ -24,7 +24,12 @@ export type TagVariant =
   | "invoice-processing"
   | "kyc-automation"
   | "accounts-payable"
-  | "n8n";
+  | "n8n"
+  | "power-bi"
+  | "kpi-measurement"
+  | "direct-line-api"
+  | "handoff"
+  | "time-tracking";
 
 export const tagLabels = {
   three: "Three.js",
@@ -53,4 +58,9 @@ export const tagLabels = {
   "kyc-automation": "KYC Automation",
   "accounts-payable": "Accounts Payable",
   n8n: "n8n",
+  "power-bi": "Power BI",
+  "kpi-measurement": "KPI Measurement",
+  "direct-line-api": "Direct Line API",
+  handoff: "Live Agent Handoff",
+  "time-tracking": "Time Telemetry",
 } as const satisfies Record<TagVariant, string>;

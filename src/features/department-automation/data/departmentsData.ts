@@ -1,0 +1,271 @@
+export interface Opportunity {
+  id: string;
+  title: string;
+  problem: string;
+  solution: string;
+  techStack: string[];
+  timeSaved: string;
+  legacyHandleTime: string;
+  automatedHandleTime: string;
+  speedupPercentage: string;
+  complexity: "Low" | "Medium" | "High";
+}
+
+export interface Department {
+  id: string;
+  name: string;
+  icon: string;
+  description: string;
+  opportunities: Opportunity[];
+}
+
+export const departmentsData: Department[] = [
+  {
+    id: "hr",
+    name: "HR Operations",
+    icon: "👥",
+    description: "Streamline employee onboarding, candidate ranking, leave approvals, and offboarding security.",
+    opportunities: [
+      {
+        id: "hr-1",
+        title: "Zero-Touch Employee Onboarding & Provisioning",
+        problem: "Manual creation of Active Directory accounts, badging, equipment dispatch, and app access takes 3+ days.",
+        solution: "n8n & Power Automate orchestrator triggers provisioning instantly upon HRIS candidate status change.",
+        techStack: ["n8n", "Power Automate", "ServiceNow", "Entra ID"],
+        timeSaved: "14 hrs / employee",
+        legacyHandleTime: "72 hrs",
+        automatedHandleTime: "15 mins",
+        speedupPercentage: "99.6%",
+        complexity: "Medium",
+      },
+      {
+        id: "hr-2",
+        title: "AI Candidate Resume Screening & Ranking",
+        problem: "Recruiters spend 20+ hours per week manually filtering hundreds of unstructured resume PDFs.",
+        solution: "Azure OpenAI & n8n pipeline parses resumes, extracts skills, scores candidates against job requisitions.",
+        techStack: ["n8n", "Azure OpenAI", "Python", "REST API"],
+        timeSaved: "18 hrs / week",
+        legacyHandleTime: "45 mins / resume",
+        automatedHandleTime: "30 secs / resume",
+        speedupPercentage: "98.8%",
+        complexity: "Medium",
+      },
+    ],
+  },
+  {
+    id: "operations",
+    name: "Operations",
+    icon: "⚙️",
+    description: "Automate inventory re-ordering, vendor PO approvals, SLA monitoring, and facility dispatch.",
+    opportunities: [
+      {
+        id: "op-1",
+        title: "Automated Vendor PO Generation & Approval Routing",
+        problem: "Purchase orders sit in email inboxes for days, delaying supply chain procurement.",
+        solution: "n8n workflow monitors inventory levels, auto-drafts POs, and sends interactive approval buttons via Teams/Email.",
+        techStack: ["n8n", "Power Automate", "Power BI", "SQL"],
+        timeSaved: "25 hrs / week",
+        legacyHandleTime: "48 hrs",
+        automatedHandleTime: "10 mins",
+        speedupPercentage: "99.6%",
+        complexity: "High",
+      },
+      {
+        id: "op-2",
+        title: "Facility & Asset SLA Breach Telemetry Alerting",
+        problem: "Facility repair tickets exceed SLA deadlines due to manual assignment bottlenecks.",
+        solution: "Real-time Power BI & n8n cron engine evaluates ticket age and auto-escalates to standby technicians.",
+        techStack: ["n8n", "ServiceNow", "Power BI"],
+        timeSaved: "8 hrs / week",
+        legacyHandleTime: "4 hrs",
+        automatedHandleTime: "Real-time",
+        speedupPercentage: "100%",
+        complexity: "Low",
+      },
+    ],
+  },
+  {
+    id: "content",
+    name: "Content & Media",
+    icon: "✍️",
+    description: "Accelerate content generation briefs, multi-platform asset distribution, and localization.",
+    opportunities: [
+      {
+        id: "cnt-1",
+        title: "AI Article Brief & Social Media Content Engine",
+        problem: "Content writers spend 15+ hours researching trends and structuring SEO content briefs.",
+        solution: "n8n pipeline fetches trending topics, generates structured markdown briefs and multi-platform social posts via LLMs.",
+        techStack: ["n8n", "Claude API", "OpenAI", "Google Docs API"],
+        timeSaved: "15 hrs / week",
+        legacyHandleTime: "4 hrs / brief",
+        automatedHandleTime: "5 mins / brief",
+        speedupPercentage: "97.9%",
+        complexity: "Medium",
+      },
+      {
+        id: "cnt-2",
+        title: "Multi-Channel Automated Publishing & Asset Tagging",
+        problem: "Manual upload and scheduling of media assets across CMS, LinkedIn, and YouTube consumes valuable creator time.",
+        solution: "Automated n8n webhook triggers publish scheduled assets with auto-generated metadata & thumbnails.",
+        techStack: ["n8n", "REST APIs", "YouTube API", "LinkedIn API"],
+        timeSaved: "10 hrs / week",
+        legacyHandleTime: "45 mins / post",
+        automatedHandleTime: "Instant",
+        speedupPercentage: "100%",
+        complexity: "Low",
+      },
+    ],
+  },
+  {
+    id: "customer-success",
+    name: "Customer Success Ops",
+    icon: "🤝",
+    description: "Proactive churn prediction, automated CSAT sentiment analysis, and automated QBR slide prep.",
+    opportunities: [
+      {
+        id: "cs-1",
+        title: "CSAT Feedback Sentiment Analysis & Urgent Escalation",
+        problem: "Negative customer survey responses sit in databases for weeks before account managers notice.",
+        solution: "LLM sentiment engine analyzes feedback immediately; negative sentiment triggers urgent Slack/Teams alert & ticket.",
+        techStack: ["n8n", "Azure OpenAI", "HubSpot", "Slack API"],
+        timeSaved: "12 hrs / week",
+        legacyHandleTime: "72 hrs SLA",
+        automatedHandleTime: "5 secs",
+        speedupPercentage: "99.9%",
+        complexity: "Medium",
+      },
+      {
+        id: "cs-2",
+        title: "Automated QBR Data Aggregation & Slide Generator",
+        problem: "Customer Success Managers spend 6 hours per client compiling usage stats into presentation decks.",
+        solution: "n8n fetches usage telemetry from Power BI / SQL database and generates customized QBR decks via API.",
+        techStack: ["n8n", "Power BI", "Google Slides API", "Python"],
+        timeSaved: "5 hrs / deck",
+        legacyHandleTime: "6 hrs / deck",
+        automatedHandleTime: "15 mins",
+        speedupPercentage: "95.8%",
+        complexity: "High",
+      },
+    ],
+  },
+  {
+    id: "marketing",
+    name: "Marketing",
+    icon: "📢",
+    description: "Lead enrichment, campaign attribution telemetry, and automated webinar drip campaigns.",
+    opportunities: [
+      {
+        id: "mkt-1",
+        title: "Instant Lead Enrichment & Qualification Engine",
+        problem: "Inbound leads lack company size, tech stack, and job title details, slowing down SDR outreach.",
+        solution: "n8n webhook triggers Clearbit / Apollo API lookup on lead creation, enriching CRM records in under 2 seconds.",
+        techStack: ["n8n", "Clearbit API", "HubSpot", "Salesforce"],
+        timeSaved: "20 hrs / week",
+        legacyHandleTime: "10 mins / lead",
+        automatedHandleTime: "2 secs / lead",
+        speedupPercentage: "99.6%",
+        complexity: "Low",
+      },
+    ],
+  },
+  {
+    id: "product",
+    name: "Product Operations",
+    icon: "🚀",
+    description: "LLM feedback clustering, release note generation, and automated bug severity classification.",
+    opportunities: [
+      {
+        id: "prod-1",
+        title: "AI User Feedback Clustering & Feature Prioritization",
+        problem: "Thousands of user feedback snippets scattered across support tickets, App Store reviews, and surveys.",
+        solution: "n8n cron runs vector embeddings & LLM clustering to group feature requests into prioritized product backlog themes.",
+        techStack: ["n8n", "Azure OpenAI", "Python", "Jira API"],
+        timeSaved: "16 hrs / week",
+        legacyHandleTime: "20 hrs / week",
+        automatedHandleTime: "1 hr / week",
+        speedupPercentage: "95.0%",
+        complexity: "High",
+      },
+    ],
+  },
+  {
+    id: "technology",
+    name: "Technology / IT",
+    icon: "💻",
+    description: "Self-service password resets, infrastructure alert remediation, and CMDB CI auto-discovery.",
+    opportunities: [
+      {
+        id: "tech-1",
+        title: "Self-Service AI Password Reset & Access Bot",
+        problem: "L1 IT Service Desk spends 40% of time handling repetitive password resets and MFA unlocks.",
+        solution: "Copilot Studio & ServiceNow bot verifies identity and executes self-service password reset via Entra ID API.",
+        techStack: ["Copilot Studio", "ServiceNow", "Entra ID API"],
+        timeSaved: "30 hrs / week",
+        legacyHandleTime: "15 mins / ticket",
+        automatedHandleTime: "1 min / ticket",
+        speedupPercentage: "93.3%",
+        complexity: "Medium",
+      },
+    ],
+  },
+  {
+    id: "revenue",
+    name: "Revenue Operations",
+    icon: "💰",
+    description: "Contract renewal alerts, usage-based billing audit cron, and revenue leakage detection.",
+    opportunities: [
+      {
+        id: "rev-1",
+        title: "Automated Contract Expiry & Renewal Alert Cron",
+        problem: "Subscriptions silently expire without sales team renewal outreach, causing revenue churn.",
+        solution: "n8n cron queries billing database 90/60/30 days prior to contract expiration, creating renewal opportunities.",
+        techStack: ["n8n", "Stripe API", "Salesforce", "Power BI"],
+        timeSaved: "12 hrs / week",
+        legacyHandleTime: "Manual Excel Check",
+        automatedHandleTime: "Automated Daily Cron",
+        speedupPercentage: "100%",
+        complexity: "Low",
+      },
+    ],
+  },
+  {
+    id: "sales-ops",
+    name: "Sales Operations",
+    icon: "🎯",
+    description: "Lead distribution & scoring, CRM deal SLA enforcement, and commission calculation automation.",
+    opportunities: [
+      {
+        id: "sales-1",
+        title: "Lead Round-Robin Auto-Assignment & Territory Routing",
+        problem: "Inbound enterprise leads sit unassigned for hours due to manual territory management.",
+        solution: "n8n workflow parses lead geography, company size, and rep availability, assigning leads in under 3 seconds.",
+        techStack: ["n8n", "Salesforce API", "Slack API"],
+        timeSaved: "15 hrs / week",
+        legacyHandleTime: "4 hrs / lead",
+        automatedHandleTime: "3 secs / lead",
+        speedupPercentage: "99.9%",
+        complexity: "Medium",
+      },
+    ],
+  },
+  {
+    id: "marketing-ops",
+    name: "Marketing Operations",
+    icon: "⚡",
+    description: "Form handler syncing, UTM hygiene audit, cross-channel ad spend consolidation, and compliance.",
+    opportunities: [
+      {
+        id: "mkt-ops-1",
+        title: "UTM Parameter Hygiene & Ad Spend Consolidation Telemetry",
+        problem: "Broken campaign tracking links corrupt marketing attribution and skew Power BI ROI reports.",
+        solution: "Automated n8n audit cron validates UTM links against naming standards and flags broken tracking parameters.",
+        techStack: ["n8n", "Google Analytics 4 API", "Power BI"],
+        timeSaved: "10 hrs / week",
+        legacyHandleTime: "8 hrs / audit",
+        automatedHandleTime: "5 mins / audit",
+        speedupPercentage: "98.9%",
+        complexity: "Medium",
+      },
+    ],
+  },
+];
