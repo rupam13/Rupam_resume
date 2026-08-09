@@ -1,7 +1,7 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Department Head Efficiency & Headcount Optimization Governance Tracker",
+  title: "Enterprise Workforce Efficiency & Headcount Optimization Governance Dashboard",
   category: "ai",
   theme: "dark",
   tags: ["power-bi", "kpi-measurement", "time-tracking", "power-automate"],

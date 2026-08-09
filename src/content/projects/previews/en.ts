@@ -15,7 +15,7 @@ export default [
     ],
   },
   {
-    title: "Department Head Efficiency & Headcount Optimization Governance Tracker",
+    title: "Enterprise Workforce Efficiency & Headcount Optimization Governance Dashboard",
     slug: "efficiency-tracker-kpi",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
     description: "Who is Doing What Visibility | Headcount Optimization & Automation | Department Head Tracking. Power BI executive governance system tracking efficiency creation & manager accountability.",
