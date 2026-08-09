@@ -43,17 +43,17 @@
       ]
     },
     {
-      "title": "Copilot Studio Live Agent Handoff & Time Telemetry Portal",
+      "title": "Human-in-the-Loop Approval System — Copilot Studio & n8n",
       "slug": "copilot-handoff-portal",
       "category": "ai",
       "theme": "dark",
-      "tags": ["direct-line-api", "handoff", "servicenow", "copilot-studio", "time-tracking"],
-      "description": "Seamless live agent escalation bridge connecting Microsoft Copilot Studio to ServiceNow Agent Workspace (AWA) using Direct Line API & WebSocket telemetry.",
+      "tags": ["copilot-studio", "n8n", "human-in-loop", "approval-workflow", "power-automate"],
+      "description": "Enterprise approval automation built with Microsoft Copilot Studio and n8n. Requests raised via Copilot bot are auto-routed to the right approver — notified via Teams/Email, one-click approve or reject, decision logged automatically.",
       "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
       "components": [
         {
           "type": "text",
-          "text": "Direct Line API Live Agent Handoff bridge to ServiceNow Advanced Work Assignment (AWA) with real-time time tracking metrics."
+          "text": "Copilot Studio collects approval requests conversationally and triggers an n8n workflow that routes to the correct manager, sends a Teams/Email notification with Approve/Reject action, and logs the outcome — fully automated with zero manual follow-up."
         }
       ]
     },

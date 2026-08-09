@@ -28,16 +28,16 @@ export default [
     ],
   },
   {
-    title: "Copilot Studio Live Agent Handoff & Time Telemetry Portal",
+    title: "Human-in-the-Loop Approval System — Copilot Studio & n8n",
     slug: "copilot-handoff-portal",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
-    description: "12 mins saved/ticket | 100% transcript context | <1.2s handoff latency. Direct Line API escalation bridge to ServiceNow Agent Workspace (AWA).",
+    description: "Zero manual follow-up | Smart approver routing | One-click Approve/Reject. Enterprise approval automation with Copilot Studio bot intake and n8n workflow engine.",
     category: "ai",
     metrics: [
-      { label: "Handle Time Saved", value: 88, max: 100 },
-      { label: "Transcript Context", value: 100, max: 100 },
-      { label: "Handoff Latency", value: "<1.2s" },
-      { label: "FCR Rate", value: 85, max: 100 },
+      { label: "Manual Follow-up", value: "0% Required" },
+      { label: "Approval Routing", value: "Auto-routed" },
+      { label: "Decision Logging", value: "100% Audited" },
+      { label: "Approver Response", value: "1-Click Action" },
     ],
   },
   {
