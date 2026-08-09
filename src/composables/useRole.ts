@@ -61,7 +61,7 @@ export function useRole() {
           { name: "AI-ServiceNow Integrations & Webhooks" },
           { name: "Prompt Engineering & Prompt Flow" },
         ],
-        projects: ["ai-voice-agent", "invoice-automation", "kyc-processing", "ai-project-2", "ai-project-3", "ai-project-4"],
+        projects: ["ai-voice-agent", "powerbi-automation-kpi", "copilot-handoff-portal", "invoice-automation", "kyc-processing", "ai-project-2", "ai-project-3", "ai-project-4"],
       };
     }
     return {
