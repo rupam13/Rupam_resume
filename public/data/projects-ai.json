@@ -28,6 +28,36 @@
       ]
     },
     {
+      "title": "Copilot Studio Live Agent Handoff & Time Telemetry Portal",
+      "slug": "copilot-handoff-portal",
+      "category": "ai",
+      "theme": "dark",
+      "tags": ["direct-line-api", "handoff", "servicenow", "copilot-studio", "time-tracking"],
+      "description": "Seamless live agent escalation bridge connecting Microsoft Copilot Studio to ServiceNow Agent Workspace (AWA) using Direct Line API & WebSocket telemetry.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+      "components": [
+        {
+          "type": "text",
+          "text": "Direct Line API Live Agent Handoff bridge to ServiceNow Advanced Work Assignment (AWA) with real-time time tracking metrics."
+        }
+      ]
+    },
+    {
+      "title": "Enterprise Power BI Automation ROI & KPI Telemetry Dashboard",
+      "slug": "powerbi-automation-kpi",
+      "category": "ai",
+      "theme": "dark",
+      "tags": ["power-bi", "kpi-measurement", "time-tracking", "n8n", "servicenow"],
+      "description": "Executive Power BI dashboard & real-time KPI measurement system measuring quantifiable ROI, handle time savings, and automation SLA telemetry.",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+      "components": [
+        {
+          "type": "text",
+          "text": "Executive Power BI Dashboard measuring automation ROI, DAX handle time formulas, and departmental time reclaimed metrics."
+        }
+      ]
+    },
+    {
       "title": "AI Project 2",
       "slug": "ai-project-2",
       "category": "ai",
