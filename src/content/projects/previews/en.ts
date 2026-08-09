@@ -28,16 +28,16 @@ export default [
     ],
   },
   {
-    title: "Human-in-the-Loop Approval System — Copilot Studio & n8n",
+    title: "Human-in-the-Loop Approval System — Copilot Studio, Teams & Outlook",
     slug: "copilot-handoff-portal",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
-    description: "Zero manual follow-up | Smart approver routing | One-click Approve/Reject. Enterprise approval automation with Copilot Studio bot intake and n8n workflow engine.",
+    description: "Teams + Outlook dual approval | Manager confirmation | SharePoint timestamped storage | Turnaround time tracked at every handoff stage.",
     category: "ai",
     metrics: [
-      { label: "Manual Follow-up", value: "0% Required" },
-      { label: "Approval Routing", value: "Auto-routed" },
-      { label: "Decision Logging", value: "100% Audited" },
-      { label: "Approver Response", value: "1-Click Action" },
+      { label: "Approval Channels", value: "Teams + Outlook" },
+      { label: "Confirmation Levels", value: "2-Level (Approver + Manager)" },
+      { label: "Data Storage", value: "SharePoint List" },
+      { label: "Time Tracked", value: "T1→T2→T3 Intervals" },
     ],
   },
   {

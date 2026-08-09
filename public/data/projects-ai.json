@@ -43,17 +43,17 @@
       ]
     },
     {
-      "title": "Human-in-the-Loop Approval System — Copilot Studio & n8n",
+      "title": "Human-in-the-Loop Approval System — Copilot Studio, Teams & Outlook",
       "slug": "copilot-handoff-portal",
       "category": "ai",
       "theme": "dark",
-      "tags": ["copilot-studio", "n8n", "human-in-loop", "approval-workflow", "power-automate"],
-      "description": "Enterprise approval automation built with Microsoft Copilot Studio and n8n. Requests raised via Copilot bot are auto-routed to the right approver — notified via Teams/Email, one-click approve or reject, decision logged automatically.",
+      "tags": ["copilot-studio", "human-in-the-loop", "power-automate", "servicenow", "power-bi"],
+      "description": "End-to-end approval system built in Copilot Studio. Employee raises request via chat → Teams + Outlook dual notification → Approver one-click decision → Manager confirmation → SharePoint List stores outcome with T1/T2/T3 timestamps to calculate turnaround time at every handoff.",
       "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
       "components": [
         {
           "type": "text",
-          "text": "Copilot Studio collects approval requests conversationally and triggers an n8n workflow that routes to the correct manager, sends a Teams/Email notification with Approve/Reject action, and logs the outcome — fully automated with zero manual follow-up."
+          "text": "Copilot Studio bot collects the request, Power Automate sends Teams Adaptive Card + Outlook email to the approver, manager gives final confirmation, and SharePoint List stores the full record with timestamps T1 (raised), T2 (notified), T3 (confirmed) to track approval interval at each handoff stage."
         }
       ]
     },

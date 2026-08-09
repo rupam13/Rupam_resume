@@ -1,18 +1,18 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Human-in-the-Loop Approval System — Copilot Studio & n8n",
+  title: "Human-in-the-Loop Approval System — Copilot Studio, Teams & Outlook",
   category: "ai",
   theme: "dark",
-  tags: ["copilot-studio", "n8n", "human-in-the-loop", "power-automate", "power-bi"],
+  tags: ["copilot-studio", "human-in-the-loop", "power-automate", "servicenow", "power-bi"],
   description:
-    "Enterprise approval automation built with Microsoft Copilot Studio and n8n. Any request raised via chat or form is automatically routed to the right approver — manager gets notified, reviews, approves or rejects, and the system logs the outcome. Zero manual follow-up needed.",
+    "End-to-end approval automation built entirely in Microsoft Copilot Studio. Requests flow from employee chat → Teams/Outlook approval → Manager confirmation → SharePoint List storage with timestamp logging to calculate approval turnaround time at every handoff stage.",
   components: [
-    // Section 1: What This System Does
+    // Section 1: How Request Flows
     {
       type: "text",
       props: {
-        text: "✅ WHAT IS HUMAN-IN-THE-LOOP APPROVAL?",
+        text: "📋 HOW THE APPROVAL REQUEST FLOWS — STEP BY STEP",
       },
     },
     {
@@ -22,43 +22,46 @@ export default {
         cards: [
           {
             icon: "🤖",
-            title: "Copilot Studio — Request Intake",
-            teaser: "Employee raises request via chat",
+            title: "Step 1 — Employee Raises Request via Copilot Studio",
+            teaser: "Conversational intake — no forms needed",
             content: [
-              "Employee chats with Copilot Studio bot to raise a request (leave, access, purchase, exception)",
-              "Bot collects all required details — requestor name, type, reason, supporting info",
-              "Triggers the n8n approval workflow automatically on submission",
+              "Employee chats with Copilot Studio bot to raise any approval request (leave, access, exception, purchase)",
+              "Bot collects: Employee Name, Department, Request Type, Reason, and supporting details",
+              "All inputs validated before triggering workflow — incomplete requests are rejected at intake",
+              "Timestamp 1 logged: Request Raised Time (T1)",
             ],
           },
           {
-            icon: "🔄",
-            title: "n8n — Approval Routing Engine",
-            teaser: "Smart routing to the right approver",
+            icon: "📩",
+            title: "Step 2 — Approver Notified via Teams & Outlook",
+            teaser: "Dual-channel notification to approver",
             content: [
-              "n8n workflow receives the request payload from Copilot Studio",
-              "Identifies the correct approver based on department, request type, or hierarchy",
-              "Sends approval notification to manager via Teams, Email, or both",
+              "Power Automate (triggered by Copilot Studio) sends Adaptive Card to approver's Microsoft Teams",
+              "Simultaneously sends a structured Outlook email with full request summary",
+              "Adaptive Card has inline Approve / Reject buttons — no need to open any portal",
+              "Timestamp 2 logged: Notification Sent Time (T2) — used to calculate response SLA",
             ],
           },
           {
-            icon: "👤",
-            title: "Human Approver — Review & Decide",
-            teaser: "Manager approves or rejects with one click",
+            icon: "✅",
+            title: "Step 3 — Approver Decision + Manager Confirmation",
+            teaser: "Two-level approval: approver + manager",
             content: [
-              "Approver receives a structured notification with full request context",
-              "One-click Approve / Reject directly from Teams message or email",
-              "Optional: add comments or escalate to next level approver",
+              "Approver clicks Approve or Reject directly in Teams or Outlook",
+              "If Approved → Manager receives a separate Teams confirmation request for final sign-off",
+              "Manager adds confirmation note and submits — this triggers the final action",
+              "Timestamp 3 logged: Manager Confirmation Time (T3)",
             ],
           },
         ],
       },
     },
 
-    // Section 2: How the Workflow Runs
+    // Section 2: SharePoint Storage & Time Interval Tracking
     {
       type: "text",
       props: {
-        text: "⚙️ HOW THE APPROVAL WORKFLOW RUNS END-TO-END",
+        text: "🕐 SHAREPOINT DATA STORAGE & APPROVAL TIME INTERVAL TRACKING",
       },
     },
     {
@@ -67,33 +70,35 @@ export default {
         variant: "cartoon",
         cards: [
           {
-            icon: "📋",
-            title: "Step 1 — Request Captured",
-            teaser: "Structured intake via Copilot bot",
+            icon: "📂",
+            title: "SharePoint List — Central Data Store",
+            teaser: "Every approval stored with full audit trail",
             content: [
-              "Employee submits request through Copilot Studio conversational bot",
-              "All fields validated before triggering workflow — no incomplete requests",
-              "Request ID auto-generated for tracking and audit trail",
+              "Once approved, Power Automate writes a new row to SharePoint List automatically",
+              "Columns stored: Employee, Department, Request Type, Approver, Manager, Decision, Comments",
+              "T1 (Raised), T2 (Notified), T3 (Manager Confirmed) — all timestamps stored per record",
+              "SharePoint acts as the single source of truth — accessible to HR and management",
             ],
           },
           {
-            icon: "📩",
-            title: "Step 2 — Approver Notified",
-            teaser: "Instant notification with full context",
+            icon: "⏱️",
+            title: "Time Interval Calculation at Each Handoff",
+            teaser: "Measures how long each stage took",
             content: [
-              "n8n sends Teams Adaptive Card or email with request summary",
-              "Approver sees: who raised it, what they need, and why",
-              "Reminder auto-sent if no response within configured SLA hours",
+              "T2 − T1 = Time taken to notify approver after request raised",
+              "T3 − T2 = Time taken by approver to respond (approver SLA)",
+              "T3 − T1 = Total end-to-end approval turnaround time",
+              "Calculated columns in SharePoint List surface these intervals automatically",
             ],
           },
           {
-            icon: "✅",
-            title: "Step 3 — Decision Logged & Actioned",
-            teaser: "Outcome recorded and requestor notified",
+            icon: "📊",
+            title: "Management Visibility — Approval Analytics",
+            teaser: "Who is slow? Which requests take longest?",
             content: [
-              "Approve → n8n triggers next action (access provisioned, leave recorded, etc.)",
-              "Reject → requestor notified instantly with reason via Copilot bot reply",
-              "All decisions logged in SharePoint / Excel / database for audit",
+              "Power BI connected to SharePoint List shows average approval time per department",
+              "Identifies bottlenecks — which approvers or request types take the most time",
+              "Management can track SLA compliance across all approval types in real time",
             ],
           },
         ],
