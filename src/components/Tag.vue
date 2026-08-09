@@ -179,6 +179,29 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       box-shadow: 2.5px 2.5px 0px #2d2a24;
       transform: rotate(-1.2deg);
     }
+
+    &-python,
+    &-rest-api,
+    &-sql,
+    &-hubspot,
+    &-salesforce,
+    &-slack,
+    &-jira,
+    &-github,
+    &-azure-openai,
+    &-claude,
+    &-entra-id,
+    &-clearbit,
+    &-stripe,
+    &-ga4,
+    &-powershell,
+    &-azure {
+      background-color: #f4f0ea;
+      color: #2d2a24;
+      border-color: #2d2a24;
+      box-shadow: 2.5px 2.5px 0px #2d2a24;
+      transform: rotate(0.8deg);
+    }
   }
 
   &-variant-copilot-studio,
@@ -191,7 +214,23 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
   &-variant-kpi-measurement,
   &-variant-direct-line-api,
   &-variant-handoff,
-  &-variant-time-tracking {
+  &-variant-time-tracking,
+  &-variant-python,
+  &-variant-rest-api,
+  &-variant-sql,
+  &-variant-hubspot,
+  &-variant-salesforce,
+  &-variant-slack,
+  &-variant-jira,
+  &-variant-github,
+  &-variant-azure-openai,
+  &-variant-claude,
+  &-variant-entra-id,
+  &-variant-clearbit,
+  &-variant-stripe,
+  &-variant-ga4,
+  &-variant-powershell,
+  &-variant-azure {
     transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-block;
 

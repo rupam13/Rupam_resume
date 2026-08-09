@@ -29,7 +29,23 @@ export type TagVariant =
   | "kpi-measurement"
   | "direct-line-api"
   | "handoff"
-  | "time-tracking";
+  | "time-tracking"
+  | "python"
+  | "rest-api"
+  | "sql"
+  | "hubspot"
+  | "salesforce"
+  | "slack"
+  | "jira"
+  | "github"
+  | "azure-openai"
+  | "claude"
+  | "entra-id"
+  | "clearbit"
+  | "stripe"
+  | "ga4"
+  | "powershell"
+  | "azure";
 
 export const tagLabels = {
   three: "Three.js",
@@ -63,4 +79,20 @@ export const tagLabels = {
   "direct-line-api": "Direct Line API",
   handoff: "Live Agent Handoff",
   "time-tracking": "Time Telemetry",
+  python: "Python",
+  "rest-api": "REST API",
+  sql: "SQL",
+  hubspot: "HubSpot",
+  salesforce: "Salesforce",
+  slack: "Slack",
+  jira: "Jira",
+  github: "GitHub",
+  "azure-openai": "Azure OpenAI",
+  claude: "Claude API",
+  "entra-id": "Entra ID",
+  clearbit: "Clearbit API",
+  stripe: "Stripe API",
+  ga4: "GA4 API",
+  powershell: "PowerShell",
+  azure: "Azure",
 } as const satisfies Record<TagVariant, string>;

@@ -19,14 +19,30 @@ const selectDepartment = (id: string) => {
 
 const mapTagToVariant = (tag: string): TagVariant => {
   const normalized = tag.toLowerCase();
+  if (normalized.includes("mcp")) return "mcp";
   if (normalized.includes("n8n")) return "n8n";
   if (normalized.includes("power bi")) return "power-bi";
   if (normalized.includes("copilot")) return "copilot-studio";
   if (normalized.includes("servicenow")) return "servicenow";
   if (normalized.includes("power automate")) return "power-automate";
-  if (normalized.includes("python")) return "javascript";
-  if (normalized.includes("openai") || normalized.includes("claude") || normalized.includes("llm")) return "agentic-ai";
-  return "mcp";
+  if (normalized.includes("python")) return "python";
+  if (normalized.includes("rest") || normalized.includes("api")) return "rest-api";
+  if (normalized.includes("sql")) return "sql";
+  if (normalized.includes("hubspot")) return "hubspot";
+  if (normalized.includes("salesforce")) return "salesforce";
+  if (normalized.includes("slack")) return "slack";
+  if (normalized.includes("jira")) return "jira";
+  if (normalized.includes("github")) return "github";
+  if (normalized.includes("azure openai") || normalized.includes("openai")) return "azure-openai";
+  if (normalized.includes("claude")) return "claude";
+  if (normalized.includes("entra")) return "entra-id";
+  if (normalized.includes("clearbit")) return "clearbit";
+  if (normalized.includes("stripe")) return "stripe";
+  if (normalized.includes("ga4") || normalized.includes("analytics")) return "ga4";
+  if (normalized.includes("powershell")) return "powershell";
+  if (normalized.includes("azure")) return "azure";
+  if (normalized.includes("llm") || normalized.includes("agentic")) return "agentic-ai";
+  return "gray";
 };
 </script>
 
