@@ -177,6 +177,24 @@ const mapTagToVariant = (tag: string): TagVariant => {
                 <span>⏱️ {{ opp.timeSaved }}</span>
               </div>
             </div>
+
+            <!-- Hover Visual Hint -->
+            <div class="hover-hint-badge">
+              <span>💬 Hover to view step-by-step working</span>
+            </div>
+
+            <!-- Detailed Hover Workflow Overlay -->
+            <div class="opp-card-hover-overlay" v-if="opp.detailedSteps">
+              <div class="overlay-header">
+                <span class="overlay-icon">🔍</span>
+                <span class="overlay-title">DETAILED WORKING WORKFLOW</span>
+              </div>
+              <ul class="overlay-steps-list">
+                <li v-for="step in opp.detailedSteps" :key="step" class="overlay-step-item">
+                  {{ step }}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -400,6 +418,7 @@ const mapTagToVariant = (tag: string): TagVariant => {
 }
 
 .opp-card {
+  position: relative;
   background: #ffffff;
   border: 2.5px solid #2d2a24;
   box-shadow: 4px 4px 0px #2d2a24;
@@ -409,10 +428,17 @@ const mapTagToVariant = (tag: string): TagVariant => {
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 6px 6px 0px #2d2a24;
+
+    .opp-card-hover-overlay {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   }
 
   &-header {
@@ -590,6 +616,79 @@ const mapTagToVariant = (tag: string): TagVariant => {
     font-weight: 800;
     color: #ffffff;
     white-space: nowrap;
+  }
+}
+
+.hover-hint-badge {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1.5px dashed rgba(45, 42, 36, 0.2);
+  text-align: center;
+
+  span {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #ff6d5a;
+    letter-spacing: 0.02em;
+  }
+}
+
+.opp-card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: #fcfbf9;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+  border: 2.5px solid #2d2a24;
+  box-shadow: 4px 4px 0px #2d2a24;
+
+  .overlay-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2d2a24;
+
+    .overlay-icon {
+      font-size: 1.1rem;
+    }
+
+    .overlay-title {
+      font-size: 0.8rem;
+      font-weight: 900;
+      color: #2d2a24;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .overlay-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .overlay-step-item {
+      font-size: 0.81rem;
+      font-weight: 700;
+      color: #2d2a24;
+      line-height: 1.45;
+      background: var(--color-beige-100);
+      padding: 8px 10px;
+      border: 1.5px solid #2d2a24;
+      border-radius: var(--radius-sm);
+      box-shadow: 1.5px 1.5px 0px #2d2a24;
+    }
   }
 }
 </style>
