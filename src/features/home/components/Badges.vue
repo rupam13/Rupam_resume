@@ -44,6 +44,12 @@ const badges = computed<BadgeItem[]>(() => {
   }
   return [
     {
+      title: "n8n Certificate: Integrations - APIs & Connected Workflows (N8N102)",
+      description: "Official n8n certification awarded for successfully completing the N8N102 course, demonstrating advanced mastery of API integration pipelines, HTTP pagination, dataset merging, conditional priority routing, batch processing, and resilient error handling.",
+      image: resolveAbsolutePath("/images/badges/n8n102_certificate.svg"),
+      credentialUrl: "https://learn.n8n.io/certificates/385ad207b69444fabfc1079b549f4b03",
+    },
+    {
       title: "n8n Certificate: Essentials - Your First Workflows (N8N101)",
       description: "Official n8n certification awarded for successfully completing the N8N101 course, demonstrating mastery of n8n workflow automation, node triggers, data transformations, and API integrations.",
       image: resolveAbsolutePath("/images/badges/n8n_certificate.svg"),
