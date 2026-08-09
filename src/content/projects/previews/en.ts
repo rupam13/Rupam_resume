@@ -15,6 +15,19 @@ export default [
     ],
   },
   {
+    title: "Enterprise Power BI Process Efficiency Tracker & KPI Rating Engine",
+    slug: "efficiency-tracker-kpi",
+    thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+    description: "Enterprise SPOT Award Initiative | Automated A+ to C Ratings | Accenture CI Partnership. Process efficiency creation tracker & KPI performance rating dashboard.",
+    category: "ai",
+    metrics: [
+      { label: "Hours Reclaimed", value: 94, max: 100 },
+      { label: "KPI Rating Engine", value: "A+ Grade" },
+      { label: "SLA Compliance", value: 99, max: 100 },
+      { label: "Process Speedup", value: "91%" },
+    ],
+  },
+  {
     title: "Copilot Studio Live Agent Handoff & Time Telemetry Portal",
     slug: "copilot-handoff-portal",
     thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
@@ -25,19 +38,6 @@ export default [
       { label: "Transcript Context", value: 100, max: 100 },
       { label: "Handoff Latency", value: "<1.2s" },
       { label: "FCR Rate", value: 85, max: 100 },
-    ],
-  },
-  {
-    title: "Enterprise Power BI Automation ROI & KPI Telemetry Dashboard",
-    slug: "powerbi-automation-kpi",
-    thumbnail: "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
-    description: "1,250+ hrs saved/yr | $120K annual cost avoidance | Real-time DAX measures. Executive telemetry dashboard measuring process automation impact.",
-    category: "ai",
-    metrics: [
-      { label: "Hours Reclaimed", value: 92, max: 100 },
-      { label: "Cost Avoidance", value: "$120K" },
-      { label: "Accuracy Rate", value: 99, max: 100 },
-      { label: "Telemetry Latency", value: "Real-time" },
     ],
   },
   {

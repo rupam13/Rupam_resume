@@ -45,7 +45,9 @@ export type TagVariant =
   | "stripe"
   | "ga4"
   | "powershell"
-  | "azure";
+  | "azure"
+  | "accenture"
+  | "continuous-improvement";
 
 export const tagLabels = {
   three: "Three.js",
@@ -95,4 +97,6 @@ export const tagLabels = {
   ga4: "GA4 API",
   powershell: "PowerShell",
   azure: "Azure",
+  accenture: "Accenture CI",
+  "continuous-improvement": "Continuous Improvement",
 } as const satisfies Record<TagVariant, string>;
