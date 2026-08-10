@@ -57,7 +57,6 @@ export function useRole() {
           { name: "Power Automate & Power BI" },
           { name: "RAG Pipelines & Semantic Search" },
           { name: "Python" },
-          { name: "Vector DBs (Pinecone, Milvus, PGVector)" },
           { name: "AI-ServiceNow Integrations & Webhooks" },
           { name: "Prompt Engineering & Prompt Flow" },
         ],
