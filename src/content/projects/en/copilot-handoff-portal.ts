@@ -4,7 +4,7 @@ export default {
   title: "Human-in-the-Loop Approval System — Copilot Studio, Teams & Outlook",
   category: "ai",
   theme: "dark",
-  tags: ["copilot-studio", "human-in-the-loop", "power-automate", "servicenow", "power-bi"],
+  tags: ["copilot-studio", "human-in-the-loop", "power-automate", "power-bi"],
   description:
     "End-to-end approval automation built entirely in Microsoft Copilot Studio. Requests flow from employee chat → Teams/Outlook approval → Manager confirmation → SharePoint List storage with timestamp logging to calculate approval turnaround time at every handoff stage.",
   components: [
