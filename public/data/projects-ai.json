@@ -49,7 +49,7 @@
       "theme": "dark",
       "tags": ["copilot-studio", "human-in-the-loop", "power-automate", "servicenow", "power-bi"],
       "description": "End-to-end approval system built in Copilot Studio. Employee raises request via chat → Teams + Outlook dual notification → Approver one-click decision → Manager confirmation → SharePoint List stores outcome with T1/T2/T3 timestamps to calculate turnaround time at every handoff.",
-      "thumbnail": "https://raw.githubusercontent.com/rupam13/rupam-projects-data/main/images/ai/voice-agent.png",
+      "thumbnail": "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/copilot-handoff-portal.png",
       "components": [
         {
           "type": "text",
