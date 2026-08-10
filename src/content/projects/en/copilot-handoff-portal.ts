@@ -1,7 +1,7 @@
 import type { ProjectContent } from "../../types";
 
 export default {
-  title: "Human-in-the-Loop Approval System — Copilot Studio, Teams & Outlook",
+  title: "Intelligent Human-in-the-Loop Approval System",
   category: "ai",
   theme: "dark",
   tags: ["copilot-studio", "human-in-the-loop", "power-automate", "power-bi"],

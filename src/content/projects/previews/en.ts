@@ -28,7 +28,7 @@ export default [
     ],
   },
   {
-    title: "Human-in-the-Loop Approval System — Copilot Studio, Teams & Outlook",
+    title: "Intelligent Human-in-the-Loop Approval System",
     slug: "copilot-handoff-portal",
     thumbnail: "https://raw.githubusercontent.com/rupam13/Rupam_resume/main/public/images/thumbnails/copilot-handoff-portal.png",
     description: "Teams + Outlook dual approval | Manager confirmation | SharePoint timestamped storage | Turnaround time tracked at every handoff stage.",
